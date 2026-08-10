@@ -13,4 +13,16 @@
     <changefreq>monthly</changefreq>
   </url>
 
+  <url>
+    <loc>https://impertech.cl/blog/impermeabilizacion-techos-concepcion.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/blog/senales-de-filtracion-antes-de-que-sea-tarde.html</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>
