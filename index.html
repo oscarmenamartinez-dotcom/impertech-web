@@ -18,31 +18,59 @@
   // de disparar el evento de conversión, lo que mejora el matching que usa
   // Google Ads para optimizar la puja "Maximizar el valor de las conversiones".
   // Si el usuario prefiere no dejar el teléfono, puede omitir el paso y de
-  // todas formas llega a WhatsApp (la conversión igual se registra, solo que
-  // sin el dato adicional de Conversiones mejoradas).
+  // todas formas llega a WhatsApp, pero NO se registra conversión en Google
+  // Ads (solo el evento whatsapp_click en GA4).
   (function () {
     var pendingHref = null;
     var pendingLabel = '';
 
+    // Solo acepta celulares chilenos válidos (+569XXXXXXXX). Descarta basura
+    // tipo 999999999 o 912345678. Si no es válido devuelve null.
     function normalizePhoneCL(raw) {
-      var digits = raw.replace(/[^0-9]/g, '');
-      if (!digits) return null;
-      if (digits.indexOf('56') === 0) return '+' + digits;
-      if (digits.indexOf('9') === 0 && digits.length === 9) return '+56' + digits;
-      if (digits.length === 8) return '+569' + digits;
-      return '+' + digits;
+      var d = String(raw || '').replace(/[^0-9]/g, '');
+      if (d.indexOf('56') === 0) d = d.slice(2);
+      if (d.length === 8) d = '9' + d;
+      if (!/^9[0-9]{8}$/.test(d)) return null;
+      if (/^9([0-9])\1{7}$/.test(d) || d === '912345678' || d === '987654321') return null;
+      return '+56' + d;
     }
 
+    function hashPhone(tel) {
+      try {
+        return crypto.subtle.digest('SHA-256', new TextEncoder().encode(tel)).then(function (buf) {
+          return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+            return ('0' + b.toString(16)).slice(-2);
+          }).join('');
+        });
+      } catch (e) { return Promise.resolve(null); }
+    }
+
+    function alreadySent(tel) {
+      try { return JSON.parse(localStorage.getItem('imp_tel') || '[]').indexOf(tel) !== -1; }
+      catch (e) { return false; }
+    }
+    function markSent(tel) {
+      try {
+        var l = JSON.parse(localStorage.getItem('imp_tel') || '[]');
+        l.push(tel); localStorage.setItem('imp_tel', JSON.stringify(l));
+      } catch (e) {}
+    }
+
+    // La conversión de Google Ads SOLO se dispara con un teléfono válido y no
+    // repetido. Omitir o tocar fuera del modal ya no cuenta como conversión.
     function fireConversion(phone) {
-      if (phone) {
-        gtag('set', 'user_data', { phone_number: phone });
-      }
-      // Event snippet for Contacto (1) conversion
-      gtag('event', 'conversion', { 'send_to': 'AW-18244838549/EcuxCPuewNwcEJXJ6PtD' });
       gtag('event', 'whatsapp_click', {
         'event_category': 'contacto',
         'event_label': pendingLabel || 'WhatsApp',
         'phone_provided': !!phone
+      });
+      if (!phone || alreadySent(phone)) return Promise.resolve();
+      markSent(phone);
+      gtag('set', 'user_data', { phone_number: phone });
+      return hashPhone(phone).then(function (h) {
+        var params = { 'send_to': 'AW-18244838549/EcuxCPuewNwcEJXJ6PtD' };
+        if (h) params.transaction_id = h;
+        gtag('event', 'conversion', params);
       });
     }
 
@@ -90,7 +118,15 @@
       input.focus();
 
       document.getElementById('wa-lead-continue').addEventListener('click', function () {
-        var phone = normalizePhoneCL(input.value || '');
+        var raw = input.value || '';
+        var phone = normalizePhoneCL(raw);
+        if (raw.trim() && !phone) {
+          input.style.borderColor = '#dc2626';
+          input.value = '';
+          input.placeholder = 'Ingresa un celular válido: 9 1234 5678';
+          input.focus();
+          return;
+        }
         fireConversion(phone);
         openWhatsApp();
       });
@@ -103,8 +139,9 @@
       });
       modal.addEventListener('click', function (e) {
         if (e.target === modal) {
-          fireConversion(null);
-          openWhatsApp();
+          // Tocar fuera cierra el modal sin contar conversión ni abrir WhatsApp.
+          pendingHref = null;
+          closeModal();
         }
       });
     }
