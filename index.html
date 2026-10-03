@@ -56,9 +56,58 @@
       } catch (e) {}
     }
 
+    // Aviso interno: cada contacto se anota en la planilla de Impertech y dispara
+    // un correo de alerta. Es independiente de la conversión de Google Ads.
+    var LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsCmcHFu4W4n5tZIedGJKaKd-9irfoipaISWPW7aVLOcLihXZRrujX8ObC5ynJ_ssq/exec';
+
+    function getGclid() {
+      try {
+        var m = location.search.match(/[?&]gclid=([^&#]+)/);
+        if (m) sessionStorage.setItem('imp_gclid', decodeURIComponent(m[1]));
+        var g = sessionStorage.getItem('imp_gclid');
+        if (g) return g;
+        var c = document.cookie.match(/(?:^|; )_gcl_aw=GCL\.\d+\.([^;]+)/);
+        return c ? c[1] : '';
+      } catch (e) { return ''; }
+    }
+    getGclid();
+
+    function notifyLead(phone) {
+      if (!LEAD_ENDPOINT || LEAD_ENDPOINT.indexOf('https://') !== 0) return;
+      try {
+        // Un aviso por visita (y uno más solo si después deja un teléfono nuevo).
+        var key = 'imp_aviso_' + (phone || 'sin');
+        if (sessionStorage.getItem(key)) return;
+        if (!phone && sessionStorage.getItem('imp_aviso_hecho')) return;
+        sessionStorage.setItem(key, '1');
+        sessionStorage.setItem('imp_aviso_hecho', '1');
+      } catch (e) {}
+      try {
+        var utm = (location.search.match(/[?&]utm_source=([^&#]+)/) || [])[1] || '';
+        var body = JSON.stringify({
+          tel: phone || '',
+          boton: pendingLabel || 'WhatsApp',
+          gclid: getGclid(),
+          utm: decodeURIComponent(utm),
+          ref: document.referrer || '',
+          pagina: location.pathname,
+          movil: /Mobi|Android|iPhone/i.test(navigator.userAgent)
+        });
+        // Sin cookies (credentials: 'omit'): así funciona igual aunque el visitante
+        // tenga varias cuentas de Google abiertas.
+        if (window.fetch) {
+          fetch(LEAD_ENDPOINT, {
+            method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true,
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: body
+          }).catch(function () {});
+        }
+      } catch (e) {}
+    }
+
     // La conversión de Google Ads SOLO se dispara con un teléfono válido y no
     // repetido. Omitir o tocar fuera del modal ya no cuenta como conversión.
     function fireConversion(phone) {
+      notifyLead(phone);
       gtag('event', 'whatsapp_click', {
         'event_category': 'contacto',
         'event_label': pendingLabel || 'WhatsApp',
