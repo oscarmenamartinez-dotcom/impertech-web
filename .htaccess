@@ -1,0 +1,5 @@
+RewriteEngine On
+
+# Redirige www.impertech.cl a impertech.cl (301) para unificar el dominio
+RewriteCond %{HTTP_HOST} ^www\.impertech\.cl$ [NC]
+RewriteRule ^(.*)$ https://impertech.cl/$1 [R=301,L]
