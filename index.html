@@ -388,9 +388,9 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .filter-btn{background:transparent;border:1px solid rgba(240,237,230,.15);color:rgba(240,237,230,.5);padding:7px 16px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .15s;}
 .filter-btn.active,.filter-btn:hover{background:var(--orange);border-color:var(--orange);color:#fff;}
 .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.gallery-item{position:relative;overflow:hidden;cursor:pointer;background:var(--navy3);}
+.gallery-item{position:relative;overflow:hidden;cursor:pointer;background:var(--navy3);aspect-ratio:4/3;}
 .gallery-item.featured{grid-column:span 2;}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;min-height:220px;transition:transform .38s ease;}
+.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s ease;}
 .gallery-item:hover img{transform:scale(1.05);}
 .g-accent{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--orange);opacity:0;transition:opacity .2s;}
 .gallery-item:hover .g-accent{opacity:1;}
@@ -513,7 +513,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   .services-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
   .gallery-grid{grid-template-columns:1fr 1fr;}
-  .gallery-item.featured{grid-column:span 2;}
+  .gallery-item:first-child:nth-last-child(odd){grid-column:span 2;}
   .cta-strip{grid-template-columns:1fr;text-align:center;}
   .steps{grid-template-columns:1fr 1fr;}
   .reviews-grid{grid-template-columns:1fr;}
@@ -742,11 +742,6 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
     <button class="filter-btn">Muros</button>
   </div>
   <div class="gallery-grid">
-    <div class="gallery-item featured">
-      <img src="img/galeria-bicapa-osb-residencial.webp" alt="Impermeabilización con membrana asfáltica bicapa en techo de OSB, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="360">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Techo plano · OSB</div><div class="g-title">Membrana bicapa — proyecto residencial</div></div>
-    </div>
     <div class="gallery-item">
       <img src="img/galeria-terraza-sistema-liquido.webp" alt="Terraza impermeabilizada con sistema líquido, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1066">
       <div class="g-accent"></div>
@@ -762,7 +757,6 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       <div class="g-accent"></div>
       <div class="g-overlay"><div class="g-tag">Comercial · Terraza con columnas</div><div class="g-title">Membrana gris — edificio comercial</div></div>
     </div>
-  </div>
     <div class="gallery-item">
       <img src="img/galeria-techo-plano-rural.webp" alt="Techo plano con membrana asfáltica, proyecto rural zona sur Chile" loading="lazy" decoding="async" width="800" height="600">
       <div class="g-accent"></div>
@@ -782,11 +776,6 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       <img src="img/galeria-bicapa-claraboya.webp" alt="Techo plano impermeabilizado con membrana asfáltica bicapa y claraboya, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1067">
       <div class="g-accent"></div>
       <div class="g-overlay"><div class="g-tag">Residencial · Techo plano</div><div class="g-title">Membrana bicapa — con claraboya</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-muro-contencion.webp" alt="Muro de contención impermeabilizado con membrana asfáltica bicapa e imprimante, obra en excavación" loading="lazy" decoding="async" width="800" height="1066">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Impermeabilización de muro de contención</div></div>
     </div>
     <div class="gallery-item">
       <img src="img/galeria-muro-perimetral.webp" alt="Muro perimetral con membrana asfáltica instalada, unión sellada entre paños, proyecto en excavación" loading="lazy" decoding="async" width="800" height="1066">
