@@ -351,8 +351,8 @@ h1 .accent{color:var(--orange);}
 
 /* ── TRUST BAR ── */
 .trust{background:var(--navy4);padding:16px 40px;display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--border);overflow-x:auto;}
-.trust-item{display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(240,237,230,.55);}
-.trust-icon{color:var(--orange);font-size:17px;}
+.trust-item{display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(240,237,230,.72);}
+.trust-icon{width:18px;height:18px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .trust-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;}
 
 /* ── SECTIONS ── */
@@ -571,15 +571,15 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 
 <!-- TRUST BAR -->
 <div class="trust">
-  <div class="trust-item"><span class="trust-icon">&#10003;</span> Empresa certificada</div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg> Empresa certificada</div>
   <div class="trust-sep"></div>
-  <div class="trust-item"><span class="trust-icon">&#9679;</span> Cobertura en todo Chile</div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Cobertura en todo Chile</div>
   <div class="trust-sep"></div>
-  <div class="trust-item"><span class="trust-icon">&#9200;</span> Respuesta en 48 horas</div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg> Respuesta inmediata</div>
   <div class="trust-sep"></div>
-  <div class="trust-item"><span class="trust-icon">&#128295;</span> Sistema completo — sin parches</div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg> Sistema completo — sin parches</div>
   <div class="trust-sep"></div>
-  <div class="trust-item"><span class="trust-icon">&#9733;</span> Garantía documentada por escrito</div>
+  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Garantía documentada por escrito</div>
 </div>
 
 <!-- SERVICIOS -->
