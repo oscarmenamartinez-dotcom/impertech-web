@@ -445,16 +445,42 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .faq-item.open .icon{transform:rotate(45deg);}
 
 /* ── FOOTER ── */
-footer{background:var(--navy5);padding:48px 40px 28px;border-top:1px solid var(--border);}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:48px;margin-bottom:40px;}
-.footer-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;letter-spacing:2px;color:#fff;text-transform:uppercase;margin-bottom:12px;}
-.footer-logo span{color:var(--orange);}
-.footer-desc{font-size:13px;color:rgba(240,237,230,.38);line-height:1.6;max-width:260px;}
-.footer-col-title{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,230,.3);margin-bottom:16px;}
-.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px;}
-.footer-links a{font-size:13px;color:rgba(240,237,230,.5);transition:color .2s;}
-.footer-links a:hover{color:var(--orange);}
-.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(240,237,230,.22);flex-wrap:wrap;gap:8px;}
+footer{background:var(--navy5);border-top:1px solid rgba(240,90,40,.18);}
+.ft-wrap{max-width:1280px;margin:0 auto;padding:0 40px 28px;}
+.ft-ico{flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.ft-trust{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:28px 32px;padding:36px 0;border-bottom:1px solid rgba(240,237,230,.08);}
+.ft-trust li{display:flex;align-items:flex-start;gap:14px;}
+.ft-trust .ft-ico{width:28px;height:28px;stroke-width:1.5;}
+.ft-trust strong{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;line-height:22px;letter-spacing:.5px;text-transform:uppercase;color:#fff;margin-bottom:4px;}
+.ft-trust span{font-size:14px;line-height:20px;color:rgba(240,237,230,.68);}
+.ft-main{display:flex;flex-wrap:wrap;gap:40px clamp(24px,4vw,64px);padding-top:44px;}
+.ft-brand{flex:1.2 1 280px;min-width:0;}
+.ft-brand-link{display:inline-flex;align-items:center;gap:12px;margin-bottom:16px;}
+.ft-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;color:#fff;text-transform:uppercase;}
+.ft-logo span{color:var(--orange);}
+.ft-desc{font-size:15px;line-height:1.6;color:rgba(240,237,230,.68);max-width:300px;}
+.ft-col{flex:1 1 240px;min-width:0;}
+.ft-col--nav{flex:.8 1 148px;}
+.ft-col--contact{flex:1.3 1 300px;}
+.ft-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;line-height:17px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,230,.6);margin-bottom:12px;}
+.ft-links{list-style:none;}
+.ft-links a{display:flex;align-items:center;gap:12px;min-height:44px;font-size:15px;line-height:20px;color:rgba(240,237,230,.82);transition:color .2s;}
+.ft-links a:hover{color:var(--orange);}
+.ft-links .ft-ico{width:20px;height:20px;}
+.ft-contact{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.ft-card{display:flex;align-items:center;gap:14px;padding:12px 14px;background:var(--navy);border:1px solid rgba(240,237,230,.12);border-radius:2px;color:rgba(240,237,230,.82);transition:border-color .2s,color .2s;}
+.ft-card:hover{border-color:var(--orange);color:var(--orange);}
+.ft-card--wsp{background:rgba(240,90,40,.1);border-color:var(--orange);}
+.ft-card .ft-ico{width:22px;height:22px;}
+.ft-card .ft-ico--fill{fill:var(--orange);stroke:none;}
+.ft-card .ft-arrow{width:16px;height:16px;margin-left:auto;stroke:rgba(240,237,230,.5);stroke-width:1.8;}
+.ft-card--wsp .ft-arrow{stroke:var(--orange);}
+.ft-card-text{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.ft-card-label{font-size:12px;line-height:15px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(240,237,230,.6);}
+.ft-card--wsp .ft-card-label{color:rgba(240,237,230,.68);}
+.ft-card-value{font-size:15px;line-height:20px;font-weight:600;}
+.ft-bottom{margin-top:48px;padding:20px 88px 0 0;border-top:1px solid rgba(240,237,230,.08);display:flex;flex-wrap:wrap;gap:6px 24px;font-size:13px;line-height:20px;color:rgba(240,237,230,.6);}
+footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 
 /* ── WSP FLOAT ── */
 .wsp{position:fixed;bottom:28px;right:28px;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:200;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.35);text-decoration:none;}
@@ -491,7 +517,11 @@ footer{background:var(--navy5);padding:48px 40px 28px;border-top:1px solid var(-
   .cta-strip{grid-template-columns:1fr;text-align:center;}
   .steps{grid-template-columns:1fr 1fr;}
   .reviews-grid{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;gap:28px;}
+  .ft-wrap{padding:0 20px 28px;}
+  .ft-main{padding-top:36px;}
+  .ft-trust{grid-template-columns:1fr 1fr;gap:24px 16px;padding:28px 0;}
+  .ft-trust li{flex-direction:column;gap:8px;}
+  .ft-trust strong{font-size:17px;line-height:20px;}
   .trust{padding:14px 20px;}
 }
 </style>
@@ -898,36 +928,54 @@ footer{background:var(--navy5);padding:48px 40px 28px;border-top:1px solid var(-
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-grid">
-    <div>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
-      <img src="data:image/png;base64,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" alt="Impertech" width="36" height="36" style="display:block;">
-      <div class="footer-logo" style="margin-bottom:0;">Imper<span>tech</span></div>
+  <div class="ft-wrap">
+    <ul class="ft-trust">
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><div><strong>Garantía por escrito</strong><span>Certificado firmado, hasta 5 años.</span></div></li>
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg><div><strong>Sistema completo</strong><span>Reemplazo total, sin parches.</span></div></li>
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="3.5" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4.5"/></svg><div><strong>Visita técnica</strong><span>Evaluamos en terreno antes de cotizar.</span></div></li>
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>Todo Chile</strong><span>Proyectos en Santiago y regiones.</span></div></li>
+    </ul>
+    <div class="ft-main">
+      <div class="ft-brand">
+        <a class="ft-brand-link" href="#" aria-label="Impertech, volver al inicio">
+          <img src="data:image/png;base64,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" alt="" width="40" height="40" style="display:block;">
+          <div class="ft-logo">Imper<span>tech</span></div>
+        </a>
+        <p class="ft-desc">Impermeabilización profesional de techos y cubiertas con membrana asfáltica.</p>
+      </div>
+      <div class="ft-col">
+        <div class="ft-title">Servicios</div>
+        <ul class="ft-links">
+          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18V6H3z"/><path d="M5 9v11h14V9"/><path d="M10 20v-5h4v5"/></svg>Techos planos</a></li>
+          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg>Techos inclinados</a></li>
+          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M4 20v-9l5 3v-3l5 3V5h5v15"/></svg>Industrial y comercial</a></li>
+          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="3.5" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4.5"/></svg>Visita técnica</a></li>
+          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4"/><path d="M17 7l3-3"/><path d="M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="M9 11l4 4"/><path d="M5 19l-3 3"/><path d="M14 4l6 6"/></svg>Inyección de poliuretano</a></li>
+        </ul>
+      </div>
+      <div class="ft-col ft-col--nav">
+        <div class="ft-title">Explorar</div>
+        <ul class="ft-links">
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#resenas">Reseñas</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="ft-col ft-col--contact">
+        <div class="ft-title">Contacto</div>
+        <ul class="ft-contact">
+          <li><a class="ft-card ft-card--wsp" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n"><svg class="ft-ico ft-ico--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.16c-1.47 0-2.91-.4-4.16-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.26 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg><span class="ft-card-text"><span class="ft-card-label">Cotiza por WhatsApp</span><span class="ft-card-value">+56 9 7679 2677</span></span><svg class="ft-ico ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></li>
+          <li><a class="ft-card" href="mailto:info@impertech.cl"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg><span class="ft-card-text"><span class="ft-card-label">Correo</span><span class="ft-card-value">info@impertech.cl</span></span><svg class="ft-ico ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></li>
+          <li><a class="ft-card" href="https://instagram.com/impertech" target="_blank" rel="noopener"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg><span class="ft-card-text"><span class="ft-card-label">Instagram</span><span class="ft-card-value">@impertech</span></span><svg class="ft-ico ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></li>
+        </ul>
+      </div>
     </div>
-      <p class="footer-desc">Impermeabilización profesional de techos y cubiertas con membrana asfáltica. Cobertura en todo Chile.</p>
+    <div class="ft-bottom">
+      <span>© 2026 Impertech · Todos los derechos reservados</span>
+      <span>Santiago, Chile</span>
     </div>
-    <div>
-      <div class="footer-col-title">Servicios</div>
-      <ul class="footer-links">
-        <li><a href="#servicios">Techos planos</a></li>
-        <li><a href="#servicios">Techos inclinados</a></li>
-        <li><a href="#servicios">Industrial y comercial</a></li>
-        <li><a href="#servicios">Visita técnica</a></li>
-        <li><a href="#servicios">Inyección de poliuretano</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contacto</div>
-      <ul class="footer-links">
-        <li><a href="https://wa.me/56976792677">WhatsApp</a></li>
-        <li><a href="https://instagram.com/impertech">Instagram</a></li>
-        <li><a href="https://impertech.cl">impertech.cl</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span>© 2025 Impertech SpA · Todos los derechos reservados</span>
-    <span>Santiago, Chile</span>
   </div>
 </footer>
 
