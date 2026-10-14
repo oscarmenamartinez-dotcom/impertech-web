@@ -1,8 +1,23 @@
 <!DOCTYPE html>
 <html lang="es-CL">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18244838549"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<!-- Google tag (gtag.js): se carga después de que la página se muestra, para no frenar la carga.
+     Los eventos quedan en dataLayer y se envían igual cuando el script termina de cargar. -->
+<script>
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18244838549';
+      document.head.appendChild(s);
+    }, 1);
+  });
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -212,15 +227,6 @@
     }, true);
   })();
 </script>
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
-<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Impermeabilización de Techos Santiago | Membrana Asfáltica — Impertech</title>
 <meta name="description" content="Empresa de impermeabilización en Santiago. Membrana asfáltica para techos, terrazas y cubiertas. Sistema completo sin parches. Garantía de 5 años. Cotiza hoy.">
 <link rel="canonical" href="https://impertech.cl/">
@@ -295,9 +301,8 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap"></noscript>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -525,7 +530,6 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   .trust{padding:14px 20px;}
 }
 </style>
-<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
 </head>
 <body>
 
@@ -545,6 +549,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   </ul>
   <button class="btn-nav" onclick="window.open('https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n')">Cotizar ahora</button>
 </nav>
+
+<main>
 
 <!-- HERO -->
 <section style="padding:0;">
@@ -916,6 +922,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 </section>
 
 <!-- FOOTER -->
+</main>
+
 <footer>
   <div class="ft-wrap">
     <ul class="ft-trust">
