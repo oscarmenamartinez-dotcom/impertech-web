@@ -6,17 +6,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
-<!-- Google tag (gtag.js): se carga después de que la página se muestra, para no frenar la carga.
+<!-- Google tag (gtag.js): se carga después de que la página se muestra (primera interacción o 4 s), para no frenar la carga.
      Los eventos quedan en dataLayer y se envían igual cuando el script termina de cargar. -->
 <script>
-  window.addEventListener('load', function () {
-    setTimeout(function () {
+  (function () {
+    var loaded = false;
+    var evs = ['scroll', 'touchstart', 'pointerdown', 'mousemove', 'keydown'];
+    function loadTag() {
+      if (loaded) return;
+      loaded = true;
+      evs.forEach(function (e) { window.removeEventListener(e, loadTag, true); });
       var s = document.createElement('script');
       s.async = true;
       s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18244838549';
       document.head.appendChild(s);
-    }, 1);
-  });
+    }
+    // Se carga con la primera interacción del visitante, o a los 4 s de cargada la página.
+    evs.forEach(function (e) { window.addEventListener(e, loadTag, { capture: true, passive: true }); });
+    window.addEventListener('load', function () { setTimeout(loadTag, 4000); });
+  })();
 </script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -339,6 +347,7 @@ nav{
 
 /* ── HERO ── */
 .hero{display:grid;grid-template-columns:1fr 360px;min-height:520px;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;}
 .hero-left{padding:64px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:3;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,90,40,0.12);border:1px solid rgba(240,90,40,0.35);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:24px;width:fit-content;}
 h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:64px;line-height:.95;text-transform:uppercase;color:#fff;letter-spacing:-1px;margin-bottom:24px;}
@@ -554,7 +563,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 
 <!-- HERO -->
 <section style="padding:0;">
-  <div class="hero" style="background-image:url('img/hero.webp');background-size:cover;background-position:center top;position:relative;">
+  <div class="hero">
+    <img class="hero-bg" src="img/hero.webp" alt="" width="1280" height="960" fetchpriority="high" decoding="async">
     <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(13,27,46,0.78) 0%, rgba(13,27,46,0.58) 55%, rgba(13,27,46,0.35) 100%);z-index:1;pointer-events:none;"></div>
     <div class="hero-left">
       <div class="hero-badge">&#9679;&nbsp; Impermeabilización profesional · Todo Chile</div>
