@@ -331,44 +331,103 @@ html{scroll-behavior:smooth;}
 body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 
-/* ── NAV ── */
-nav{
-  position:sticky;top:0;z-index:100;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 40px;
-  background:var(--navy);
-  border-bottom:1px solid rgba(240,90,40,0.15);
-}
-.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;text-transform:uppercase;}
+/* ── NAV (rediseño B · iconografía) ── */
+.hd-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(240,90,40,0.18);}
+.hd-nav-in{max-width:1360px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.hd-brand{display:flex;align-items:center;gap:12px;}
+.hd-brand img{display:block;}
+.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;letter-spacing:2px;text-transform:uppercase;}
 .logo span{color:var(--orange);}
-.nav-links{display:flex;gap:32px;list-style:none;}
-.nav-links a{color:rgba(240,237,230,0.65);font-size:13px;font-weight:500;letter-spacing:0.5px;text-transform:uppercase;transition:color .2s;}
-.nav-links a:hover{color:var(--orange);}
-.btn-nav{background:var(--orange-btn);color:#fff;border:none;padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
+.hd-links{display:flex;gap:26px;list-style:none;}
+.hd-links a{display:inline-flex;align-items:center;gap:7px;color:rgba(240,237,230,0.72);font-size:13px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;transition:color .2s;}
+.hd-links a:hover{color:var(--orange);}
+.hd-ico{width:15px;height:15px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hd-actions{display:flex;align-items:center;gap:10px;}
+.hd-iconbtn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(240,237,230,0.2);border-radius:2px;background:transparent;cursor:pointer;color:var(--text);}
+.hd-iconbtn svg{width:19px;height:19px;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hd-menu-btn{display:none;}
+.hd-menu-btn svg{stroke:var(--text);stroke-width:2;}
+.btn-nav{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:44px;padding:0 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;}
+.btn-nav svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 
 /* ── HERO ── */
-.hero{display:grid;grid-template-columns:1fr 360px;min-height:520px;position:relative;overflow:hidden;}
-.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;z-index:0;}
-.hero-left{padding:64px 48px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:3;}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,90,40,0.12);border:1px solid rgba(240,90,40,0.35);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:5px 14px;border-radius:2px;margin-bottom:24px;width:fit-content;}
-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:64px;line-height:.95;text-transform:uppercase;color:#fff;letter-spacing:-1px;margin-bottom:24px;}
+.hero{position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:0;}
+.hero-shade{position:absolute;inset:0;background:rgba(9,19,33,0.78);z-index:1;pointer-events:none;}
+.hero-in{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:72px 40px;display:flex;flex-wrap:wrap;gap:56px;align-items:center;}
+.hero-copy{flex:999 1 520px;min-width:0;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,90,40,0.12);border:1px solid rgba(240,90,40,0.4);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:24px;}
+.hero-badge svg{width:14px;height:14px;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:80px;line-height:.93;text-transform:uppercase;color:#fff;letter-spacing:-1.5px;margin-bottom:24px;}
 h1 .accent{color:var(--orange);}
-.hero-sub{font-size:15px;color:var(--muted);line-height:1.65;max-width:440px;margin-bottom:36px;}
-.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--orange-btn);color:#fff;border:none;padding:15px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
-.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fff;border:1px solid rgba(240,237,230,0.25);padding:15px 28px;font-family:'Barlow Condensed',sans-serif;font-weight:600;font-size:15px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:border-color .2s;}
-.btn-secondary:hover{border-color:rgba(240,237,230,.5);}
-.hero-right{background:rgba(22,34,54,0.85);backdrop-filter:blur(2px);border-left:2px solid var(--orange);display:flex;flex-direction:column;justify-content:flex-end;padding:40px 36px;position:relative;z-index:3;}
-.hero-stats{display:flex;flex-direction:column;gap:24px;}
-.stat{border-top:1px solid var(--border);padding-top:18px;}
-.stat-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:46px;color:var(--orange);line-height:1;letter-spacing:-1px;}
-.stat-label{font-size:12px;color:rgba(240,237,230,.6);text-transform:uppercase;letter-spacing:1px;margin-top:4px;}
+.hero-sub{font-size:17px;color:rgba(240,237,230,0.82);line-height:1.6;max-width:520px;margin-bottom:32px;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:28px;list-style:none;}
+.hero-stats li{display:flex;align-items:center;gap:12px;}
+.hs-ico{width:46px;height:46px;border:1px solid rgba(240,90,40,0.4);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.hs-ico svg{width:22px;height:22px;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.hs-num{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;line-height:1;color:#fff;}
+.hs-label{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(240,237,230,0.7);}
+.hero-card{flex:1 1 420px;min-width:0;background:rgba(13,27,46,0.94);border:1px solid rgba(240,237,230,0.1);border-top:3px solid var(--orange);border-radius:2px;padding:30px;}
+.hc-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.hc-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30px;line-height:1.05;text-transform:uppercase;color:#fff;margin-bottom:22px;}
+.hc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;}
+.hc-grid a{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 8px;min-height:96px;height:100%;box-sizing:border-box;background:var(--navy2);border:1px solid rgba(240,237,230,0.1);border-radius:2px;text-align:center;font-size:13px;font-weight:600;color:var(--text);transition:border-color .2s,background .2s;}
+.hc-grid a:hover{border-color:var(--orange);background:var(--navy3);}
+.hc-grid svg{width:30px;height:30px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.hc-note{margin-top:18px;font-size:13px;color:rgba(240,237,230,0.7);display:flex;align-items:center;gap:8px;}
+.hc-note svg{width:15px;height:15px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 
 /* ── TRUST BAR ── */
-.trust{background:var(--navy4);padding:16px 40px;display:flex;align-items:center;gap:32px;border-bottom:1px solid var(--border);overflow-x:auto;}
-.trust-item{display:flex;align-items:center;gap:10px;white-space:nowrap;flex-shrink:0;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:rgba(240,237,230,.72);}
-.trust-icon{width:18px;height:18px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.trust-sep{width:1px;height:20px;background:var(--border);flex-shrink:0;}
+.trust{background:var(--navy4);border-bottom:1px solid var(--border);}
+.trust-in{max-width:1360px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;}
+.trust-in li{display:flex;align-items:center;gap:14px;padding:22px 20px 22px 0;}
+.trust-ico{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:rgba(240,90,40,0.12);display:flex;align-items:center;justify-content:center;}
+.trust-ico svg{width:22px;height:22px;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.trust-in strong{display:block;font-weight:600;font-size:14px;color:#fff;}
+.trust-in span.t-sub{display:block;font-size:12px;color:rgba(240,237,230,0.7);}
+
+/* header: tablet y móvil */
+@media(max-width:1100px){
+  .hd-links{gap:18px;}
+  .hd-links a .hd-ico{display:none;}
+}
+@media(max-width:960px){
+  .hd-menu-btn{display:flex;}
+  .hd-call{display:none;}
+  .hd-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--navy);border-bottom:1px solid rgba(240,90,40,0.18);padding:8px 20px 16px;}
+  .hd-nav.open .hd-links{display:flex;}
+  .hd-links a{padding:14px 0;width:100%;border-bottom:1px solid var(--border);font-size:14px;}
+  .hd-links a .hd-ico{display:inline;}
+  .trust-in{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:768px){
+  .hd-nav-in{padding:12px 20px;gap:12px;}
+  .hd-brand img{width:34px;height:34px;}
+  .logo{font-size:21px;}
+  .btn-nav{padding:0;width:44px;justify-content:center;}
+  .btn-nav .btn-nav-txt{display:none;}
+  .hero-in{padding:36px 20px 28px;gap:28px;}
+  h1{font-size:50px;letter-spacing:-1px;}
+  .hero-sub{font-size:15px;margin-bottom:22px;}
+  .hero-badge{font-size:10px;letter-spacing:1.6px;padding:5px 11px;margin-bottom:16px;}
+  .hero-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;}
+  .hero-stats li{flex-direction:column;gap:6px;padding:10px 4px;border:1px solid rgba(240,90,40,0.3);border-radius:2px;text-align:center;}
+  .hs-ico{width:auto;height:auto;border:0;}
+  .hs-ico svg{width:20px;height:20px;}
+  .hs-num{font-size:20px;}
+  .hs-label{font-size:10px;letter-spacing:.8px;}
+  .hero-card{padding:22px 18px;}
+  .hc-title{font-size:24px;margin-bottom:16px;}
+  .hc-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;}
+  .hc-grid a{flex-direction:row;min-height:56px;padding:12px;text-align:left;}
+  .hc-grid svg{width:24px;height:24px;}
+  .trust-in{padding:4px 20px;gap:0 12px;}
+  .trust-in li{padding:14px 0;gap:10px;}
+  .trust-ico{width:36px;height:36px;}
+  .trust-ico svg{width:18px;height:18px;}
+  .trust-in strong{font-size:13px;}
+  .trust-in span.t-sub{display:none;}
+}
 
 /* ── SECTIONS ── */
 section{padding:72px 40px;}
@@ -516,14 +575,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 
 /* ── MOBILE ── */
 @media(max-width:768px){
-  nav{padding:16px 20px;}
-  .nav-links{display:none;}
-  .hero{grid-template-columns:1fr;}
-  .hero-right{display:none;}
   .etapas-grid{grid-template-columns:1fr;}
   .complementary-grid{grid-template-columns:1fr;}
-  .hero-left{padding:48px 20px;}
-  h1{font-size:44px;}
   section{padding:56px 20px;}
   .services-grid{grid-template-columns:1fr;}
   .why-grid{grid-template-columns:1fr;}
@@ -537,27 +590,32 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   .ft-trust{grid-template-columns:1fr 1fr;gap:24px 16px;padding:28px 0;}
   .ft-trust li{flex-direction:column;gap:8px;}
   .ft-trust strong{font-size:17px;line-height:20px;}
-  .trust{padding:14px 20px;}
 }
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" style="display:flex;align-items:center;gap:12px;text-decoration:none;">
-    <img src="img/logo-escudo.webp" alt="Impertech isotipo" width="40" height="40" style="display:block;">
-    <div class="logo">Imper<span>tech</span></div>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proyectos">Proyectos</a></li>
-    <li><a href="#proceso">Proceso</a></li>
-    <li><a href="#resenas">Reseñas</a></li>
-    <li><a href="#faq">FAQ</a></li>
-    <li><a href="/blog/">Blog</a></li>
-  </ul>
-  <button class="btn-nav" onclick="window.open('https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n')">Cotizar ahora</button>
+<nav class="hd-nav" id="hd-nav" aria-label="Principal">
+  <div class="hd-nav-in">
+    <a href="#" class="hd-brand">
+      <img src="img/logo-escudo.webp" alt="Impertech isotipo" width="42" height="42">
+      <div class="logo">Imper<span>tech</span></div>
+    </a>
+    <ul class="hd-links" id="hd-links">
+      <li><a href="#servicios"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>Servicios</a></li>
+      <li><a href="#proyectos"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 16l5-5 4 4 3-3 6 6M15 9h.01"/></svg>Proyectos</a></li>
+      <li><a href="#proceso"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h2M5 12h2M5 18h2M11 6h8M11 12h8M11 18h8"/></svg>Proceso</a></li>
+      <li><a href="#resenas"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>Reseñas</a></li>
+      <li><a href="#faq"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6M12 17h.01"/></svg>FAQ</a></li>
+      <li><a href="/blog/"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg>Blog</a></li>
+    </ul>
+    <div class="hd-actions">
+      <a class="hd-iconbtn hd-call" href="tel:+56976792677" aria-label="Llamar al +56 9 7679 2677"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+      <a class="btn-nav" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n" aria-label="Cotizar ahora por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span class="btn-nav-txt">Cotizar ahora</span></a>
+      <button type="button" class="hd-iconbtn hd-menu-btn" id="hd-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="hd-links"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    </div>
+  </div>
 </nav>
 
 <main>
@@ -566,21 +624,30 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 <section style="padding:0;">
   <div class="hero">
     <img class="hero-bg" src="img/hero.webp" alt="" width="1280" height="960" fetchpriority="high" decoding="async">
-    <div style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(13,27,46,0.78) 0%, rgba(13,27,46,0.58) 55%, rgba(13,27,46,0.35) 100%);z-index:1;pointer-events:none;"></div>
-    <div class="hero-left">
-      <div class="hero-badge">&#9679;&nbsp; Impermeabilización profesional · Todo Chile</div>
-      <h1>Tu techo no<br>debería<br><span class="accent">filtrar más.</span></h1>
-      <p class="hero-sub">Impermeabilización profesional con membrana asfáltica para techos, terrazas y cubiertas. Reemplazamos el sistema completo — sin parches, sin atajos. Garantía de hasta 5 años.</p>
-      <div class="hero-actions">
-        <a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar" class="btn-primary">&#128233; Solicitar cotización</a>
-        <a href="#proyectos" class="btn-secondary">Ver proyectos</a>
+    <div class="hero-shade"></div>
+    <div class="hero-in">
+      <div class="hero-copy">
+        <div class="hero-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/></svg>Impermeabilización profesional · Todo Chile</div>
+        <h1>Tu techo no debería <span class="accent">filtrar más.</span></h1>
+        <p class="hero-sub">Membrana asfáltica de origen italiano para techos, terrazas y cubiertas. Reemplazamos el sistema completo — sin parches, sin atajos. Garantía de hasta 5 años.</p>
+        <ul class="hero-stats">
+          <li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><span><span class="hs-num">+500</span><span class="hs-label">Proyectos</span></span></li>
+          <li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span><span class="hs-num">5 años</span><span class="hs-label">Garantía</span></span></li>
+          <li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><span><span class="hs-num">Inmediata</span><span class="hs-label">Respuesta</span></span></li>
+        </ul>
       </div>
-    </div>
-    <div class="hero-right">
-      <div class="hero-stats">
-        <div class="stat"><div class="stat-num">+500</div><div class="stat-label">Proyectos ejecutados</div></div>
-        <div class="stat"><div class="stat-num">5 años</div><div class="stat-label">Garantía máxima</div></div>
-        <div class="stat"><div class="stat-num">Inmediata</div><div class="stat-label">Respuesta por WhatsApp</div></div>
+      <div class="hero-card">
+        <div class="hc-label">Cotiza en 1 clic</div>
+        <h2 class="hc-title">¿Qué superficie necesitas impermeabilizar?</h2>
+        <ul class="hc-grid">
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20losa%20de%20hormig%C3%B3n"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v5H3zM5 15v5M19 15v5M3 10l3-4h12l3 4"/></svg>Losa de hormigón</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20techo%20de%20zinc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"/></svg>Techo de zinc</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20techo%20OSB"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM7 8l3 1M12 7l4 2M7 13l4-1M13 14l4 1M8 17l3-1"/></svg>OSB</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20teja%20asf%C3%A1ltica"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18M3 14h18M3 20h18M6 8a3 3 0 0 0 6 0M12 8a3 3 0 0 0 6 0M3 14a3 3 0 0 0 6 0M9 14a3 3 0 0 0 6 0M15 14a3 3 0 0 0 6 0"/></svg>Teja asfáltica</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20terraza"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M4 9v12h16V9M9 21v-5h6v5M7 9V5h10v4"/></svg>Terraza</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20muro%20o%20subterr%C3%A1neo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></svg>Muro o subterráneo</a></li>
+        </ul>
+        <p class="hc-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Abre WhatsApp con tu consulta lista para enviar.</p>
       </div>
     </div>
   </div>
@@ -588,15 +655,12 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 
 <!-- TRUST BAR -->
 <div class="trust">
-  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg> Empresa certificada</div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Cobertura en todo Chile</div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg> Respuesta inmediata</div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg> Sistema completo — sin parches</div>
-  <div class="trust-sep"></div>
-  <div class="trust-item"><svg class="trust-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg> Garantía documentada por escrito</div>
+  <ul class="trust-in">
+    <li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span><strong>Garantía hasta 5 años</strong><span class="t-sub">Certificado firmado por escrito</span></span></li>
+    <li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><span><strong>Sistema completo</strong><span class="t-sub">Sin parches, sin subcontratos</span></span></li>
+    <li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 13l2 2 4-4"/></svg></span><span><strong>Visita técnica</strong><span class="t-sub">Diagnóstico en terreno</span></span></li>
+    <li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg></span><span><strong>Cobertura nacional</strong><span class="t-sub">Santiago y regiones</span></span></li>
+  </ul>
 </div>
 
 <!-- SERVICIOS -->
@@ -1005,6 +1069,16 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.classList.add('active');
   });
 });
+</script>
+<script>
+(function(){
+  var nav=document.getElementById('hd-nav'),btn=document.getElementById('hd-menu-btn');
+  if(!nav||!btn)return;
+  function setOpen(o){nav.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');}
+  btn.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
+  document.querySelectorAll('#hd-links a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+})();
 </script>
 </body>
 </html>
