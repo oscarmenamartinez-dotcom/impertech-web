@@ -333,7 +333,7 @@ a{text-decoration:none;color:inherit;}
 
 /* ── NAV (rediseño B · iconografía) ── */
 .hd-nav{position:sticky;top:0;z-index:100;background:var(--navy);border-bottom:1px solid rgba(240,90,40,0.18);}
-.hd-nav-in{max-width:1360px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
+.hd-nav-in{max-width:1280px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .hd-brand{display:flex;align-items:center;gap:12px;}
 .hd-brand img{display:block;}
 .logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;letter-spacing:2px;text-transform:uppercase;}
@@ -354,7 +354,7 @@ a{text-decoration:none;color:inherit;}
 .hero{position:relative;overflow:hidden;}
 .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;z-index:0;}
 .hero-shade{position:absolute;inset:0;background:rgba(9,19,33,0.78);z-index:1;pointer-events:none;}
-.hero-in{position:relative;z-index:2;max-width:1360px;margin:0 auto;padding:72px 40px;display:flex;flex-wrap:wrap;gap:56px;align-items:center;}
+.hero-in{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:72px 40px;display:flex;flex-wrap:wrap;gap:56px;align-items:center;}
 .hero-copy{flex:999 1 520px;min-width:0;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,90,40,0.12);border:1px solid rgba(240,90,40,0.4);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:24px;}
 .hero-badge svg{width:14px;height:14px;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
@@ -379,7 +379,7 @@ h1 .accent{color:var(--orange);}
 
 /* ── TRUST BAR ── */
 .trust{background:var(--navy4);border-bottom:1px solid var(--border);}
-.trust-in{max-width:1360px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;}
+.trust-in{max-width:1280px;margin:0 auto;padding:0 40px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));list-style:none;}
 .trust-in li{display:flex;align-items:center;gap:14px;padding:22px 20px 22px 0;}
 .trust-ico{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:rgba(240,90,40,0.12);display:flex;align-items:center;justify-content:center;}
 .trust-ico svg{width:22px;height:22px;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
@@ -429,94 +429,185 @@ h1 .accent{color:var(--orange);}
   .trust-in span.t-sub{display:none;}
 }
 
-/* ── SECTIONS ── */
-section{padding:72px 40px;}
-.section-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;}
-h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:44px;text-transform:uppercase;color:#fff;line-height:1.05;letter-spacing:-.5px;margin-bottom:48px;}
+/* ── SECCIONES (rediseño B · iconografía) ── */
+section{padding:88px 40px;}
+.wrap{max-width:1200px;margin:0 auto;}
+section[id]{scroll-margin-top:76px;}
+.sec-alt{background:var(--navy2);}
+.sec-head{margin-bottom:48px;}
+.section-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:24px;height:2px;background:var(--orange);}
+h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:48px;text-transform:uppercase;color:#fff;line-height:1.02;letter-spacing:-.5px;}
+.sec-lead{font-size:16px;color:rgba(240,237,230,.72);max-width:620px;line-height:1.7;margin-top:18px;}
+.ico-box{width:48px;height:48px;flex-shrink:0;border:1px solid rgba(240,90,40,.4);border-radius:2px;display:flex;align-items:center;justify-content:center;background:rgba(240,90,40,.06);}
+.ico-box svg{width:24px;height:24px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.ico-box--lg{width:60px;height:60px;}
+.ico-box--lg svg{width:30px;height:30px;}
+.tag{display:inline-block;margin-top:auto;padding-top:18px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);}
+.card-title,.etapa-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;color:#fff;line-height:1.1;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:48px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;transition:background .2s;}
+.btn-primary:hover{background:#B8411A;}
+.btn-primary svg,.btn-outline svg,.btn-white svg,.btn-ghost-white svg,.gallery-cta svg,.surfaces-cta svg{width:17px;height:17px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;color:var(--text);border:1px solid rgba(240,237,230,.25);min-height:48px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;transition:border-color .2s;}
+.btn-outline:hover{border-color:var(--orange);}
 
-/* ── SERVICES ── */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--faint);}
-.service-card{background:var(--navy);padding:32px 28px;border-top:3px solid transparent;transition:border-color .2s,background .2s;}
-.service-card:hover{border-color:var(--orange);background:#111F31;}
-.service-icon{width:44px;height:44px;border:1px solid rgba(240,90,40,.3);border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--orange);margin-bottom:20px;}
-.service-name{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;color:#fff;margin-bottom:10px;}
-.service-desc{font-size:13px;color:rgba(240,237,230,.5);line-height:1.65;}
-.service-tag{display:inline-block;margin-top:16px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(240,90,40,.3);padding-bottom:2px;}
+/* servicios: 3 etapas */
+.etapas{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:none;}
+.etapa{position:relative;background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;padding:32px 30px;display:flex;flex-direction:column;}
+.etapa:not(:last-child)::after{content:'';position:absolute;top:58px;right:-20px;width:20px;height:2px;background:rgba(240,90,40,.5);}
+.etapa-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
+.etapa-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;line-height:1;color:rgba(240,90,40,.3);letter-spacing:-2px;}
+.etapa-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
+.etapa-title{font-size:24px;margin-bottom:14px;}
+.etapa-desc{font-size:14px;color:rgba(240,237,230,.7);line-height:1.7;margin-bottom:20px;}
+.checks{list-style:none;display:flex;flex-direction:column;gap:10px;}
+.checks li{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:rgba(240,237,230,.85);line-height:1.45;}
+.checks svg{width:17px;height:17px;flex-shrink:0;margin-top:1px;fill:none;stroke:var(--orange);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;}
 
-/* ── WHY ── */
-.why{background:var(--navy2);}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
-.why-points{display:flex;flex-direction:column;gap:24px;margin-top:40px;}
-.why-point{display:flex;gap:18px;align-items:flex-start;}
-.why-num{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:36px;color:rgba(240,90,40,.15);line-height:1;min-width:44px;letter-spacing:-1px;}
-.why-ctitle{font-weight:600;font-size:15px;color:#fff;margin-bottom:5px;}
-.why-cdesc{font-size:13px;color:rgba(240,237,230,.5);line-height:1.65;}
-.surfaces-box{background:var(--navy);border:1px solid var(--border);border-radius:2px;padding:36px;}
-.surfaces-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase;color:rgba(240,237,230,.6);letter-spacing:2px;margin-bottom:24px;}
-.surfaces-list{list-style:none;display:flex;flex-direction:column;}
-.surfaces-list li{display:flex;align-items:center;gap:14px;padding:13px 0;border-bottom:1px solid var(--border);font-size:15px;font-weight:500;color:rgba(240,237,230,.75);}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--orange);flex-shrink:0;}
+/* complementarios */
+.comp-grid{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
+.comp-card{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:28px 24px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;}
+.comp-card:hover{border-color:rgba(240,90,40,.55);transform:translateY(-2px);}
+.comp-card .ico-box{margin-bottom:20px;}
+.card-title{font-size:20px;margin-bottom:10px;}
+.card-desc{font-size:13.5px;color:rgba(240,237,230,.7);line-height:1.65;}
+.inline-cta{margin-top:24px;padding:20px 24px;background:var(--navy);border:1px solid rgba(240,90,40,.25);border-radius:2px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.inline-cta-txt{flex:1 1 300px;}
+.inline-cta-txt strong{display:block;font-size:15px;color:#fff;margin-bottom:3px;}
+.inline-cta-txt span{font-size:13.5px;color:rgba(240,237,230,.7);}
 
-/* ── GALLERY ── */
-.gallery-filters{display:flex;gap:8px;margin-bottom:28px;flex-wrap:wrap;}
-.filter-btn{background:transparent;border:1px solid rgba(240,237,230,.15);color:rgba(240,237,230,.5);padding:7px 16px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .15s;}
+/* por qué */
+.why{background:var(--navy);}
+.why-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:start;}
+.why-grid .sec-head{margin-bottom:36px;}
+.why-points{list-style:none;display:flex;flex-direction:column;gap:26px;}
+.why-points li{display:flex;gap:18px;align-items:flex-start;}
+.why-ctitle{font-weight:600;font-size:16px;color:#fff;margin-bottom:5px;}
+.why-cdesc{font-size:14px;color:rgba(240,237,230,.7);line-height:1.65;}
+.surfaces-box{background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;padding:32px;}
+.surfaces-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:#fff;letter-spacing:1.5px;margin-bottom:22px;}
+.surfaces-grid{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+.surfaces-grid li{display:flex;align-items:center;gap:12px;padding:14px;background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;font-size:14px;font-weight:500;color:rgba(240,237,230,.88);}
+.surfaces-grid svg{width:26px;height:26px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
+.surfaces-cta{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;font-weight:600;color:var(--orange);}
+
+/* galería */
+.gallery-filters{display:flex;gap:8px;margin:-20px 0 28px;flex-wrap:wrap;}
+.filter-btn{background:transparent;border:1px solid rgba(240,237,230,.2);color:rgba(240,237,230,.75);min-height:40px;padding:0 16px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .15s;}
 .filter-btn.active,.filter-btn:hover{background:var(--orange-btn);border-color:var(--orange-btn);color:#fff;}
-.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.gallery-item{position:relative;overflow:hidden;cursor:pointer;background:var(--navy3);aspect-ratio:4/3;}
-.gallery-item.featured{grid-column:span 2;}
-.gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .38s ease;}
-.gallery-item:hover img{transform:scale(1.05);}
-.g-accent{position:absolute;top:0;left:0;width:3px;height:100%;background:var(--orange);opacity:0;transition:opacity .2s;}
-.gallery-item:hover .g-accent{opacity:1;}
-.g-overlay{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,15,26,.92));padding:28px 20px 16px;transform:translateY(100%);transition:transform .25s ease;}
-.gallery-item:hover .g-overlay{transform:translateY(0);}
+.gallery-grid{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.gallery-item{background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-radius:2px;overflow:hidden;transition:border-color .2s;}
+.gallery-item[hidden]{display:none;}
+.gallery-item:hover{border-color:rgba(240,90,40,.55);}
+.g-img{aspect-ratio:4/3;overflow:hidden;background:var(--navy3);}
+.g-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.gallery-item:hover .g-img img{transform:scale(1.05);}
+.g-cap{padding:14px 16px 16px;border-top:2px solid var(--orange);}
 .g-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
-.g-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;color:#fff;text-transform:uppercase;}
-.gallery-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:28px;font-size:13px;color:rgba(240,237,230,.6);}
-.gallery-cta a{color:var(--orange);font-weight:600;}
+.g-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:#fff;text-transform:uppercase;}
+.gallery-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:32px;font-size:14px;color:rgba(240,237,230,.7);}
+.gallery-cta a{display:inline-flex;align-items:center;gap:6px;color:var(--orange);font-weight:600;}
 
-/* ── CTA STRIP ── */
-.cta-strip{background:var(--orange-btn);padding:56px 40px;display:grid;grid-template-columns:1fr auto;gap:40px;align-items:center;}
+/* franja CTA */
+.cta-strip{background:var(--orange-btn);padding:48px 40px;}
+.cta-in{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.cta-ico{width:64px;height:64px;flex-shrink:0;border:2px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.cta-ico svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.cta-txt{flex:1 1 360px;}
 .cta-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:40px;text-transform:uppercase;color:#fff;line-height:1.05;letter-spacing:-.5px;}
-.cta-sub{font-size:14px;color:rgba(255,255,255,.75);margin-top:8px;line-height:1.55;}
-.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--orange);border:none;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;white-space:nowrap;}
+.cta-sub{font-size:15px;color:rgba(255,255,255,.88);margin-top:6px;line-height:1.55;}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#B8411A;min-height:52px;padding:0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;}
+.btn-ghost-white{display:inline-flex;align-items:center;gap:10px;color:#fff;border:1px solid rgba(255,255,255,.6);min-height:52px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;}
 
-/* ── PROCESS ── */
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:var(--faint);margin-top:48px;}
-.step{background:var(--navy);padding:32px 24px;position:relative;}
-.step-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;color:rgba(240,90,40,.35);line-height:1;letter-spacing:-2px;margin-bottom:16px;}
-.step-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;color:#fff;letter-spacing:.5px;margin-bottom:8px;}
-.step-desc{font-size:12px;color:rgba(240,237,230,.6);line-height:1.65;}
+/* proceso */
+.steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;position:relative;}
+.steps::before{content:'';position:absolute;top:36px;left:36px;right:calc((100% - 84px) / 4);height:2px;background:repeating-linear-gradient(90deg,rgba(240,90,40,.55) 0 8px,transparent 8px 14px);}
+.step{position:relative;}
+.step-ico{position:relative;width:72px;height:72px;border-radius:50%;background:var(--navy);border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
+.step-ico svg{width:30px;height:30px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.step-n{position:absolute;top:-4px;right:-4px;width:26px;height:26px;border-radius:50%;background:var(--orange-btn);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+.step-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;color:#fff;margin-bottom:8px;}
+.step-desc{font-size:14px;color:rgba(240,237,230,.7);line-height:1.65;}
 
-/* ── REVIEWS ── */
+/* reseñas */
 .reviews{background:var(--navy2);}
-.reviews-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;gap:20px;flex-wrap:wrap;}
-.score-block{display:flex;align-items:center;gap:16px;}
-.score-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:54px;color:var(--orange);line-height:1;letter-spacing:-2px;}
-.score-stars{color:#F0B429;font-size:17px;letter-spacing:2px;margin-bottom:4px;}
-.score-count{font-size:12px;color:rgba(240,237,230,.6);text-transform:uppercase;letter-spacing:.5px;}
-.google-badge{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:2px;padding:8px 14px;font-size:12px;color:rgba(240,237,230,.5);}
-.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
-.review-card{background:var(--navy);border:1px solid var(--border);padding:24px 22px;position:relative;}
-.review-card::before{content:'"';position:absolute;top:14px;right:18px;font-family:'Barlow Condensed',sans-serif;font-size:64px;font-weight:900;color:rgba(240,90,40,.07);line-height:1;}
-.review-stars{color:#F0B429;font-size:13px;letter-spacing:2px;margin-bottom:14px;}
-.review-text{font-size:13px;color:rgba(240,237,230,.62);line-height:1.7;margin-bottom:20px;}
-.review-author{display:flex;align-items:center;gap:12px;border-top:1px solid var(--border);padding-top:14px;}
-.review-avatar{width:36px;height:36px;border-radius:50%;background:rgba(240,90,40,.12);border:1px solid rgba(240,90,40,.2);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;color:var(--orange);flex-shrink:0;}
-.review-name{font-weight:600;font-size:13px;color:#fff;}
+.reviews-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
+.reviews-header .sec-head{margin-bottom:0;}
+.score-block{display:flex;align-items:center;gap:16px;background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:16px 22px;}
+.score-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:54px;color:#fff;line-height:1;letter-spacing:-2px;}
+.stars{display:flex;gap:3px;margin-bottom:6px;}
+.star{width:17px;height:17px;fill:#F0B429;stroke:none;}
+.score-count{font-size:12px;color:rgba(240,237,230,.7);text-transform:uppercase;letter-spacing:.5px;}
+.reviews-grid{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
+.review-card{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:26px 24px;display:flex;flex-direction:column;}
+.review-card .star{width:15px;height:15px;}
+.review-text{font-size:14.5px;color:rgba(240,237,230,.82);line-height:1.7;margin:10px 0 22px;flex:1;}
+.review-author{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(240,237,230,.08);padding-top:16px;}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:rgba(240,90,40,.14);border:1px solid rgba(240,90,40,.35);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;color:var(--orange);flex-shrink:0;}
+.review-name{font-weight:600;font-size:14px;color:#fff;}
 .review-meta{font-size:11px;color:rgba(240,237,230,.6);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;}
-.reviews-btns{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:32px;flex-wrap:wrap;}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:rgba(240,237,230,.7);border:1px solid rgba(240,237,230,.2);padding:12px 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
-.btn-google{display:inline-flex;align-items:center;gap:8px;background:transparent;color:#4285F4;border:1px solid rgba(66,133,244,.3);padding:12px 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
+.reviews-btns{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:36px;flex-wrap:wrap;}
+.reviews-btns .star{width:17px;height:17px;fill:#fff;}
 
-/* ── FAQ ── */
-.faq-grid{display:flex;flex-direction:column;gap:0;margin-top:12px;}
-.faq-item{border-bottom:1px solid var(--border);}
-.faq-q{display:flex;justify-content:space-between;align-items:center;padding:20px 0;cursor:pointer;font-weight:600;font-size:15px;color:#fff;gap:16px;}
-.faq-q .icon{color:var(--orange);font-size:20px;flex-shrink:0;transition:transform .2s;}
-.faq-a{font-size:14px;color:var(--muted);line-height:1.7;padding-bottom:20px;display:none;}
-.faq-item.open .faq-a{display:block;}
-.faq-item.open .icon{transform:rotate(45deg);}
+/* FAQ */
+.faq-layout{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.4fr);gap:64px;align-items:start;}
+.faq-side{position:sticky;top:100px;}
+.faq-side .sec-head{margin-bottom:28px;}
+.faq-help{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;padding:26px;}
+.faq-help .ico-box{margin-bottom:16px;}
+.faq-help strong{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:#fff;margin-bottom:6px;}
+.faq-help p{font-size:14px;color:rgba(240,237,230,.72);line-height:1.6;margin-bottom:18px;}
+.faq-list{display:flex;flex-direction:column;gap:10px;}
+.faq-item{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;transition:border-color .2s;}
+.faq-item[open]{border-color:rgba(240,90,40,.45);}
+.faq-q{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;cursor:pointer;font-weight:600;font-size:15.5px;color:#fff;}
+.faq-q::-webkit-details-marker{display:none;}
+.faq-ico{width:22px;height:22px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;transition:transform .2s;}
+.faq-item[open] .faq-ico{transform:rotate(45deg);}
+.faq-a{padding:0 22px 20px;font-size:14.5px;color:rgba(240,237,230,.75);line-height:1.7;}
+
+@media(max-width:1100px){
+  .comp-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .etapas{grid-template-columns:1fr;}
+  .etapa:not(:last-child)::after{top:auto;bottom:-20px;right:auto;left:60px;width:2px;height:20px;}
+  .why-grid,.faq-layout{grid-template-columns:1fr;gap:48px;}
+  .faq-side{position:static;}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .steps::before{display:none;}
+  .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:768px){
+  section{padding:64px 20px;}
+  h2.section-title{font-size:36px;}
+  .sec-head{margin-bottom:32px;}
+  .sec-lead{font-size:15px;}
+  .etapa{padding:26px 22px;}
+  .comp-grid{grid-template-columns:1fr;}
+  .surfaces-box{padding:22px 18px;}
+  .surfaces-grid li{padding:12px 10px;font-size:13px;gap:10px;}
+  .surfaces-grid svg{width:22px;height:22px;}
+  .gallery-filters{margin-top:-8px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:4px;}
+  .filter-btn{flex-shrink:0;}
+  .gallery-grid{gap:10px;}
+  .g-cap{padding:10px 12px 12px;}
+  .g-title{font-size:14px;}
+  .g-tag{font-size:9px;letter-spacing:1px;}
+  .cta-strip{padding:44px 20px;}
+  .cta-title{font-size:32px;}
+  .cta-btns,.cta-btns a{width:100%;justify-content:center;}
+  .steps{grid-template-columns:1fr;gap:0;}
+  .step{display:grid;grid-template-columns:64px 1fr;column-gap:18px;padding-bottom:28px;}
+  .step:not(:last-child)::before{content:'';position:absolute;left:31px;top:66px;bottom:4px;width:2px;background:rgba(240,90,40,.4);}
+  .step-ico{width:64px;height:64px;margin:0;grid-row:span 2;}
+  .step-ico svg{width:26px;height:26px;}
+  .step-title{align-self:end;}
+  .reviews-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -20px;padding:0 20px 8px;scrollbar-width:none;}
+  .reviews-grid::-webkit-scrollbar{display:none;}
+  .review-card{flex:0 0 84%;scroll-snap-align:center;}
+  .score-block{width:100%;box-sizing:border-box;}
+  .reviews-btns a{width:100%;justify-content:center;}
+}
 
 /* ── FOOTER ── */
 footer{background:var(--navy5);border-top:1px solid rgba(240,90,40,.18);}
@@ -560,31 +651,9 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 .wsp{position:fixed;bottom:28px;right:28px;background:#25D366;color:#fff;width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;z-index:200;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.35);text-decoration:none;}
 
 /* ── ETAPAS ── */
-.etapas-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--faint);}
-.complementary-grid{grid-template-columns:repeat(4,1fr);}
-.etapa-card{background:var(--navy);padding:40px 32px;display:flex;flex-direction:column;border-top:3px solid transparent;transition:border-color .25s;}
-.etapa-card:hover{border-color:var(--orange);}
-.etapa-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:72px;color:rgba(240,90,40,.35);line-height:1;letter-spacing:-3px;margin-bottom:8px;}
-.etapa-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
-.etapa-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:#fff;line-height:1.1;margin-bottom:16px;}
-.etapa-desc{font-size:13px;color:rgba(240,237,230,.6);line-height:1.7;margin-bottom:20px;}
-.etapa-includes{list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:24px;}
-.etapa-includes li{font-size:13px;color:rgba(240,237,230,.75);padding-left:18px;position:relative;}
-.etapa-includes li::before{content:'→';position:absolute;left:0;color:var(--orange);font-size:12px;}
-.etapa-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(240,90,40,.3);padding-bottom:2px;margin-top:auto;}
 
 /* ── MOBILE ── */
 @media(max-width:768px){
-  .etapas-grid{grid-template-columns:1fr;}
-  .complementary-grid{grid-template-columns:1fr;}
-  section{padding:56px 20px;}
-  .services-grid{grid-template-columns:1fr;}
-  .why-grid{grid-template-columns:1fr;}
-  .gallery-grid{grid-template-columns:1fr 1fr;}
-  .gallery-item:first-child:nth-last-child(odd){grid-column:span 2;}
-  .cta-strip{grid-template-columns:1fr;text-align:center;}
-  .steps{grid-template-columns:1fr 1fr;}
-  .reviews-grid{grid-template-columns:1fr;}
   .ft-wrap{padding:0 20px 28px;}
   .ft-main{padding-top:36px;}
   .ft-trust{grid-template-columns:1fr 1fr;gap:24px 16px;padding:28px 0;}
@@ -636,7 +705,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
           <li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><span><span class="hs-num">Inmediata</span><span class="hs-label">Respuesta</span></span></li>
         </ul>
       </div>
-      <div class="hero-card">
+      <div class="hero-card" id="top-cotiza">
         <div class="hc-label">Cotiza en 1 clic</div>
         <h2 class="hc-title">¿Qué superficie necesitas impermeabilizar?</h2>
         <ul class="hc-grid">
@@ -665,333 +734,318 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 
 <!-- SERVICIOS -->
 <section id="servicios">
-  <div class="section-label">Lo que vendemos</div>
-  <h2 class="section-title">Un sistema instalado.<br>Completo. Garantizado.</h2>
-  <p style="font-size:15px;color:var(--muted);max-width:600px;margin-bottom:56px;line-height:1.7;">No vendemos materiales ni asesorías. Vendemos el resultado: tu techo impermeabilizado, con membrana asfáltica instalada por nuestro equipo y respaldado por contrato. El mismo sistema, para cualquier superficie y escala.</p>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="section-label">Lo que vendemos</div>
+      <h2 class="section-title">Un sistema instalado.<br>Completo. Garantizado.</h2>
+      <p class="sec-lead">No vendemos materiales ni asesorías. Vendemos el resultado: tu techo impermeabilizado, con membrana asfáltica instalada por nuestro equipo y respaldado por contrato. El mismo sistema, para cualquier superficie y escala.</p>
+    </div>
 
-  <div class="etapas-grid">
-
-    <div class="etapa-card">
-      <div class="etapa-num">01</div>
-      <div class="etapa-connector"></div>
-      <div class="etapa-body">
+    <ol class="etapas">
+      <li class="etapa">
+        <div class="etapa-top"><span class="ico-box ico-box--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 13l2 2 4-4"/></svg></span><span class="etapa-num">01</span></div>
         <div class="etapa-label">Diagnóstico</div>
-        <div class="etapa-title">Visita técnica en terreno</div>
+        <h3 class="etapa-title">Visita técnica en terreno</h3>
         <p class="etapa-desc">Un especialista de Impertech visita tu propiedad, evalúa la superficie, identifica el origen de las filtraciones y define el sistema correcto. Todo antes de que gastes un peso.</p>
-        <ul class="etapa-includes">
-          <li>Evaluación completa de la cubierta</li>
-          <li>Informe del estado actual</li>
-          <li>Cotización formal con todo incluido</li>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Evaluación completa de la cubierta</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Informe del estado actual</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cotización formal con todo incluido</li>
         </ul>
-        <span class="etapa-tag">Coordinamos por WhatsApp</span>
-      </div>
-    </div>
-
-    <div class="etapa-card">
-      <div class="etapa-num">02</div>
-      <div class="etapa-connector"></div>
-      <div class="etapa-body">
+        <span class="tag">Coordinamos por WhatsApp</span>
+      </li>
+      <li class="etapa">
+        <div class="etapa-top"><span class="ico-box ico-box--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><span class="etapa-num">02</span></div>
         <div class="etapa-label">Instalación</div>
-        <div class="etapa-title">Sistema de membrana asfáltica instalado</div>
+        <h3 class="etapa-title">Sistema de membrana asfáltica instalado</h3>
         <p class="etapa-desc">Nuestro equipo ejecuta el trabajo completo: retiro del sistema anterior, preparación de la superficie y aplicación de membrana asfáltica de origen italiano. Sin subcontratos, sin parches.</p>
-        <ul class="etapa-includes">
-          <li>Retiro del sistema existente</li>
-          <li>Preparación e imprimación de superficie</li>
-          <li>Instalación de membrana bicapa</li>
-          <li>Aplicable en zinc, losa, OSB, plancha y más</li>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Retiro del sistema existente</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparación e imprimación de superficie</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Instalación de membrana bicapa</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aplicable en zinc, losa, OSB, plancha y más</li>
         </ul>
-        <span class="etapa-tag">Residencial · Comercial · Industrial</span>
-      </div>
-    </div>
-
-    <div class="etapa-card">
-      <div class="etapa-num">03</div>
-      <div class="etapa-body">
+        <span class="tag">Residencial · Comercial · Industrial</span>
+      </li>
+      <li class="etapa">
+        <div class="etapa-top"><span class="ico-box ico-box--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span class="etapa-num">03</span></div>
         <div class="etapa-label">Respaldo</div>
-        <div class="etapa-title">Certificado de garantía por escrito</div>
+        <h3 class="etapa-title">Certificado de garantía por escrito</h3>
         <p class="etapa-desc">Al terminar la obra recibes un contrato firmado con garantía de 2 a 5 años sobre mano de obra y sistema. No es una promesa verbal — es un documento con tu nombre y el nuestro.</p>
-        <ul class="etapa-includes">
-          <li>Certificado de garantía firmado</li>
-          <li>Factura o boleta tributaria</li>
-          <li>Registro fotográfico del proceso</li>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Certificado de garantía firmado</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Factura o boleta tributaria</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Registro fotográfico del proceso</li>
         </ul>
-        <span class="etapa-tag">Garantía 2 a 5 años · Documentada</span>
-      </div>
-    </div>
-
+        <span class="tag">Garantía 2 a 5 años · Documentada</span>
+      </li>
+    </ol>
   </div>
 </section>
 
 <!-- SERVICIOS COMPLEMENTARIOS -->
-<section style="padding:56px 40px;background:var(--navy2);">
-  <div class="section-label">Servicios complementarios</div>
-  <h2 class="section-title" style="margin-bottom:16px;">También construimos<br>la estructura</h2>
-  <p style="font-size:15px;color:var(--muted);max-width:560px;line-height:1.7;margin-bottom:48px;">Antes de impermeabilizar, a veces hay que construir. Ejecutamos la estructura del techo desde cero — o la reparamos — y luego instalamos el sistema de membrana. Un solo equipo, un solo contrato.</p>
-
-  <div class="complementary-grid" style="display:grid;gap:3px;background:var(--faint);">
-
-    <div style="background:var(--navy);padding:32px 28px;border-top:3px solid transparent;transition:border-top-color .2s;" onmouseenter="this.style.borderTopColor='#F05A28'" onmouseleave="this.style.borderTopColor='transparent'">
-      <div style="font-size:28px;margin-bottom:16px;">🏗️</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;color:#fff;margin-bottom:10px;">Estructura completa</div>
-      <p style="font-size:13px;color:rgba(240,237,230,.5);line-height:1.65;margin-bottom:16px;">Diseño y construcción de cerchas, vigas y cubierta desde cero. Para proyectos nuevos o ampliaciones donde no existe estructura previa.</p>
-      <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(240,90,40,.3);padding-bottom:2px;">Residencial · Industrial</span>
+<section class="sec-alt" id="complementarios">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="section-label">Servicios complementarios</div>
+      <h2 class="section-title">También construimos<br>la estructura</h2>
+      <p class="sec-lead">Antes de impermeabilizar, a veces hay que construir. Ejecutamos la estructura del techo desde cero — o la reparamos — y luego instalamos el sistema de membrana. Un solo equipo, un solo contrato.</p>
     </div>
 
-    <div style="background:var(--navy);padding:32px 28px;border-top:3px solid transparent;transition:border-top-color .2s;" onmouseenter="this.style.borderTopColor='#F05A28'" onmouseleave="this.style.borderTopColor='transparent'">
-      <div style="font-size:28px;margin-bottom:16px;">🔧</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;color:#fff;margin-bottom:10px;">Reparación estructural</div>
-      <p style="font-size:13px;color:rgba(240,237,230,.5);line-height:1.65;margin-bottom:16px;">Refuerzo o reemplazo de elementos dañados — vigas podridas, cerchas debilitadas, cubiertas deterioradas — antes de aplicar el sistema de impermeabilización.</p>
-      <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(240,90,40,.3);padding-bottom:2px;">Diagnóstico incluido</span>
+    <ul class="comp-grid">
+      <li class="comp-card">
+        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18L12 6l10 12M2 18h20M7 12l3 6M17 12l-3 6M12 6v12"/></svg></span>
+        <h3 class="card-title">Estructura completa</h3>
+        <p class="card-desc">Diseño y construcción de cerchas, vigas y cubierta desde cero. Para proyectos nuevos o ampliaciones donde no existe estructura previa.</p>
+        <span class="tag">Residencial · Industrial</span>
+      </li>
+      <li class="comp-card">
+        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3 18l3 3 6.2-6.2a4 4 0 0 0 5.3-5.3l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
+        <h3 class="card-title">Reparación estructural</h3>
+        <p class="card-desc">Refuerzo o reemplazo de elementos dañados — vigas podridas, cerchas debilitadas, cubiertas deterioradas — antes de aplicar el sistema de impermeabilización.</p>
+        <span class="tag">Diagnóstico incluido</span>
+      </li>
+      <li class="comp-card">
+        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5M3 9h18M5 9v11M19 9v11M3 20h18M9 13h6"/></svg></span>
+        <h3 class="card-title">Cubierta y plataforma</h3>
+        <p class="card-desc">Instalación de la cubierta o plataforma estructural (OSB, plancha, zinc) sobre la que irá la membrana. La base correcta define cuánto dura el sistema.</p>
+        <span class="tag">Con o sin impermeabilización</span>
+      </li>
+      <li class="comp-card">
+        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11zM9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
+        <h3 class="card-title">Inyección de poliuretano</h3>
+        <p class="card-desc">Sello de grietas activas y filtraciones bajo presión de agua mediante inyección de resina de poliuretano expansivo. Ideal para muros de contención, subterráneos y juntas de hormigón.</p>
+        <span class="tag">Muros · Subterráneos · Juntas</span>
+      </li>
+    </ul>
+    <div class="inline-cta">
+      <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 13l2 2 4-4"/></svg></span>
+      <div class="inline-cta-txt">
+        <strong>¿Necesitas estructura antes de impermeabilizar?</strong>
+        <span>Lo evaluamos en la misma visita técnica y te cotizamos todo junto.</span>
+      </div>
+      <a class="btn-primary" href="https://wa.me/56976792677?text=Hola%2C%20necesito%20cotizar%20construcci%C3%B3n%20de%20estructura%20y%2Fo%20impermeabilizaci%C3%B3n">Coordinar visita técnica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-
-    <div style="background:var(--navy);padding:32px 28px;border-top:3px solid transparent;transition:border-top-color .2s;" onmouseenter="this.style.borderTopColor='#F05A28'" onmouseleave="this.style.borderTopColor='transparent'">
-      <div style="font-size:28px;margin-bottom:16px;">📐</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;color:#fff;margin-bottom:10px;">Cubierta y plataforma</div>
-      <p style="font-size:13px;color:rgba(240,237,230,.5);line-height:1.65;margin-bottom:16px;">Instalación de la cubierta o plataforma estructural (OSB, plancha, zinc) sobre la que irá la membrana. La base correcta define cuánto dura el sistema.</p>
-      <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(240,90,40,.3);padding-bottom:2px;">Con o sin impermeabilización</span>
-    </div>
-
-    <div style="background:var(--navy);padding:32px 28px;border-top:3px solid transparent;transition:border-top-color .2s;" onmouseenter="this.style.borderTopColor='#F05A28'" onmouseleave="this.style.borderTopColor='transparent'">
-      <div style="font-size:28px;margin-bottom:16px;">💧</div>
-      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:19px;text-transform:uppercase;color:#fff;margin-bottom:10px;">Inyección de poliuretano</div>
-      <p style="font-size:13px;color:rgba(240,237,230,.5);line-height:1.65;margin-bottom:16px;">Sello de grietas activas y filtraciones bajo presión de agua mediante inyección de resina de poliuretano expansivo. Ideal para muros de contención, subterráneos y juntas de hormigón.</p>
-      <span style="font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);border-bottom:1px solid rgba(240,90,40,.3);padding-bottom:2px;">Muros · Subterráneos · Juntas</span>
-    </div>
-
-  </div>
-
-  <div style="margin-top:28px;padding:20px 24px;background:rgba(240,90,40,.06);border:1px solid rgba(240,90,40,.15);border-radius:2px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
-    <div>
-      <div style="font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;">¿Necesitas estructura antes de impermeabilizar?</div>
-      <div style="font-size:13px;color:var(--muted);">Lo evaluamos en la misma visita técnica y te cotizamos todo junto.</div>
-    </div>
-    <a href="https://wa.me/56976792677?text=Hola%2C%20necesito%20cotizar%20construcci%C3%B3n%20de%20estructura%20y%2Fo%20impermeabilizaci%C3%B3n" style="display:inline-flex;align-items:center;gap:8px;background:var(--orange);color:#fff;padding:12px 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;text-decoration:none;">Coordinar visita técnica</a>
   </div>
 </section>
 
 <!-- WHY -->
 <section class="why">
-  <div class="why-grid">
+  <div class="wrap why-grid">
     <div>
+    <div class="sec-head">
       <div class="section-label">Por qué elegirnos</div>
-      <h2 class="section-title" style="margin-bottom:0;">La diferencia<br>Impertech</h2>
-      <div class="why-points">
-        <div class="why-point">
-          <div class="why-num">01</div>
-          <div><div class="why-ctitle">Reemplazamos el sistema completo</div><div class="why-cdesc">No hacemos parches. Retiramos todo el sistema existente e instalamos uno nuevo desde cero, garantizando durabilidad real.</div></div>
-        </div>
-        <div class="why-point">
-          <div class="why-num">02</div>
-          <div><div class="why-ctitle">Materiales importados de alta performance</div><div class="why-cdesc">Trabajamos con membrana asfáltica de origen italiano con 25 años de vida útil. Mismo material en cada obra.</div></div>
-        </div>
-        <div class="why-point">
-          <div class="why-num">03</div>
-          <div><div class="why-ctitle">Garantía documentada por contrato</div><div class="why-cdesc">Cada proyecto incluye contrato firmado con garantía de 2 a 5 años. Tú tienes respaldo real, no solo una promesa verbal.</div></div>
-        </div>
-        <div class="why-point">
-          <div class="why-num">04</div>
-          <div><div class="why-ctitle">Equipo propio, sin subcontratos</div><div class="why-cdesc">Toda la instalación la ejecuta nuestro equipo. Control de calidad en cada etapa, sin terceros no supervisados.</div></div>
-        </div>
-      </div>
+      <h2 class="section-title">La diferencia<br>Impertech</h2>
+    </div>
+
+      <ul class="why-points">
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 8M20 4v4h-4M20 12a8 8 0 0 1-14 5.3L4 16M4 20v-4h4"/></svg></span><div><h3 class="why-ctitle">Reemplazamos el sistema completo</h3><p class="why-cdesc">No hacemos parches. Retiramos todo el sistema existente e instalamos uno nuevo desde cero, garantizando durabilidad real.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg></span><div><h3 class="why-ctitle">Materiales importados de alta performance</h3><p class="why-cdesc">Trabajamos con membrana asfáltica de origen italiano con 25 años de vida útil. Mismo material en cada obra.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></span><div><h3 class="why-ctitle">Garantía documentada por contrato</h3><p class="why-cdesc">Cada proyecto incluye contrato firmado con garantía de 2 a 5 años. Tú tienes respaldo real, no solo una promesa verbal.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 6.5M18.5 14.5a6.5 6.5 0 0 1 3 5.5"/></svg></span><div><h3 class="why-ctitle">Equipo propio, sin subcontratos</h3><p class="why-cdesc">Toda la instalación la ejecuta nuestro equipo. Control de calidad en cada etapa, sin terceros no supervisados.</p></div></li>
+      </ul>
     </div>
     <div class="surfaces-box">
       <div class="surfaces-title">Superficies que trabajamos</div>
-      <ul class="surfaces-list">
-        <li><span class="dot"></span> Zinc galvanizado</li>
-        <li><span class="dot"></span> Losa de hormigón</li>
-        <li><span class="dot"></span> OSB estructural</li>
-        <li><span class="dot"></span> Plancha metálica</li>
-        <li><span class="dot"></span> Tejado de asfalto (shingle)</li>
-        <li><span class="dot"></span> Fibrocemento</li>
-        <li><span class="dot"></span> Terrazas y balcones</li>
-        <li><span class="dot"></span> Estacionamientos en altura</li>
+      <ul class="surfaces-grid">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"/></svg><span>Zinc galvanizado</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v5H3zM5 15v5M19 15v5M3 10l3-4h12l3 4"/></svg><span>Losa de hormigón</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM7 8l3 1M12 7l4 2M7 13l4-1M13 14l4 1M8 17l3-1"/></svg><span>OSB estructural</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v10H3zM7 7v10M11 7v10M15 7v10M19 7v10"/></svg><span>Plancha metálica</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18M3 14h18M3 20h18M6 8a3 3 0 0 0 6 0M12 8a3 3 0 0 0 6 0M3 14a3 3 0 0 0 6 0M9 14a3 3 0 0 0 6 0M15 14a3 3 0 0 0 6 0"/></svg><span>Tejado de asfalto (shingle)</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l4-3 4 3 4-3 4 3 2-1.5M3 8v11h18V8M3 13l4-3 4 3 4-3 4 3 2-1.5"/></svg><span>Fibrocemento</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M4 9v12h16V9M9 21v-5h6v5M7 9V5h10v4"/></svg><span>Terrazas y balcones</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM9 17V7h4a3 3 0 0 1 0 6H9"/></svg><span>Estacionamientos en altura</span></li>
       </ul>
+      <a class="surfaces-cta" href="#top-cotiza">¿No ves tu superficie? Cuéntanos tu caso<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </section>
 
 <!-- GALERÍA -->
 <section id="proyectos">
-  <div class="section-label">Proyectos</div>
-  <h2 class="section-title">Nuestros trabajos</h2>
-  <div class="gallery-filters">
-    <button class="filter-btn active">Todos</button>
-    <button class="filter-btn">Techos planos</button>
-    <button class="filter-btn">Terrazas</button>
-    <button class="filter-btn">Residencial</button>
-    <button class="filter-btn">Comercial</button>
-    <button class="filter-btn">Muros</button>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="section-label">Proyectos</div>
+      <h2 class="section-title">Nuestros trabajos</h2>
+    </div>
+
+    <div class="gallery-filters" role="group" aria-label="Filtrar proyectos">
+      <button type="button" class="filter-btn active" data-filter="todos" aria-pressed="true">Todos</button>
+      <button type="button" class="filter-btn" data-filter="techos" aria-pressed="false">Techos planos</button>
+      <button type="button" class="filter-btn" data-filter="terrazas" aria-pressed="false">Terrazas</button>
+      <button type="button" class="filter-btn" data-filter="residencial" aria-pressed="false">Residencial</button>
+      <button type="button" class="filter-btn" data-filter="comercial" aria-pressed="false">Comercial</button>
+      <button type="button" class="filter-btn" data-filter="muros" aria-pressed="false">Muros</button>
+    </div>
+    <ul class="gallery-grid">
+      <li class="gallery-item" data-cat="terrazas residencial">
+        <div class="g-img"><img src="img/galeria-terraza-sistema-liquido.webp" alt="Terraza impermeabilizada con sistema líquido, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1066"></div>
+        <div class="g-cap"><div class="g-tag">Terraza · Losa hormigón</div><div class="g-title">Sistema líquido — vivienda</div></div>
+      </li>
+      <li class="gallery-item" data-cat="terrazas comercial">
+        <div class="g-img"><img src="img/galeria-terraza-edificio-membrana-gris.webp" alt="Terraza de edificio impermeabilizada con membrana asfáltica gris en altura, Santiago" loading="lazy" decoding="async" width="800" height="450"></div>
+        <div class="g-cap"><div class="g-tag">Edificio · Terraza en altura</div><div class="g-title">Membrana bicapa — edificio</div></div>
+      </li>
+      <li class="gallery-item" data-cat="terrazas comercial">
+        <div class="g-img"><img src="img/galeria-terraza-comercial.webp" alt="Terraza comercial con columnas impermeabilizada con membrana asfáltica, Santiago" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-cap"><div class="g-tag">Comercial · Terraza con columnas</div><div class="g-title">Membrana gris — edificio comercial</div></div>
+      </li>
+      <li class="gallery-item" data-cat="techos residencial">
+        <div class="g-img"><img src="img/galeria-techo-plano-rural.webp" alt="Techo plano con membrana asfáltica, proyecto rural zona sur Chile" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-cap"><div class="g-tag">Residencial · Zona Sur</div><div class="g-title">Membrana bicapa — techo plano</div></div>
+      </li>
+      <li class="gallery-item" data-cat="terrazas comercial">
+        <div class="g-img"><img src="img/galeria-instalacion-rollos-terraza.webp" alt="Proceso de instalación membrana asfáltica con rollos en terraza edificio Santiago" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-cap"><div class="g-tag">En proceso · Edificio</div><div class="g-title">Instalación en curso — terraza</div></div>
+      </li>
+      <li class="gallery-item" data-cat="techos residencial">
+        <div class="g-img"><img src="img/galeria-techo-aereo-rural.webp" alt="Techo impermeabilizado con membrana asfáltica, vista aérea zona rural Chile" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-cap"><div class="g-tag">Residencial · Rural</div><div class="g-title">Membrana bicapa — obra terminada</div></div>
+      </li>
+      <li class="gallery-item" data-cat="techos residencial">
+        <div class="g-img"><img src="img/galeria-bicapa-claraboya.webp" alt="Techo plano impermeabilizado con membrana asfáltica bicapa y claraboya, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1067"></div>
+        <div class="g-cap"><div class="g-tag">Residencial · Techo plano</div><div class="g-title">Membrana bicapa — con claraboya</div></div>
+      </li>
+      <li class="gallery-item" data-cat="muros">
+        <div class="g-img"><img src="img/galeria-muro-perimetral.webp" alt="Muro perimetral con membrana asfáltica instalada, unión sellada entre paños, proyecto en excavación" loading="lazy" decoding="async" width="800" height="1066"></div>
+        <div class="g-cap"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Sello de uniones en muro perimetral</div></div>
+      </li>
+      <li class="gallery-item" data-cat="muros">
+        <div class="g-img"><img src="img/galeria-equipo-muro-altura.webp" alt="Equipo Impertech instalando membrana asfáltica en muro de hormigón, obra en altura" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-cap"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Instalación en muro de hormigón</div></div>
+      </li>
+    </ul>
+    <div class="gallery-cta"><span>¿Quieres ver más proyectos?</span> <a href="https://wa.me/56976792677">Escríbenos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
-  <div class="gallery-grid">
-    <div class="gallery-item">
-      <img src="img/galeria-terraza-sistema-liquido.webp" alt="Terraza impermeabilizada con sistema líquido, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1066">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Terraza · Losa hormigón</div><div class="g-title">Sistema líquido — vivienda</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-terraza-edificio-membrana-gris.webp" alt="Terraza de edificio impermeabilizada con membrana asfáltica gris en altura, Santiago" loading="lazy" decoding="async" width="800" height="450">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Edificio · Terraza en altura</div><div class="g-title">Membrana bicapa — edificio</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-terraza-comercial.webp" alt="Terraza comercial con columnas impermeabilizada con membrana asfáltica, Santiago" loading="lazy" decoding="async" width="800" height="600">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Comercial · Terraza con columnas</div><div class="g-title">Membrana gris — edificio comercial</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-techo-plano-rural.webp" alt="Techo plano con membrana asfáltica, proyecto rural zona sur Chile" loading="lazy" decoding="async" width="800" height="600">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Residencial · Zona Sur</div><div class="g-title">Membrana bicapa — techo plano</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-instalacion-rollos-terraza.webp" alt="Proceso de instalación membrana asfáltica con rollos en terraza edificio Santiago" loading="lazy" decoding="async" width="800" height="600">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">En proceso · Edificio</div><div class="g-title">Instalación en curso — terraza</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-techo-aereo-rural.webp" alt="Techo impermeabilizado con membrana asfáltica, vista aérea zona rural Chile" loading="lazy" decoding="async" width="800" height="600">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Residencial · Rural</div><div class="g-title">Membrana bicapa — obra terminada</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-bicapa-claraboya.webp" alt="Techo plano impermeabilizado con membrana asfáltica bicapa y claraboya, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1067">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Residencial · Techo plano</div><div class="g-title">Membrana bicapa — con claraboya</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-muro-perimetral.webp" alt="Muro perimetral con membrana asfáltica instalada, unión sellada entre paños, proyecto en excavación" loading="lazy" decoding="async" width="800" height="1066">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Sello de uniones en muro perimetral</div></div>
-    </div>
-    <div class="gallery-item">
-      <img src="img/galeria-equipo-muro-altura.webp" alt="Equipo Impertech instalando membrana asfáltica en muro de hormigón, obra en altura" loading="lazy" decoding="async" width="800" height="600">
-      <div class="g-accent"></div>
-      <div class="g-overlay"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Instalación en muro de hormigón</div></div>
-    </div>
-  </div>
-  <div class="gallery-cta"><span>¿Quieres ver más proyectos?</span> <a href="https://wa.me/56976792677">Escríbenos →</a></div>
 </section>
 
 <!-- CTA STRIP -->
 <div class="cta-strip">
-  <div>
-    <div class="cta-title">¿Tu techo está<br>dando señales?</div>
-    <div class="cta-sub">Humedad en cielo raso, manchas o filtraciones activas. Contáctanos — te respondemos de inmediato.</div>
+  <div class="wrap cta-in">
+    <span class="cta-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19zM12 10v4M12 17h.01"/></svg></span>
+    <div class="cta-txt">
+      <div class="cta-title">¿Tu techo está dando señales?</div>
+      <div class="cta-sub">Humedad en cielo raso, manchas o filtraciones activas. Contáctanos — te respondemos de inmediato.</div>
+    </div>
+    <div class="cta-btns">
+      <a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n" class="btn-white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a>
+      <a href="tel:+56976792677" class="btn-ghost-white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Llamar</a>
+    </div>
   </div>
-  <a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n" class="btn-white">&#128233; Escribir por WhatsApp</a>
 </div>
 
 <!-- PROCESO -->
 <section id="proceso">
-  <div class="section-label">Cómo trabajamos</div>
-  <h2 class="section-title">Proceso de 4 pasos</h2>
-  <div class="steps">
-    <div class="step"><div class="step-num">01</div><div class="step-title">Contacto y diagnóstico</div><div class="step-desc">Conversamos por WhatsApp o teléfono. Te pedimos datos básicos para evaluar tu caso.</div></div>
-    <div class="step"><div class="step-num">02</div><div class="step-title">Visita técnica</div><div class="step-desc">Un especialista va a terreno, inspecciona la superficie y entrega una cotización formal con todo incluido.</div></div>
-    <div class="step"><div class="step-num">03</div><div class="step-title">Ejecución</div><div class="step-desc">Nuestro equipo instala el sistema completo. Retiramos el anterior, preparamos la superficie y aplicamos la membrana.</div></div>
-    <div class="step"><div class="step-num">04</div><div class="step-title">Entrega y garantía</div><div class="step-desc">Firmamos el contrato con garantía de 2 a 5 años. Recibes documentación completa del trabajo realizado.</div></div>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="section-label">Cómo trabajamos</div>
+      <h2 class="section-title">Proceso de 4 pasos</h2>
+    </div>
+
+    <ol class="steps">
+      <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span class="step-n">1</span></span><h3 class="step-title">Contacto y diagnóstico</h3><p class="step-desc">Conversamos por WhatsApp o teléfono. Te pedimos datos básicos para evaluar tu caso.</p></li>
+      <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span class="step-n">2</span></span><h3 class="step-title">Visita técnica</h3><p class="step-desc">Un especialista va a terreno, inspecciona la superficie y entrega una cotización formal con todo incluido.</p></li>
+      <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-3 3-6-6zM11 7l-8 8 3 3 8-8"/></svg><span class="step-n">3</span></span><h3 class="step-title">Ejecución</h3><p class="step-desc">Nuestro equipo instala el sistema completo. Retiramos el anterior, preparamos la superficie y aplicamos la membrana.</p></li>
+      <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-2 6h-4zM12 21a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 13l1 2h2l-1.5 1.3.5 2-2-1.2-2 1.2.5-2L9 15h2z"/></svg><span class="step-n">4</span></span><h3 class="step-title">Entrega y garantía</h3><p class="step-desc">Firmamos el contrato con garantía de 2 a 5 años. Recibes documentación completa del trabajo realizado.</p></li>
+    </ol>
   </div>
 </section>
 
 <!-- RESEÑAS -->
 <section id="resenas" class="reviews">
-  <div class="reviews-header">
-    <div>
+  <div class="wrap">
+    <div class="reviews-header">
+    <div class="sec-head">
       <div class="section-label">Reseñas</div>
-      <h2 class="section-title" style="margin-bottom:0;">Lo que dicen<br>nuestros clientes</h2>
+      <h2 class="section-title">Lo que dicen<br>nuestros clientes</h2>
     </div>
-    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:12px;">
+
       <div class="score-block">
         <div class="score-num">4.9</div>
-        <div><div class="score-stars">★★★★★</div><div class="score-count">9 reseñas en Google</div></div>
+        <div><div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div><div class="score-count">9 reseñas verificadas en Google</div></div>
       </div>
-      <div class="google-badge">&#9733; Verificado en Google</div>
     </div>
-  </div>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Excelente servicio de impermeabilización. Muy profesionales, responsables y puntuales. El trabajo quedó impecable.</p>
-      <div class="review-author"><div class="review-avatar">DM</div><div><div class="review-name">Daniela Manríquez</div><div class="review-meta">Google · Hace 8 semanas</div></div></div>
+    <ul class="reviews-grid">
+      <li class="review-card">
+        <div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <p class="review-text">Excelente servicio de impermeabilización. Muy profesionales, responsables y puntuales. El trabajo quedó impecable.</p>
+        <div class="review-author"><div class="review-avatar">DM</div><div><div class="review-name">Daniela Manríquez</div><div class="review-meta">Google · Hace 8 semanas</div></div></div>
+      </li>
+      <li class="review-card">
+        <div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <p class="review-text">Buen servicio, buena disposición, y lo mejor que resolvieron todos mis problemas. Ya no tengo goteras. Lo recomiendo 100%.</p>
+        <div class="review-author"><div class="review-avatar">RP</div><div><div class="review-name">Rodolfo Ríos Pinilla</div><div class="review-meta">Local Guide · Hace 8 semanas</div></div></div>
+      </li>
+      <li class="review-card">
+        <div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <p class="review-text">Muy buena instalación, buenos los maestros y los profesionales, un trabajo de muy buena calidad. ¡Se pasaron!</p>
+        <div class="review-author"><div class="review-avatar">SL</div><div><div class="review-name">Sebastian Lopez</div><div class="review-meta">Google · Hace 8 semanas</div></div></div>
+      </li>
+      <li class="review-card">
+        <div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <p class="review-text">Se pasaron, me ayudaron mucho con la filtración en la casa de mi mamá. Agradezco mucho su trabajo. 100% recomendados.</p>
+        <div class="review-author"><div class="review-avatar">VU</div><div><div class="review-name">Victor Uriarte Morán</div><div class="review-meta">Google · Hace 8 semanas</div></div></div>
+      </li>
+      <li class="review-card">
+        <div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <p class="review-text">El servicio de instalación fue realizado de manera eficiente y con buenos estándares de calidad. Se cumplieron los compromisos.</p>
+        <div class="review-author"><div class="review-avatar">CS</div><div><div class="review-name">Camila Silva San Martín</div><div class="review-meta">Google · Hace 7 semanas</div></div></div>
+      </li>
+      <li class="review-card">
+        <div class="stars" role="img" aria-label="5 de 5 estrellas"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg></div>
+        <p class="review-text">Excelente servicio, un trabajo muy prolijo y recomendable.</p>
+        <div class="review-author"><div class="review-avatar">DV</div><div><div class="review-name">Daniela Vallejos Sepúlveda</div><div class="review-meta">Google · Hace 7 semanas</div></div></div>
+      </li>
+    </ul>
+    <div class="reviews-btns">
+      <a href="https://search.google.com/local/writereview?placeid=ChIJnYon3uTFYpYRllYLMHBYiG8" class="btn-primary" target="_blank" rel="noopener"><svg class="star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>Déjanos tu reseña</a>
+      <a href="https://search.google.com/local/reviews?placeid=ChIJnYon3uTFYpYRllYLMHBYiG8" class="btn-outline" target="_blank" rel="noopener">Ver todas en Google<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Buen servicio, buena disposición, y lo mejor que resolvieron todos mis problemas. Ya no tengo goteras. Lo recomiendo 100%.</p>
-      <div class="review-author"><div class="review-avatar">RP</div><div><div class="review-name">Rodolfo Ríos Pinilla</div><div class="review-meta">Local Guide · Hace 8 semanas</div></div></div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Muy buena instalación, buenos los maestros y los profesionales, un trabajo de muy buena calidad. ¡Se pasaron!</p>
-      <div class="review-author"><div class="review-avatar">SL</div><div><div class="review-name">Sebastian Lopez</div><div class="review-meta">Google · Hace 8 semanas</div></div></div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Se pasaron, me ayudaron mucho con la filtración en la casa de mi mamá. Agradezco mucho su trabajo. 100% recomendados.</p>
-      <div class="review-author"><div class="review-avatar">VU</div><div><div class="review-name">Victor Uriarte Morán</div><div class="review-meta">Google · Hace 8 semanas</div></div></div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">El servicio de instalación fue realizado de manera eficiente y con buenos estándares de calidad. Se cumplieron los compromisos.</p>
-      <div class="review-author"><div class="review-avatar">CS</div><div><div class="review-name">Camila Silva San Martín</div><div class="review-meta">Google · Hace 7 semanas</div></div></div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">Excelente servicio, un trabajo muy prolijo y recomendable.</p>
-      <div class="review-author"><div class="review-avatar">DV</div><div><div class="review-name">Daniela Vallejos Sepúlveda</div><div class="review-meta">Google · Hace 7 semanas</div></div></div>
-    </div>
-  </div>
-  <div class="reviews-btns">
-    <a href="https://search.google.com/local/writereview?placeid=ChIJnYon3uTFYpYRllYLMHBYiG8" class="btn-google" target="_blank" rel="noopener">&#9733; Déjanos tu reseña</a>
-    <a href="https://search.google.com/local/reviews?placeid=ChIJnYon3uTFYpYRllYLMHBYiG8" class="btn-outline" target="_blank" rel="noopener" style="text-decoration:none;display:inline-flex;align-items:center;">Ver todas en Google</a>
   </div>
 </section>
 
 <!-- FAQ -->
-<section id="faq">
-  <div class="section-label">Preguntas frecuentes</div>
-  <h2 class="section-title">Todo lo que necesitas saber</h2>
-  <div class="faq-grid">
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>¿Cuánto dura una impermeabilización con membrana asfáltica?</span>
-        <span class="icon">+</span>
-      </div>
-      <div class="faq-a">Una membrana asfáltica bicapa de alta calidad tiene una vida útil de 20 a 25 años. Impertech entrega garantía de hasta 5 años en mano de obra y sistema completo.</div>
+<section id="faq" class="sec-alt">
+  <div class="wrap faq-layout">
+    <div class="faq-side">
+    <div class="sec-head">
+      <div class="section-label">Preguntas frecuentes</div>
+      <h2 class="section-title">Todo lo que necesitas saber</h2>
     </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>¿Hacen parches o reemplazan el sistema completo?</span>
-        <span class="icon">+</span>
+
+      <div class="faq-help">
+        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6M12 17h.01"/></svg></span>
+        <strong>¿Tienes otra pregunta?</strong>
+        <p>Escríbenos por WhatsApp y un especialista te responde de inmediato.</p>
+        <a class="btn-primary" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Preguntar por WhatsApp</a>
       </div>
-      <div class="faq-a">Impertech reemplaza el sistema completo. Retiramos todo el material existente, preparamos la superficie y aplicamos la membrana desde cero. No hacemos parches porque no garantizan durabilidad real.</div>
     </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>¿En qué superficies trabajan?</span>
-        <span class="icon">+</span>
-      </div>
-      <div class="faq-a">Trabajamos en zinc galvanizado, losa de hormigón, OSB, plancha metálica, tejado de asfalto (shingle), fibrocemento, terrazas y balcones, y estacionamientos en altura.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>¿Cuánto cuesta impermeabilizar un techo en Santiago?</span>
-        <span class="icon">+</span>
-      </div>
-      <div class="faq-a">El costo varía según el tipo de superficie, acceso y sistema requerido. Realizamos una visita técnica para entregar una cotización formal con todo incluido. Escríbenos y coordinamos una visita técnica.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>¿Trabajan en regiones fuera de Santiago?</span>
-        <span class="icon">+</span>
-      </div>
-      <div class="faq-a">Sí. Atendemos proyectos en todo Chile. Contáctanos para evaluar tu proyecto según ubicación y alcance.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        <span>¿Cuánto tiempo tarda una obra?</span>
-        <span class="icon">+</span>
-      </div>
-      <div class="faq-a">Depende de la superficie y condiciones de acceso. Una obra residencial estándar (80–200 m²) se ejecuta típicamente en 1 a 3 días. Proyectos industriales o de mayor escala se evalúan caso a caso.</div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Cuánto dura una impermeabilización con membrana asfáltica?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Una membrana asfáltica bicapa de alta calidad tiene una vida útil de 20 a 25 años. Impertech entrega garantía de hasta 5 años en mano de obra y sistema completo.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Hacen parches o reemplazan el sistema completo?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Impertech reemplaza el sistema completo. Retiramos todo el material existente, preparamos la superficie y aplicamos la membrana desde cero. No hacemos parches porque no garantizan durabilidad real.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿En qué superficies trabajan?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Trabajamos en zinc galvanizado, losa de hormigón, OSB, plancha metálica, tejado de asfalto (shingle), fibrocemento, terrazas y balcones, y estacionamientos en altura.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Cuánto cuesta impermeabilizar un techo en Santiago?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">El costo varía según el tipo de superficie, acceso y sistema requerido. Realizamos una visita técnica para entregar una cotización formal con todo incluido. Escríbenos y coordinamos una visita técnica.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Trabajan en regiones fuera de Santiago?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Sí. Atendemos proyectos en todo Chile. Contáctanos para evaluar tu proyecto según ubicación y alcance.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Cuánto tiempo tarda una obra?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Depende de la superficie y condiciones de acceso. Una obra residencial estándar (80–200 m²) se ejecuta típicamente en 1 a 3 días. Proyectos industriales o de mayor escala se evalúan caso a caso.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -1059,16 +1113,14 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 </a>
 
 <script>
-function toggleFaq(el) {
-  const item = el.parentElement;
-  item.classList.toggle('open');
-}
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-  });
-});
+(function(){
+  var btns=document.querySelectorAll('.filter-btn'),items=document.querySelectorAll('.gallery-item');
+  btns.forEach(function(btn){btn.addEventListener('click',function(){
+    var f=btn.getAttribute('data-filter');
+    btns.forEach(function(b){var on=b===btn;b.classList.toggle('active',on);b.setAttribute('aria-pressed',on?'true':'false');});
+    items.forEach(function(it){var cats=(it.getAttribute('data-cat')||'').split(' ');it.hidden=!(f==='todos'||cats.indexOf(f)>-1);});
+  });});
+})();
 </script>
 <script>
 (function(){
