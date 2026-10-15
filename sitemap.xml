@@ -10,7 +10,7 @@
 
   <url>
     <loc>https://impertech.cl/blog/</loc>
-    <lastmod>2026-10-03</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -53,6 +53,20 @@
   <url>
     <loc>https://impertech.cl/blog/inyeccion-de-poliuretano-filtraciones.html</loc>
     <lastmod>2026-10-03</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/blog/mejor-epoca-para-impermeabilizar-techo-chile.html</loc>
+    <lastmod>2026-10-15</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/blog/membrana-liquida-vs-membrana-asfaltica.html</loc>
+    <lastmod>2026-10-15</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
