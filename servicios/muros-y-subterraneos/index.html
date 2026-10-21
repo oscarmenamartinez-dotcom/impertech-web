@@ -3,36 +3,252 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Impermeabilización de Muros y Subterráneos | Impertech</title>
-<meta name="description" content="Impermeabilización de muros perimetrales, de contención y subterráneos con membrana asfáltica o inyección de poliuretano. Diagnóstico en terreno y garantía escrita.">
-<link rel="canonical" href="https://impertech.cl/servicios/muros-y-subterraneos/">
-<meta property="og:title" content="Impermeabilización de muros y subterráneos">
-<meta property="og:description" content="Impermeabilización de muros perimetrales, de contención y subterráneos con membrana asfáltica o inyección de poliuretano. Diagnóstico en terreno y garantía escrita.">
-<meta property="og:url" content="https://impertech.cl/servicios/muros-y-subterraneos/">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="es_CL">
-<meta property="og:image" content="https://impertech.cl/img/galeria-equipo-muro-altura.webp">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-
-<link rel="icon" type="image/x-icon" href="/favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-P5YM8DBC8Q"></script>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap"></noscript>
+<link rel="preload" as="image" href="/img/galeria-muro-perimetral.webp" fetchpriority="high">
+<script>
+  (function () {
+    var loaded = false;
+    var evs = ['scroll', 'touchstart', 'pointerdown', 'mousemove', 'keydown'];
+    function loadTag() {
+      if (loaded) return;
+      loaded = true;
+      evs.forEach(function (e) { window.removeEventListener(e, loadTag, true); });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18244838549';
+      document.head.appendChild(s);
+    }
+    // Se carga con la primera interacción del visitante, o a los 4 s de cargada la página.
+    evs.forEach(function (e) { window.addEventListener(e, loadTag, { capture: true, passive: true }); });
+    window.addEventListener('load', function () { setTimeout(loadTag, 4000); });
+  })();
+</script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
   gtag('config', 'G-P5YM8DBC8Q');
-  document.addEventListener('click', function (e) {
-    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
-    if (a) gtag('event', 'whatsapp_click', { event_category: 'contacto', event_label: 'servicios:' + location.pathname });
-  });
-</script>
+  gtag('config', 'AW-18244838549');
 
+  // Evento: click en botón WhatsApp (delegado en document, funciona aunque
+  // el link todavía no exista cuando este script corre en el <head>)
+  //
+  // Antes de abrir WhatsApp, pedimos el teléfono del visitante en un mini-modal.
+  // Con ese dato activamos Conversiones mejoradas (gtag 'set' user_data) antes
+  // de disparar el evento de conversión, lo que mejora el matching que usa
+  // Google Ads para optimizar la puja "Maximizar el valor de las conversiones".
+  // Si el usuario prefiere no dejar el teléfono, puede omitir el paso y de
+  // todas formas llega a WhatsApp, pero NO se registra conversión en Google
+  // Ads (solo el evento whatsapp_click en GA4).
+  (function () {
+    var pendingHref = null;
+    var pendingLabel = '';
+
+    // Solo acepta celulares chilenos válidos (+569XXXXXXXX). Descarta basura
+    // tipo 999999999 o 912345678. Si no es válido devuelve null.
+    function normalizePhoneCL(raw) {
+      var d = String(raw || '').replace(/[^0-9]/g, '');
+      if (d.indexOf('56') === 0) d = d.slice(2);
+      if (d.length === 8) d = '9' + d;
+      if (!/^9[0-9]{8}$/.test(d)) return null;
+      if (/^9([0-9])\1{7}$/.test(d) || d === '912345678' || d === '987654321') return null;
+      return '+56' + d;
+    }
+
+    function hashPhone(tel) {
+      try {
+        return crypto.subtle.digest('SHA-256', new TextEncoder().encode(tel)).then(function (buf) {
+          return Array.prototype.map.call(new Uint8Array(buf), function (b) {
+            return ('0' + b.toString(16)).slice(-2);
+          }).join('');
+        });
+      } catch (e) { return Promise.resolve(null); }
+    }
+
+    function alreadySent(tel) {
+      try { return JSON.parse(localStorage.getItem('imp_tel') || '[]').indexOf(tel) !== -1; }
+      catch (e) { return false; }
+    }
+    function markSent(tel) {
+      try {
+        var l = JSON.parse(localStorage.getItem('imp_tel') || '[]');
+        l.push(tel); localStorage.setItem('imp_tel', JSON.stringify(l));
+      } catch (e) {}
+    }
+
+    // Aviso interno: cada contacto se anota en la planilla de Impertech y dispara
+    // un correo de alerta. Es independiente de la conversión de Google Ads.
+    var LEAD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbxsCmcHFu4W4n5tZIedGJKaKd-9irfoipaISWPW7aVLOcLihXZRrujX8ObC5ynJ_ssq/exec';
+
+    function getGclid() {
+      try {
+        var m = location.search.match(/[?&]gclid=([^&#]+)/);
+        if (m) sessionStorage.setItem('imp_gclid', decodeURIComponent(m[1]));
+        var g = sessionStorage.getItem('imp_gclid');
+        if (g) return g;
+        var c = document.cookie.match(/(?:^|; )_gcl_aw=GCL\.\d+\.([^;]+)/);
+        return c ? c[1] : '';
+      } catch (e) { return ''; }
+    }
+    getGclid();
+
+    function notifyLead(phone) {
+      if (!LEAD_ENDPOINT || LEAD_ENDPOINT.indexOf('https://') !== 0) return;
+      try {
+        // Un aviso por visita (y uno más solo si después deja un teléfono nuevo).
+        var key = 'imp_aviso_' + (phone || 'sin');
+        if (sessionStorage.getItem(key)) return;
+        if (!phone && sessionStorage.getItem('imp_aviso_hecho')) return;
+        sessionStorage.setItem(key, '1');
+        sessionStorage.setItem('imp_aviso_hecho', '1');
+      } catch (e) {}
+      try {
+        var utm = (location.search.match(/[?&]utm_source=([^&#]+)/) || [])[1] || '';
+        var body = JSON.stringify({
+          tel: phone || '',
+          boton: pendingLabel || 'WhatsApp',
+          gclid: getGclid(),
+          utm: decodeURIComponent(utm),
+          ref: document.referrer || '',
+          pagina: location.pathname,
+          movil: /Mobi|Android|iPhone/i.test(navigator.userAgent)
+        });
+        // Sin cookies (credentials: 'omit'): así funciona igual aunque el visitante
+        // tenga varias cuentas de Google abiertas.
+        if (window.fetch) {
+          fetch(LEAD_ENDPOINT, {
+            method: 'POST', mode: 'no-cors', credentials: 'omit', keepalive: true,
+            headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: body
+          }).catch(function () {});
+        }
+      } catch (e) {}
+    }
+
+    // La conversión de Google Ads SOLO se dispara con un teléfono válido y no
+    // repetido. Omitir o tocar fuera del modal ya no cuenta como conversión.
+    function fireConversion(phone) {
+      notifyLead(phone);
+      gtag('event', 'whatsapp_click', {
+        'event_category': 'contacto',
+        'event_label': pendingLabel || 'WhatsApp',
+        'phone_provided': !!phone
+      });
+      if (!phone || alreadySent(phone)) return Promise.resolve();
+      markSent(phone);
+      gtag('set', 'user_data', { phone_number: phone });
+      return hashPhone(phone).then(function (h) {
+        var params = { 'send_to': 'AW-18244838549/EcuxCPuewNwcEJXJ6PtD' };
+        if (h) params.transaction_id = h;
+        gtag('event', 'conversion', params);
+      });
+    }
+
+    function openWhatsApp() {
+      var href = pendingHref;
+      pendingHref = null;
+      closeModal();
+      if (href) window.open(href, '_blank', 'noopener');
+    }
+
+    function closeModal() {
+      var modal = document.getElementById('wa-lead-modal');
+      if (modal) modal.remove();
+      document.body.style.overflow = '';
+    }
+
+    function buildModal() {
+      var wrap = document.createElement('div');
+      wrap.id = 'wa-lead-modal';
+      wrap.setAttribute('role', 'dialog');
+      wrap.setAttribute('aria-modal', 'true');
+      wrap.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(13,27,46,.72);display:flex;align-items:center;justify-content:center;padding:16px;font-family:Barlow,system-ui,sans-serif;';
+      wrap.innerHTML =
+        '<div style="background:#fff;max-width:380px;width:100%;border-radius:6px;padding:28px 24px;box-shadow:0 20px 50px rgba(0,0,0,.35);">' +
+          '<h3 style="margin:0 0 6px;font-family:\'Barlow Condensed\',sans-serif;font-weight:800;font-size:20px;letter-spacing:.3px;color:#0D1B2E;text-transform:uppercase;">Antes de escribirnos</h3>' +
+          '<p style="margin:0 0 16px;font-size:14px;line-height:1.4;color:#4b5563;">Déjanos tu teléfono para poder contactarte si se corta el chat. Es opcional.</p>' +
+          '<input id="wa-lead-phone" type="tel" inputmode="tel" placeholder="+56 9 1234 5678" style="width:100%;box-sizing:border-box;padding:12px 14px;border:1px solid #cbd5e1;border-radius:4px;font-size:15px;margin-bottom:14px;">' +
+          '<div style="display:flex;gap:10px;">' +
+            '<button id="wa-lead-continue" type="button" style="flex:1;background:#CF4A1C;color:#fff;border:none;border-radius:4px;padding:12px 14px;font-family:\'Barlow Condensed\',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;">Continuar a WhatsApp</button>' +
+          '</div>' +
+          '<button id="wa-lead-skip" type="button" style="margin-top:10px;width:100%;background:none;border:none;color:#6b7280;font-size:13px;text-decoration:underline;cursor:pointer;">Prefiero no dejarlo</button>' +
+        '</div>';
+      return wrap;
+    }
+
+    function openModal(href, label) {
+      pendingHref = href;
+      pendingLabel = label;
+      closeModal();
+      var modal = buildModal();
+      document.body.appendChild(modal);
+      document.body.style.overflow = 'hidden';
+
+      var input = document.getElementById('wa-lead-phone');
+      input.focus();
+
+      document.getElementById('wa-lead-continue').addEventListener('click', function () {
+        var raw = input.value || '';
+        var phone = normalizePhoneCL(raw);
+        if (raw.trim() && !phone) {
+          input.style.borderColor = '#dc2626';
+          input.value = '';
+          input.placeholder = 'Ingresa un celular válido: 9 1234 5678';
+          input.focus();
+          return;
+        }
+        fireConversion(phone);
+        openWhatsApp();
+      });
+      document.getElementById('wa-lead-skip').addEventListener('click', function () {
+        fireConversion(null);
+        openWhatsApp();
+      });
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') document.getElementById('wa-lead-continue').click();
+      });
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          // Tocar fuera cierra el modal sin contar conversión ni abrir WhatsApp.
+          pendingHref = null;
+          closeModal();
+        }
+      });
+    }
+
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('a[href*="wa.me"], [onclick*="wa.me"]');
+      if (!el) return;
+
+      // Ya lo manejamos vía modal: evitamos la navegación / onclick original.
+      e.preventDefault();
+      if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+      var href = el.tagName === 'A'
+        ? el.getAttribute('href')
+        : (el.getAttribute('onclick').match(/https:\/\/wa\.me\/[^'")]+/) || [])[0];
+
+      var label = (el.innerText || '').trim() || 'WhatsApp';
+      openModal(href, label);
+    }, true);
+  })();
+</script>
+<title>Impermeabilización de Muros y Subterráneos | Impertech</title>
+<meta name="description" content="Impermeabilización de muros perimetrales, de contención y subterráneos con membrana asfáltica o inyección de poliuretano. Diagnóstico en terreno y garantía escrita.">
+<link rel="canonical" href="https://impertech.cl/servicios/muros-y-subterraneos/">
+<meta property="og:title" content="Impermeabilización de muros y subterráneos — Impertech">
+<meta property="og:description" content="Impermeabilización de muros perimetrales, de contención y subterráneos con membrana asfáltica o inyección de poliuretano. Diagnóstico en terreno y garantía escrita.">
+<meta property="og:url" content="https://impertech.cl/servicios/muros-y-subterraneos/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:image" content="https://impertech.cl/img/galeria-muro-perimetral.webp">
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="stylesheet" href="/css/servicios.css">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -68,6 +284,7 @@
   "serviceType": "Impermeabilización de muros",
   "description": "Impermeabilización de muros perimetrales, de contención y subterráneos con membrana asfáltica o inyección de poliuretano. Diagnóstico en terreno y garantía escrita.",
   "url": "https://impertech.cl/servicios/muros-y-subterraneos/",
+  "image": "https://impertech.cl/img/galeria-muro-perimetral.webp",
   "provider": {
     "@type": "RoofingContractor",
     "@id": "https://impertech.cl/#empresa",
@@ -123,196 +340,135 @@
   ]
 }
 </script>
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-:root{
-  --navy:#0D1B2E;
-  --navy2:#111F31;
-  --navy3:#162236;
-  --navy4:#1A2B42;
-  --navy5:#070F1A;
-  --orange:#F05A28;
-  --text:#F0EDE6;
-  --muted:rgba(240,237,230,0.65);
-  --faint:rgba(240,237,230,0.08);
-  --border:rgba(240,237,230,0.06);
-}
-html{scroll-behavior:smooth;}
-body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
-a{text-decoration:none;color:inherit;}
-
-nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:var(--navy);border-bottom:1px solid rgba(240,90,40,0.15);}
-.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;text-transform:uppercase;}
-.logo span{color:var(--orange);}
-.btn-nav{background:var(--orange);color:#fff;border:none;padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
-
-.article-header{padding:56px 40px 40px;max-width:760px;margin:0 auto;}
-.breadcrumb{font-size:12px;color:rgba(240,237,230,.4);text-transform:uppercase;letter-spacing:1px;margin-bottom:20px;}
-.breadcrumb a{color:var(--orange);}
-.article-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:46px;line-height:1.03;text-transform:uppercase;color:#fff;letter-spacing:-.5px;margin-bottom:18px;}
-.article-meta{font-size:13px;color:rgba(240,237,230,.4);}
-
-.article-body{max-width:760px;margin:0 auto;padding:0 40px 64px;font-size:16px;line-height:1.8;color:rgba(240,237,230,.82);}
-.article-body p{margin-bottom:24px;}
-.article-body h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30px;text-transform:uppercase;color:#fff;letter-spacing:-.3px;margin:44px 0 18px;}
-.article-body h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;color:var(--orange);letter-spacing:.3px;margin:32px 0 12px;}
-.article-body ul,.article-body ol{margin:0 0 24px 22px;}
-.article-body li{margin-bottom:10px;}
-.article-body strong{color:#fff;}
-
-.highlight-box{background:var(--navy4);border-left:3px solid var(--orange);padding:24px 28px;border-radius:2px;margin:32px 0;}
-.highlight-box p{margin-bottom:0;font-size:15px;}
-.highlight-box .highlight-label{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:10px;}
-
-.faq-item{border-bottom:1px solid var(--border);padding:22px 0;}
-.faq-q{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:#fff;margin-bottom:10px;}
-.faq-a{font-size:15px;color:rgba(240,237,230,.7);line-height:1.7;}
-
-.cta-strip{background:var(--orange);padding:48px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;margin-top:16px;}
-.cta-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;color:#fff;letter-spacing:-.3px;max-width:500px;}
-.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--orange);border:none;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;white-space:nowrap;}
-
-footer{background:var(--navy5);padding:32px 40px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:rgba(240,237,230,.3);}
-
-@media(max-width:640px){
-  h1{font-size:32px;}
-  .article-header,.article-body{padding-left:20px;padding-right:20px;}
-  nav{padding:16px 20px;}
-}
-
-.price-table-wrap{overflow-x:auto;margin:28px 0;}
-.price-table{width:100%;border-collapse:collapse;font-size:14.5px;min-width:520px;}
-.price-table th{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);text-align:left;padding:12px 14px;border-bottom:2px solid rgba(240,90,40,0.3);}
-.price-table td{padding:14px;border-bottom:1px solid var(--border);color:rgba(240,237,230,.8);}
-.price-table tr:hover td{background:var(--navy3);}
-.article-body a.inline{color:var(--orange);border-bottom:1px solid rgba(240,90,40,.4);}
-@media(max-width:640px){.price-table{font-size:12.5px;}.price-table th,.price-table td{padding:8px 6px;}}
-
-.logo{display:inline-flex;align-items:center;gap:8px;}
-.logo img{display:block;}
-.nav-links{display:flex;gap:26px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;}
-.nav-links a{color:rgba(240,237,230,.75);}
-.nav-links a:hover{color:var(--orange);}
-.svc-hero-img{max-width:760px;margin:0 auto 40px;padding:0 40px;}
-.svc-hero-img img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border-radius:2px;display:block;}
-.answer-box{background:var(--navy3);border:1px solid rgba(240,90,40,.25);padding:22px 26px;border-radius:2px;margin:0 0 32px;}
-.answer-box p{margin:0;font-size:16px;}
-.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin:28px 0 36px;}
-.svc-card{display:block;background:var(--navy4);border-top:3px solid var(--orange);padding:22px;border-radius:2px;transition:background .15s;}
-.svc-card:hover{background:var(--navy3);}
-.svc-card .t{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;color:#fff;margin-bottom:8px;}
-.svc-card .d{font-size:14px;line-height:1.55;color:rgba(240,237,230,.7);}
-.svc-card .p{margin-top:12px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;color:var(--orange);text-transform:uppercase;}
-footer .ft-links{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 22px;margin-bottom:16px;font-size:13px;}
-footer .ft-links a{color:rgba(240,237,230,.6);}
-footer .ft-links a:hover{color:var(--orange);}
-@media(max-width:760px){.nav-links{display:none;}.svc-hero-img{padding:0 20px;}}
-@media(max-width:420px){.btn-nav{padding:9px 12px;font-size:12px;}}
-.logo .lw{font-weight:inherit;color:inherit;}
-
-</style>
 </head>
 <body>
 
-<nav>
-  <a href="/" class="logo" aria-label="Impertech, inicio"><img src="/img/logo-escudo.webp" alt="" width="30" height="30"><b class="lw">IMPER<span>TECH</span></b></a>
-  <div class="nav-links">
-    <a href="/servicios/">Servicios</a>
-    <a href="/#proyectos">Proyectos</a>
-    <a href="/blog/">Blog</a>
-  </div>
-  <a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20la%20impermeabilizaci%C3%B3n%20de%20un%20muro%20o%20subterr%C3%A1neo" class="btn-nav">Cotizar por WhatsApp</a>
-</nav>
-
-<div class="article-header">
-  <div class="breadcrumb"><a href="/">Inicio</a> / <a href="/servicios/">Servicios</a> / Muros y subterráneos</div>
-  <div class="article-label">Servicio</div>
-  <h1>Impermeabilización de muros y subterráneos</h1>
-  <div class="article-meta">Impertech · Actualizado el 21 de octubre de 2026</div>
-</div>
-
-<figure class="svc-hero-img"><img src="/img/galeria-equipo-muro-altura.webp" alt="Equipo de Impertech impermeabilizando un muro en altura" width="800" height="450" loading="eager" fetchpriority="high"></figure>
-
-<article class="article-body">
-<div class="answer-box"><p>Un muro se impermeabiliza de dos formas: <strong>por fuera, con membrana asfáltica</strong>, cuando hay acceso a la cara que recibe el agua; o <strong>por dentro, con inyección de poliuretano</strong>, cuando el agua entra por grietas o juntas y no se puede excavar. Impertech hace ambas y define cuál corresponde en la visita técnica.</p></div>
-
-<p>El error más común con los muros es tratar la mancha y no la causa. Pintar con un impermeabilizante por la cara interior no detiene un agua que viene empujando desde el terreno: la humedad sigue entrando y la pintura se sopla. Antes de proponer una solución revisamos de dónde viene el agua y con cuánta presión.</p>
-
-<h2>Qué muros impermeabilizamos</h2>
-<ul>
-<li><strong>Muros de contención</strong> que reciben agua del terreno o del escurrimiento de una ladera.</li>
-<li><strong>Muros perimetrales y medianeros</strong> expuestos a la lluvia.</li>
-<li><strong>Subterráneos, bodegas y estacionamientos</strong> bajo nivel.</li>
-<li><strong>Sobrecimientos</strong> con humedad que sube por capilaridad.</li>
-<li><strong>Fosos de ascensor, salas de bombas y estanques</strong> de hormigón.</li>
+<nav class="hd-nav" id="hd-nav" aria-label="Principal"><div class="hd-nav-in">
+<a href="/" class="hd-brand"><img src="/img/logo-escudo.webp" alt="Impertech isotipo" width="42" height="42"><div class="logo">Imper<span>tech</span></div></a>
+<ul class="hd-links" id="hd-links">
+<li><a href="/servicios/"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>Servicios</a></li>
+<li><a href="/#proyectos"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 16l5-5 4 4 3-3 6 6M15 9h.01"/></svg>Proyectos</a></li>
+<li><a href="#proceso"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h2M5 12h2M5 18h2M11 6h8M11 12h8M11 18h8"/></svg>Proceso</a></li>
+<li><a href="/#resenas"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/></svg>Reseñas</a></li>
+<li><a href="#faq"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6M12 17h.01"/></svg>FAQ</a></li>
+<li><a href="/blog/"><svg class="hd-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg>Blog</a></li>
 </ul>
+<div class="hd-actions">
+<a class="hd-iconbtn hd-call" href="tel:+56976792677" aria-label="Llamar al +56 9 7679 2677"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></a>
+<a class="btn-nav" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20la%20impermeabilizaci%C3%B3n%20de%20un%20muro%20o%20subterr%C3%A1neo" aria-label="Cotizar ahora por WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span class="btn-nav-txt">Cotizar ahora</span></a>
+<button type="button" class="hd-iconbtn hd-menu-btn" id="hd-menu-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="hd-links"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></div></nav>
 
-<h2>Dos soluciones según el caso</h2>
-<div class="price-table-wrap">
-<table class="price-table">
-<thead><tr><th>Solución</th><th>Cuándo se usa</th><th>Ventaja</th></tr></thead>
-<tbody>
-<tr><td><strong>Membrana asfáltica por la cara exterior</strong></td><td>Obra nueva, muros perimetrales o cuando hay acceso a la cara que recibe el agua</td><td>Impermeabiliza todo el paño, no solo las grietas</td></tr>
-<tr><td><strong><a class="inline" href="/servicios/inyeccion-de-poliuretano/">Inyección de poliuretano</a></strong></td><td>Grietas y juntas que filtran en subterráneos y muros ya construidos</td><td>Se hace desde adentro, sin excavar, incluso con agua corriendo</td></tr>
-</tbody>
-</table>
+<main>
+<section style="padding:0;"><div class="hero hero--svc">
+<img class="hero-bg" src="/img/galeria-muro-perimetral.webp" alt="" width="1280" height="960" fetchpriority="high" decoding="async">
+<div class="hero-shade"></div>
+<div class="hero-in"><div class="hero-copy">
+<nav aria-label="Ruta"><ol class="crumbs"><li><a href="/">Inicio</a></li><li><a href="/servicios/">Servicios</a></li><li>Muros y subterráneos</li></ol></nav>
+<div class="hero-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/></svg>Servicio · Muros y subterráneos</div>
+<h1>Muros <span class="accent">y subterráneos.</span></h1>
+<p class="hero-sub">Un muro se impermeabiliza de dos formas: <strong>por fuera, con membrana asfáltica</strong>, cuando hay acceso a la cara que recibe el agua; o <strong>por dentro, con inyección de poliuretano</strong>, cuando entra por grietas o juntas y no se puede excavar. Definimos cuál corresponde en la visita técnica.</p>
+<ul class="hero-stats"><li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><span><span class="hs-num">Membrana</span><span class="hs-label">Por el exterior</span></span></li><li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4M17 7l3-3M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></svg></span><span><span class="hs-num">Inyección</span><span class="hs-label">Por el interior</span></span></li><li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span><span class="hs-num">Garantía</span><span class="hs-label">Por escrito</span></span></li></ul>
+<p class="svc-updated">Información actualizada al 21 de octubre de 2026</p>
 </div>
-
-<div class="highlight-box">
-<div class="highlight-label">Humedad pareja en todo el muro</div>
-<p>Si la humedad es uniforme y no hay una grieta definida, puede ser capilaridad o condensación. En ese caso la inyección no aplica y la solución pasa por cortar el ingreso de agua por la base o mejorar la ventilación. Lo vemos en terreno.</p>
-</div>
-
-<h2>Cómo lo hacemos</h2>
-<ol>
-<li><strong>Diagnóstico:</strong> origen del agua, presión, grietas activas y estado del hormigón.</li>
-<li><strong>Preparación:</strong> limpieza, retiro de revestimientos sueltos y reparación de nidos de piedra.</li>
-<li><strong>Impermeabilización:</strong> membrana asfáltica con remates en la base y coronación, o inyección de poliuretano en grietas y juntas.</li>
-<li><strong>Verificación</strong> de que la zona quede seca, registro fotográfico y garantía.</li>
-</ol>
-
-<h2>Cómo trabajamos</h2>
-<ol>
-<li><strong>Contacto.</strong> Nos escribes por WhatsApp al +56 9 7679 2677 con fotos y la ubicación.</li>
-<li><strong>Visita técnica.</strong> Revisamos la superficie en terreno, buscamos el origen de la filtración y te entregamos una cotización formal con todo incluido.</li>
-<li><strong>Ejecución.</strong> Nuestro equipo propio, sin subcontratos, retira el sistema anterior, prepara la base e instala el sistema nuevo completo.</li>
-<li><strong>Entrega y garantía.</strong> Recibes certificado de garantía por escrito de hasta 5 años, factura y registro fotográfico del trabajo.</li>
-</ol>
-<p>El pago es por avance: 50 % al inicio, 25 % en el avance y 25 % al terminar. Trabajamos en la Región Metropolitana, Valparaíso y O'Higgins, y evaluamos proyectos en otras regiones según su ubicación y escala.</p>
-
-<h2>Preguntas frecuentes</h2>
-<div class="faq-item">
-  <div class="faq-q">¿Cómo se impermeabiliza un muro de contención?</div>
-  <div class="faq-a">Si hay acceso a la cara que recibe el agua, con membrana asfáltica por el exterior. Si el muro ya está construido y filtra por grietas o juntas, con inyección de poliuretano desde el interior, sin excavar.</div>
-</div>
-<div class="faq-item">
-  <div class="faq-q">¿Sirve pintar un muro con impermeabilizante por dentro?</div>
-  <div class="faq-a">No cuando el agua viene con presión desde el terreno. La pintura no detiene ese empuje: la humedad sigue entrando y la pintura termina soplándose.</div>
-</div>
-<div class="faq-item">
-  <div class="faq-q">¿Cómo se soluciona una filtración en un subterráneo?</div>
-  <div class="faq-a">Se identifica por dónde entra el agua. Si es por grietas o juntas de hormigón, se sella con inyección de poliuretano desde el interior. Si la filtración viene de una terraza o jardinera de arriba, se impermeabiliza esa superficie.</div>
-</div>
-</article>
-
-<div class="cta-strip">
-  <div class="cta-title">¿Humedad o filtración en un muro?</div>
-  <a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20la%20impermeabilizaci%C3%B3n%20de%20un%20muro%20o%20subterr%C3%A1neo" class="btn-white">Escríbenos al +56 9 7679 2677</a>
-</div>
+<div class="hero-card" id="top-cotiza"><div class="hc-label">Cotiza en 1 clic</div><h2 class="hc-title">¿Dónde está la humedad?</h2>
+<ul class="hc-grid hc-grid--2"><li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20un%20muro%20de%20contenci%C3%B3n"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></svg>Muro de contención</a></li><li><a href="https://wa.me/56976792677?text=Hola%2C%20tengo%20filtraci%C3%B3n%20en%20un%20subterr%C3%A1neo%20y%20quiero%20cotizar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v5H3zM5 15v5M19 15v5M3 10l3-4h12l3 4"/></svg>Subterráneo</a></li><li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20un%20muro%20perimetral"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg>Muro perimetral</a></li><li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20un%20estanque%20o%20foso"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6c0-1.7 3.1-3 7-3s7 1.3 7 3v12c0 1.7-3.1 3-7 3s-7-1.3-7-3zM5 6c0 1.7 3.1 3 7 3s7-1.3 7-3M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg>Estanque o foso</a></li></ul>
+<p class="hc-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Abre WhatsApp con tu consulta lista para enviar.</p></div>
+</div></div></section>
+<div class="trust"><ul class="trust-in">
+<li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span><strong>Garantía hasta 5 años</strong><span class="t-sub">Certificado firmado por escrito</span></span></li>
+<li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><span><strong>Sistema completo</strong><span class="t-sub">Sin parches, sin subcontratos</span></span></li>
+<li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 13l2 2 4-4"/></svg></span><span><strong>Visita técnica</strong><span class="t-sub">Diagnóstico en terreno</span></span></li>
+<li><span class="trust-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg></span><span><strong>RM · Valparaíso · O'Higgins</strong><span class="t-sub">Y proyectos en regiones</span></span></li>
+</ul></div>
+<section><div class="wrap intro-grid"><div><div class="sec-head"><div class="section-label">Diagnóstico</div><h2 class="section-title">Tratamos la causa,<br>no la mancha</h2></div><div class="prose"><p>El error más común con los muros es pintar con un impermeabilizante por la cara interior. Eso no detiene un agua que viene <strong>empujando desde el terreno</strong>: la humedad sigue entrando y la pintura se sopla.</p><p>Antes de proponer una solución revisamos de dónde viene el agua, con cuánta presión, y si hay grietas activas o una humedad pareja.</p></div></div><figure class="intro-img"><img src="/img/galeria-muro-contencion.webp" alt="Muro de contención impermeabilizado por Impertech" width="800" height="600" loading="lazy" decoding="async"><figcaption>Muro de contención</figcaption></figure></div></section><section class="sec-alt"><div class="wrap"><div class="sec-head"><div class="section-label">Dos soluciones</div><h2 class="section-title">Según el caso</h2></div><ul class="comp-grid comp-grid--3"><li><a class="comp-card" href="/servicios/membrana-asfaltica/"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><h3 class="card-title">Membrana por el exterior</h3><p class="card-desc">Obra nueva, muros perimetrales o cuando hay acceso a la cara que recibe el agua. Impermeabiliza todo el paño, no solo las grietas.</p><span class="tag">Ver membrana asfáltica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li><li><a class="comp-card" href="/servicios/inyeccion-de-poliuretano/"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4M17 7l3-3M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5M9 11l4 4M5 19l-3 3M14 4l6 6"/></svg></span><h3 class="card-title">Inyección de poliuretano</h3><p class="card-desc">Grietas y juntas que filtran en muros ya construidos. Desde adentro, sin excavar, incluso con agua corriendo.</p><span class="tag">Ver inyección<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v5M12 8h.01"/></svg></span><h3 class="card-title">Humedad pareja</h3><p class="card-desc">Si no hay grieta definida puede ser capilaridad o condensación. Ahí la solución pasa por cortar el ingreso por la base o ventilar.</p><span class="tag">Se evalúa en terreno</span></li></ul></div></section><section><div class="wrap"><div class="sec-head"><div class="section-label">Aplicaciones</div><h2 class="section-title">Qué muros<br>impermeabilizamos</h2></div><ul class="comp-grid comp-grid--3"><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></svg></span><h3 class="card-title">Muros de contención</h3><p class="card-desc">Que reciben agua del terreno o del escurrimiento de una ladera.</p><span class="tag">Presión de agua</span></li><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><h3 class="card-title">Perimetrales y medianeros</h3><p class="card-desc">Expuestos a la lluvia por su cara exterior.</p><span class="tag">Exterior</span></li><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM9 17V7h4a3 3 0 0 1 0 6H9"/></svg></span><h3 class="card-title">Subterráneos</h3><p class="card-desc">Bodegas y estacionamientos bajo nivel.</p><span class="tag">Bajo nivel</span></li><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v5H3zM5 15v5M19 15v5M3 10l3-4h12l3 4"/></svg></span><h3 class="card-title">Sobrecimientos</h3><p class="card-desc">Con humedad que sube desde el suelo.</p><span class="tag">Capilaridad</span></li><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14v18H5zM9 9l3-3 3 3M9 15l3 3 3-3"/></svg></span><h3 class="card-title">Fosos y salas de bombas</h3><p class="card-desc">Fosos de ascensor y recintos técnicos.</p><span class="tag">Hormigón</span></li><li class="comp-card"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6c0-1.7 3.1-3 7-3s7 1.3 7 3v12c0 1.7-3.1 3-7 3s-7-1.3-7-3zM5 6c0 1.7 3.1 3 7 3s7-1.3 7-3M5 12c0 1.7 3.1 3 7 3s7-1.3 7-3"/></svg></span><h3 class="card-title">Estanques</h3><p class="card-desc">Estanques de agua y piscinas de hormigón.</p><span class="tag">Hormigón</span></li></ul></div></section><section class="sec-alt"><div class="wrap"><div class="sec-head"><div class="section-label">Proceso</div><h2 class="section-title">Cómo lo hacemos</h2></div><ol class="num-list"><li><div class="nl-t">Diagnóstico</div><div class="nl-d">Origen del agua, presión, grietas activas y estado del hormigón.</div></li><li><div class="nl-t">Preparación</div><div class="nl-d">Limpieza, retiro de revestimientos sueltos y reparación de nidos de piedra.</div></li><li><div class="nl-t">Impermeabilización</div><div class="nl-d">Membrana con remates en base y coronación, o inyección en grietas y juntas.</div></li><li><div class="nl-t">Verificación</div><div class="nl-d">Revisamos que quede seco, registro fotográfico y garantía.</div></li></ol></div></section>
+<div class="cta-strip"><div class="wrap cta-in"><span class="cta-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19zM12 10v4M12 17h.01"/></svg></span>
+<div class="cta-txt"><div class="cta-title">¿Humedad o filtración en un muro?</div><div class="cta-sub">Mándanos fotos y te decimos qué solución corresponde antes de ir.</div></div>
+<div class="cta-btns"><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20la%20impermeabilizaci%C3%B3n%20de%20un%20muro%20o%20subterr%C3%A1neo" class="btn-white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a><a href="tel:+56976792677" class="btn-ghost-white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>Llamar</a></div></div></div>
+<section id="proceso"><div class="wrap"><div class="sec-head"><div class="section-label">Cómo trabajamos</div><h2 class="section-title">Proceso de 4 pasos</h2></div>
+<ol class="steps">
+<li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span class="step-n">1</span></span><h3 class="step-title">Contacto</h3><p class="step-desc">Nos escribes por WhatsApp con fotos y la ubicación. Te respondemos de inmediato.</p></li>
+<li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span class="step-n">2</span></span><h3 class="step-title">Visita técnica</h3><p class="step-desc">Revisamos en terreno, buscamos el origen del agua y entregamos una cotización formal con todo incluido.</p></li>
+<li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-3 3-6-6zM11 7l-8 8 3 3 8-8"/></svg><span class="step-n">3</span></span><h3 class="step-title">Ejecución</h3><p class="step-desc">Equipo propio, sin subcontratos: retiramos lo anterior, preparamos la base e instalamos el sistema completo.</p></li>
+<li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg><span class="step-n">4</span></span><h3 class="step-title">Entrega y garantía</h3><p class="step-desc">Certificado de garantía por escrito de hasta 5 años, factura y registro fotográfico. Pago 50/25/25 por avance.</p></li>
+</ol></div></section>
+<section class="sec-alt"><div class="wrap"><div class="sec-head"><div class="section-label">Guías</div><h2 class="section-title">Para decidir con información</h2></div><ul class="guides"><li><a href="/blog/inyeccion-de-poliuretano-filtraciones.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg><span>Inyección de poliuretano para filtraciones</span></a></li><li><a href="/blog/senales-de-filtracion-antes-de-que-sea-tarde.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg><span>Señales de filtración</span></a></li></ul></div></section>
+<section id="faq" class="sec-alt"><div class="wrap faq-layout"><div class="faq-side"><div class="sec-head"><div class="section-label">Preguntas frecuentes</div><h2 class="section-title">Lo que más nos preguntan</h2></div>
+<div class="faq-help"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 11v5M12 8h.01"/></svg></span><strong>¿Tienes otra pregunta?</strong><p>Escríbenos por WhatsApp y un especialista te responde de inmediato.</p>
+<a class="btn-primary" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20la%20impermeabilizaci%C3%B3n%20de%20un%20muro%20o%20subterr%C3%A1neo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Preguntar por WhatsApp</a></div></div>
+<div class="faq-list"><details class="faq-item"><summary class="faq-q"><span>¿Cómo se impermeabiliza un muro de contención?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq-a">Si hay acceso a la cara que recibe el agua, con membrana asfáltica por el exterior. Si el muro ya está construido y filtra por grietas o juntas, con inyección de poliuretano desde el interior, sin excavar.</div></details><details class="faq-item"><summary class="faq-q"><span>¿Sirve pintar un muro con impermeabilizante por dentro?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq-a">No cuando el agua viene con presión desde el terreno. La pintura no detiene ese empuje: la humedad sigue entrando y la pintura termina soplándose.</div></details><details class="faq-item"><summary class="faq-q"><span>¿Cómo se soluciona una filtración en un subterráneo?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><div class="faq-a">Se identifica por dónde entra el agua. Si es por grietas o juntas de hormigón, se sella con inyección de poliuretano desde el interior. Si la filtración viene de una terraza o jardinera de arriba, se impermeabiliza esa superficie.</div></details></div></div></section>
+<section><div class="wrap"><div class="sec-head"><div class="section-label">Otros servicios</div><h2 class="section-title">También te puede servir</h2></div><ul class="comp-grid comp-grid--3"><li><a class="comp-card" href="/servicios/impermeabilizacion-de-techos/"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><h3 class="card-title">Techos</h3><p class="card-desc">Zinc, OSB, teja asfáltica, plancha y techos planos.</p><span class="tag">Ver servicio<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li><li><a class="comp-card" href="/servicios/membrana-asfaltica/"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><h3 class="card-title">Membrana asfáltica</h3><p class="card-desc">Monocapa, bicapa y gravillada por termofusión.</p><span class="tag">Ver servicio<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li><li><a class="comp-card" href="/servicios/membrana-liquida/"><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 3l3 3-9 9-3-3zM9 12l-4 4c-1 1-1 3-3 4 2 1 5 1 7-1l3-3"/></svg></span><h3 class="card-title">Membrana líquida</h3><p class="card-desc">Superficies pequeñas o con muchos detalles.</p><span class="tag">Ver servicio<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></li></ul></div></section>
+</main>
 
 <footer>
-  <div class="ft-links">
-    <a href="/servicios/impermeabilizacion-de-techos/">Techos</a>
-    <a href="/servicios/membrana-asfaltica/">Membrana asfáltica</a>
-    <a href="/servicios/membrana-liquida/">Membrana líquida</a>
-    <a href="/servicios/terrazas-y-losas/">Terrazas y losas</a>
-    <a href="/servicios/muros-y-subterraneos/">Muros y subterráneos</a>
-    <a href="/servicios/inyeccion-de-poliuretano/">Inyección de poliuretano</a>
+  <div class="ft-wrap">
+    <ul class="ft-trust">
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg><div><strong>Garantía por escrito</strong><span>Certificado firmado, hasta 5 años.</span></div></li>
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 12l9 5 9-5"/><path d="M3 16l9 5 9-5"/></svg><div><strong>Sistema completo</strong><span>Reemplazo total, sin parches.</span></div></li>
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="3.5" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4.5"/></svg><div><strong>Visita técnica</strong><span>Evaluamos en terreno antes de cotizar.</span></div></li>
+      <li><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><div><strong>Todo Chile</strong><span>Proyectos en Santiago y regiones.</span></div></li>
+    </ul>
+    <div class="ft-main">
+      <div class="ft-brand">
+        <a class="ft-brand-link" href="/" aria-label="Impertech, volver al inicio">
+          <img src="/img/logo-escudo.webp" alt="" width="40" height="40" style="display:block;">
+          <div class="ft-logo">Imper<span>tech</span></div>
+        </a>
+        <p class="ft-desc">Impermeabilización profesional de techos y cubiertas con membrana asfáltica.</p>
+      </div>
+      <div class="ft-col">
+        <div class="ft-title">Servicios</div>
+        <ul class="ft-links">
+          <li><a href="/servicios/terrazas-y-losas/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18V6H3z"/><path d="M5 9v11h14V9"/><path d="M10 20v-5h4v5"/></svg>Techos planos</a></li>
+          <li><a href="/servicios/impermeabilizacion-de-techos/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg>Techos inclinados</a></li>
+          <li><a href="/servicios/membrana-asfaltica/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M4 20v-9l5 3v-3l5 3V5h5v15"/></svg>Industrial y comercial</a></li>
+          <li><a href="/servicios/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="3.5" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4.5"/></svg>Visita técnica</a></li>
+          <li><a href="/servicios/inyeccion-de-poliuretano/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4"/><path d="M17 7l3-3"/><path d="M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="M9 11l4 4"/><path d="M5 19l-3 3"/><path d="M14 4l6 6"/></svg>Inyección de poliuretano</a></li>
+          <li><a href="/servicios/">Todos los servicios</a></li>
+        </ul>
+      </div>
+      <div class="ft-col ft-col--nav">
+        <div class="ft-title">Explorar</div>
+        <ul class="ft-links">
+          <li><a href="/#proyectos">Proyectos</a></li>
+          <li><a href="/#proceso">Proceso</a></li>
+          <li><a href="/#resenas">Reseñas</a></li>
+          <li><a href="/#faq">Preguntas frecuentes</a></li>
+          <li><a href="/blog/">Blog</a></li>
+        </ul>
+      </div>
+      <div class="ft-col ft-col--contact">
+        <div class="ft-title">Contacto</div>
+        <ul class="ft-contact">
+          <li><a class="ft-card ft-card--wsp" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n"><svg class="ft-ico ft-ico--fill" viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.16c-1.47 0-2.91-.4-4.16-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.26 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/></svg><span class="ft-card-text"><span class="ft-card-label">Cotiza por WhatsApp</span><span class="ft-card-value">+56 9 7679 2677</span></span><svg class="ft-ico ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></li>
+          <li><a class="ft-card" href="mailto:info@impertech.cl"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7.5l9 6 9-6"/></svg><span class="ft-card-text"><span class="ft-card-label">Correo</span><span class="ft-card-value">info@impertech.cl</span></span><svg class="ft-ico ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></li>
+          <li><a class="ft-card" href="https://www.instagram.com/impertech.cl/" target="_blank" rel="noopener"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg><span class="ft-card-text"><span class="ft-card-label">Instagram</span><span class="ft-card-value">@impertech.cl</span></span><svg class="ft-ico ft-arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7"/><path d="M8 7h9v9"/></svg></a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ft-bottom">
+      <span>© 2026 Impertech · Todos los derechos reservados</span>
+      <span>Santiago, Chile</span>
+    </div>
   </div>
-  © Impertech · Constructora HB SpA · Impermeabilización profesional en Santiago, Valparaíso y O'Higgins
 </footer>
 
+<!-- WHATSAPP FLOTANTE -->
+<a class="wsp" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n" aria-label="Contactar por WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm0 18.16c-1.47 0-2.91-.4-4.16-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.26 8.26 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 2.2 0 4.27.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.26 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.23-.17-.48-.29z"/>
+  </svg>
+</a>
+
+<script>
+(function(){
+  var nav=document.getElementById('hd-nav'),btn=document.getElementById('hd-menu-btn');
+  if(!nav||!btn)return;
+  function setOpen(o){nav.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');btn.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');}
+  btn.addEventListener('click',function(){setOpen(!nav.classList.contains('open'));});
+  document.querySelectorAll('#hd-links a').forEach(function(a){a.addEventListener('click',function(){setOpen(false);});});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+})();
+</script>
 </body>
 </html>
