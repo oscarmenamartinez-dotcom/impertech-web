@@ -505,6 +505,14 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .g-cap{padding:14px 16px 16px;border-top:2px solid var(--orange);}
 .g-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
 .g-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:#fff;text-transform:uppercase;}
+.ig-reel{display:grid;grid-template-columns:1fr 360px;gap:48px;align-items:center;margin-top:56px;padding:40px;background:var(--navy3);border:1px solid rgba(240,90,40,.18);border-radius:6px;}
+.ig-reel-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:36px;text-transform:uppercase;color:#fff;line-height:1.05;margin-bottom:12px;}
+.ig-reel-desc{color:var(--muted);font-size:16px;line-height:1.6;margin-bottom:20px;max-width:420px;}
+.ig-reel-link{display:inline-flex;align-items:center;gap:8px;color:var(--orange);font-weight:600;}
+.ig-reel-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.ig-reel-frame{width:100%;max-width:360px;justify-self:end;border-radius:6px;overflow:hidden;background:#fff;}
+.ig-reel-frame iframe{display:block;width:100%;height:640px;border:0;}
+@media(max-width:768px){.ig-reel{grid-template-columns:1fr;gap:24px;padding:24px 16px;margin-top:40px;}.ig-reel-frame{justify-self:center;}.ig-reel-title{font-size:30px;}}
 .gallery-cta{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:32px;font-size:14px;color:rgba(240,237,230,.7);}
 .gallery-cta a{display:inline-flex;align-items:center;gap:6px;color:var(--orange);font-weight:600;}
 
@@ -916,6 +924,17 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
         <div class="g-cap"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Instalación en muro de hormigón</div></div>
       </li>
     </ul>
+    <div class="ig-reel">
+      <div class="ig-reel-txt">
+        <div class="section-label">En obra</div>
+        <h3 class="ig-reel-title">Míralo en video</h3>
+        <p class="ig-reel-desc">Así trabaja nuestro equipo en terreno. Sigue nuestras obras en Instagram.</p>
+        <a class="ig-reel-link" href="https://www.instagram.com/impertech" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg>@impertech</a>
+      </div>
+      <div class="ig-reel-frame">
+        <iframe src="https://www.instagram.com/reel/DYZuE3sBCMc/embed" title="Video de obra Impertech en Instagram" loading="lazy" scrolling="no" allowtransparency="true" allow="encrypted-media; picture-in-picture"></iframe>
+      </div>
+    </div>
     <div class="gallery-cta"><span>¿Quieres ver más proyectos?</span> <a href="https://wa.me/56976792677">Escríbenos<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
   </div>
 </section>
