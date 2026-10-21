@@ -1,5 +1,9 @@
 RewriteEngine On
 
+# Codificación UTF-8 para textos planos (llms.txt, robots.txt) y demás archivos de texto
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .txt .xml .css .js
+
 # Redirige www.impertech.cl a impertech.cl (301) para unificar el dominio
 RewriteCond %{HTTP_HOST} ^www\.impertech\.cl$ [NC]
 RewriteRule ^(.*)$ https://impertech.cl/$1 [R=301,L]
