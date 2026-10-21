@@ -3,9 +3,58 @@
 
   <url>
     <loc>https://impertech.cl/</loc>
-    <lastmod>2026-10-02</lastmod>
+    <lastmod>2026-10-21</lastmod>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/impermeabilizacion-de-techos/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/membrana-asfaltica/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/membrana-liquida/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/terrazas-y-losas/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/muros-y-subterraneos/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/servicios/inyeccion-de-poliuretano/</loc>
+    <lastmod>2026-10-21</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
   </url>
 
   <url>

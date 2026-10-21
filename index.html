@@ -247,24 +247,101 @@
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
+  "@type": "RoofingContractor",
+  "@id": "https://impertech.cl/#empresa",
   "name": "Impertech",
-  "description": "Empresa de impermeabilización profesional de techos, terrazas y cubiertas con membrana asfáltica en todo Chile. Garantía de 5 años.",
-  "url": "https://impertech.cl",
+  "legalName": "Constructora HB SpA",
+  "description": "Empresa chilena de impermeabilización de techos, terrazas, losas, muros y subterráneos. Instala sistemas completos de membrana asfáltica, membrana líquida e inyección de poliuretano con equipo propio y garantía escrita de hasta 5 años.",
+  "url": "https://impertech.cl/",
+  "logo": "https://impertech.cl/img/logo-escudo.png",
+  "image": "https://impertech.cl/img/hero.webp",
   "telephone": "+56976792677",
+  "email": "info@impertech.cl",
+  "foundingDate": "2026-03",
   "address": {
     "@type": "PostalAddress",
-    "addressLocality": "Santiago",
+    "addressLocality": "Providencia",
     "addressRegion": "Región Metropolitana",
     "addressCountry": "CL"
   },
-  "areaServed": "Chile",
-  "priceRange": "$$",
+  "areaServed": [
+    {
+      "@type": "AdministrativeArea",
+      "name": "Región Metropolitana de Santiago"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Región de Valparaíso"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Región del Libertador General Bernardo O'Higgins"
+    }
+  ],
+  "priceRange": "$19.000 – $37.000 por m²",
+  "currenciesAccepted": "CLP",
+  "sameAs": [
+    "https://www.instagram.com/impertech.cl/"
+  ],
   "aggregateRating": {
     "@type": "AggregateRating",
     "ratingValue": "4.9",
-    "reviewCount": "7",
+    "reviewCount": "9",
     "bestRating": "5"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Servicios de impermeabilización",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Impermeabilización de techos",
+          "url": "https://impertech.cl/servicios/impermeabilizacion-de-techos/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Instalación de membrana asfáltica",
+          "url": "https://impertech.cl/servicios/membrana-asfaltica/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Impermeabilización con membrana líquida",
+          "url": "https://impertech.cl/servicios/membrana-liquida/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Impermeabilización de terrazas y losas",
+          "url": "https://impertech.cl/servicios/terrazas-y-losas/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Impermeabilización de muros y subterráneos",
+          "url": "https://impertech.cl/servicios/muros-y-subterraneos/"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Inyección de poliuretano",
+          "url": "https://impertech.cl/servicios/inyeccion-de-poliuretano/"
+        }
+      }
+    ]
   }
 }
 </script>
@@ -443,6 +520,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .ico-box svg{width:24px;height:24px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
 .ico-box--lg{width:60px;height:60px;}
 .ico-box--lg svg{width:30px;height:30px;}
+.svc-strip{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:36px;}.svc-strip-lbl{font-size:12px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:rgba(240,237,230,.55);margin-right:4px;}.svc-strip a{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:.5px;text-transform:uppercase;color:#F0EDE6;border:1px solid rgba(240,90,40,.45);padding:8px 14px;border-radius:2px;transition:background .15s;}.svc-strip a:hover{background:#F05A28;border-color:#F05A28;}
 .tag{display:inline-block;margin-top:auto;padding-top:18px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);}
 .card-title,.etapa-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;color:#fff;line-height:1.1;}
 .btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:48px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;transition:background .2s;}
@@ -792,6 +870,15 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
         <span class="tag">Garantía 2 a 5 años · Documentada</span>
       </li>
     </ol>
+    <nav class="svc-strip" aria-label="Servicios por tipo">
+      <span class="svc-strip-lbl">Ver cada servicio:</span>
+      <a href="/servicios/impermeabilizacion-de-techos/">Techos</a>
+      <a href="/servicios/membrana-asfaltica/">Membrana asfáltica</a>
+      <a href="/servicios/membrana-liquida/">Membrana líquida</a>
+      <a href="/servicios/terrazas-y-losas/">Terrazas y losas</a>
+      <a href="/servicios/muros-y-subterraneos/">Muros y subterráneos</a>
+      <a href="/servicios/inyeccion-de-poliuretano/">Inyección de poliuretano</a>
+    </nav>
   </div>
 </section>
 
@@ -825,7 +912,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       </li>
       <li class="comp-card">
         <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11zM9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
-        <h3 class="card-title">Inyección de poliuretano</h3>
+        <h3 class="card-title"><a href="/servicios/inyeccion-de-poliuretano/">Inyección de poliuretano</a></h3>
         <p class="card-desc">Sello de grietas activas y filtraciones bajo presión de agua mediante inyección de resina de poliuretano expansivo. Ideal para muros de contención, subterráneos y juntas de hormigón.</p>
         <span class="tag">Muros · Subterráneos · Juntas</span>
       </li>
@@ -1103,11 +1190,12 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       <div class="ft-col">
         <div class="ft-title">Servicios</div>
         <ul class="ft-links">
-          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18V6H3z"/><path d="M5 9v11h14V9"/><path d="M10 20v-5h4v5"/></svg>Techos planos</a></li>
-          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg>Techos inclinados</a></li>
-          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M4 20v-9l5 3v-3l5 3V5h5v15"/></svg>Industrial y comercial</a></li>
+          <li><a href="/servicios/terrazas-y-losas/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9h18V6H3z"/><path d="M5 9v11h14V9"/><path d="M10 20v-5h4v5"/></svg>Techos planos</a></li>
+          <li><a href="/servicios/impermeabilizacion-de-techos/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5L12 4l9 7.5"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg>Techos inclinados</a></li>
+          <li><a href="/servicios/membrana-asfaltica/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M4 20v-9l5 3v-3l5 3V5h5v15"/></svg>Industrial y comercial</a></li>
           <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="3.5" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4.5"/></svg>Visita técnica</a></li>
-          <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4"/><path d="M17 7l3-3"/><path d="M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="M9 11l4 4"/><path d="M5 19l-3 3"/><path d="M14 4l6 6"/></svg>Inyección de poliuretano</a></li>
+          <li><a href="/servicios/inyeccion-de-poliuretano/"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4"/><path d="M17 7l3-3"/><path d="M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="M9 11l4 4"/><path d="M5 19l-3 3"/><path d="M14 4l6 6"/></svg>Inyección de poliuretano</a></li>
+          <li><a href="/servicios/">Todos los servicios</a></li>
         </ul>
       </div>
       <div class="ft-col ft-col--nav">
