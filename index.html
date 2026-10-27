@@ -251,7 +251,7 @@
   "@id": "https://impertech.cl/#empresa",
   "name": "Impertech",
   "legalName": "Constructora HB SpA",
-  "description": "Empresa chilena de impermeabilización de techos, terrazas, losas, muros y subterráneos. Instala sistemas completos de membrana asfáltica, membrana líquida e inyección de poliuretano con equipo propio y garantía escrita de hasta 5 años.",
+  "description": "Empresa chilena de impermeabilización de techos, terrazas, losas, muros y subterráneos. Instala sistemas completos de membrana asfáltica, membrana líquida e inyección de poliuretano, además de instalar y reparar lucarnas, con equipo propio y garantía escrita de hasta 5 años.",
   "url": "https://impertech.cl/",
   "logo": "https://impertech.cl/img/logo-escudo.png",
   "image": "https://impertech.cl/img/hero.webp",
@@ -334,6 +334,14 @@
           "@type": "Service",
           "name": "Inyección de poliuretano"
         }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Instalación y reparación de lucarnas",
+          "description": "Instalación de lucarnas nuevas de policarbonato o vidrio y reparación de lucarnas y claraboyas que filtran, con sello perimetral de membrana asfáltica."
+        }
       }
     ]
   }
@@ -367,6 +375,22 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "El costo varía según la superficie, acceso y sistema requerido. Realizamos una visita técnica para entregar una cotización formal con todo incluido. Contáctanos para coordinar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Por qué filtra mi lucarna?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La mayoría de las lucarnas filtran por el encuentro entre el marco y el techo: el sello de silicona se reseca, la cubierta se dilata con el calor y aparecen grietas por donde entra la lluvia. También influyen policarbonatos cristalizados o mal traslapados. En la visita técnica detectamos el punto exacto y lo rehacemos con membrana asfáltica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Instalan lucarnas nuevas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Abrimos el vano en el techo, construimos el marco, instalamos la cubierta de policarbonato o vidrio y la impermeabilizamos en todo su perímetro con membrana asfáltica. Se puede hacer junto con la impermeabilización completa del techo, en un solo contrato y con garantía escrita."
       }
     }
   ]
@@ -547,6 +571,17 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .inline-cta-txt strong{display:block;font-size:15px;color:#fff;margin-bottom:3px;}
 .inline-cta-txt span{font-size:13.5px;color:rgba(240,237,230,.7);}
 
+/* lucarnas */
+.luc-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:64px;align-items:start;}
+.luc-grid .sec-head{margin-bottom:36px;}
+.luc-list{list-style:none;display:flex;flex-direction:column;gap:26px;}
+.luc-list li{display:flex;gap:18px;align-items:flex-start;}
+.luc-actions{margin-top:36px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.luc-note{font-size:13.5px;color:rgba(240,237,230,.65);}
+.luc-fig{margin:0;background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;overflow:hidden;}
+.luc-fig img{display:block;width:100%;height:auto;aspect-ratio:4/4.2;object-fit:cover;}
+.luc-fig figcaption{padding:24px 26px;}
+
 /* por qué */
 .why{background:var(--navy);}
 .why-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:start;}
@@ -654,7 +689,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
   .comp-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .etapas{grid-template-columns:1fr;}
   .etapa:not(:last-child)::after{top:auto;bottom:-20px;right:auto;left:60px;width:2px;height:20px;}
-  .why-grid,.faq-layout{grid-template-columns:1fr;gap:48px;}
+  .why-grid,.faq-layout,.luc-grid{grid-template-columns:1fr;gap:48px;}
   .faq-side{position:static;}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr));}
   .steps::before{display:none;}
@@ -667,6 +702,8 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
   .sec-lead{font-size:15px;}
   .etapa{padding:26px 22px;}
   .comp-grid{grid-template-columns:1fr;}
+  .luc-actions .btn-primary{width:100%;justify-content:center;}
+  .luc-fig figcaption{padding:20px 18px;}
   .surfaces-box{padding:22px 18px;}
   .surfaces-grid li{padding:12px 10px;font-size:13px;gap:10px;}
   .surfaces-grid svg{width:22px;height:22px;}
@@ -912,6 +949,38 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   </div>
 </section>
 
+<!-- LUCARNAS -->
+<section id="lucarnas">
+  <div class="wrap luc-grid">
+    <div>
+      <div class="sec-head">
+        <div class="section-label">Lucarnas y claraboyas</div>
+        <h2 class="section-title">Lucarnas sin<br>filtraciones</h2>
+        <p class="sec-lead">La lucarna es el punto del techo por donde más se filtra el agua: el encuentro entre el marco y la cubierta se mueve, se agrieta y deja pasar la lluvia. En Impertech instalamos lucarnas nuevas y reparamos las que filtran, integrándolas al sistema de impermeabilización del techo para que el sello dure lo mismo que la membrana.</p>
+      </div>
+      <ul class="luc-list">
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14L12 6l9 8M7 10.5V20h10v-9.5M9.5 12.5h5v4h-5zM12 2.5v1.5M5.5 4.5l1 1M18.5 4.5l-1 1"/></svg></span><div><h3 class="why-ctitle">Instalación de lucarnas nuevas</h3><p class="why-cdesc">Abrimos el vano en el techo, armamos el marco estructural, instalamos la cubierta de policarbonato o vidrio y la impermeabilizamos con membrana asfáltica en todo su perímetro.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c2.5 3.3 5 6.2 5 9.2a5 5 0 0 1-10 0C7 9.2 9.5 6.3 12 3zM4 21h16M9 21v-2M15 21v-2"/></svg></span><div><h3 class="why-ctitle">Reparación de lucarnas que filtran</h3><p class="why-cdesc">Detectamos por dónde entra el agua, retiramos sellos y parches viejos y rehacemos el encuentro lucarna–techo con membrana y remates nuevos. Sin silicona encima de silicona.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM4 12h16M12 4v16"/></svg></span><div><h3 class="why-ctitle">Lucarnas en techos planos e inclinados</h3><p class="why-cdesc">Trabajamos sobre losa de hormigón, zinc, OSB, plancha metálica y teja asfáltica, en casas, departamentos de último piso, oficinas y locales comerciales.</p></div></li>
+      </ul>
+      <div class="luc-actions">
+        <a class="btn-primary" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20lucarna">Cotizar lucarna<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="luc-note">Evaluamos la lucarna en la misma visita técnica del techo.</span>
+      </div>
+    </div>
+    <figure class="luc-fig">
+      <img src="img/galeria-bicapa-claraboya.webp" alt="Lucarna en techo plano impermeabilizado con membrana asfáltica bicapa, obra de Impertech en Santiago" loading="lazy" decoding="async" width="800" height="1067">
+      <figcaption>
+        <ul class="checks">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sello perimetral con membrana asfáltica</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Policarbonato o vidrio según el proyecto</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Garantía escrita junto con el techo</li>
+        </ul>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- WHY -->
 <section class="why">
   <div class="wrap why-grid">
@@ -1148,6 +1217,14 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
         <summary class="faq-q"><span>¿Cuánto tiempo tarda una obra?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
         <div class="faq-a">Depende de la superficie y condiciones de acceso. Una obra residencial estándar (80–200 m²) se ejecuta típicamente en 1 a 3 días. Proyectos industriales o de mayor escala se evalúan caso a caso.</div>
       </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Por qué filtra mi lucarna?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">La mayoría de las lucarnas filtran por el encuentro entre el marco y el techo: el sello de silicona se reseca, la cubierta se dilata con el calor y aparecen grietas por donde entra la lluvia. También influyen policarbonatos cristalizados o mal traslapados. En la visita técnica detectamos el punto exacto y lo rehacemos con membrana asfáltica.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Instalan lucarnas nuevas?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Sí. Abrimos el vano en el techo, construimos el marco, instalamos la cubierta de policarbonato o vidrio y la impermeabilizamos en todo su perímetro con membrana asfáltica. Se puede hacer junto con la impermeabilización completa del techo, en un solo contrato y con garantía escrita.</div>
+      </details>
     </div>
   </div>
 </section>
@@ -1179,6 +1256,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
           <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18"/><path d="M4 20v-9l5 3v-3l5 3V5h5v15"/></svg>Industrial y comercial</a></li>
           <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5.5H6.5A1.5 1.5 0 0 0 5 7v12a1.5 1.5 0 0 0 1.5 1.5h11A1.5 1.5 0 0 0 19 19V7a1.5 1.5 0 0 0-1.5-1.5H15"/><rect x="9" y="3.5" width="6" height="4" rx="1"/><path d="M9 14l2 2 4-4.5"/></svg>Visita técnica</a></li>
           <li><a href="#servicios"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2l4 4"/><path d="M17 7l3-3"/><path d="M19 9L8.7 19.3c-1 1-2.5 1-3.4 0l-.6-.6c-1-1-1-2.5 0-3.4L15 5"/><path d="M9 11l4 4"/><path d="M5 19l-3 3"/><path d="M14 4l6 6"/></svg>Inyección de poliuretano</a></li>
+          <li><a href="#lucarnas"><svg class="ft-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14L12 6l9 8"/><path d="M7 10.5V20h10v-9.5"/><path d="M9.5 12.5h5v4h-5z"/></svg>Lucarnas</a></li>
         </ul>
       </div>
       <div class="ft-col ft-col--nav">
