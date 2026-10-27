@@ -10,7 +10,7 @@
 
   <url>
     <loc>https://impertech.cl/blog/</loc>
-    <lastmod>2026-10-15</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -74,6 +74,13 @@
   <url>
     <loc>https://impertech.cl/blog/nino-godzilla-preparar-casa-techo.html</loc>
     <lastmod>2026-10-21</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/blog/lucarna-que-filtra-causas-solucion.html</loc>
+    <lastmod>2026-10-27</lastmod>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
