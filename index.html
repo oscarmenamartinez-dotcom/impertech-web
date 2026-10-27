@@ -602,6 +602,25 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .glass-note{margin-top:20px;padding:18px 22px;background:var(--navy2);border-left:3px solid var(--orange);border-radius:2px;font-size:14px;color:rgba(240,237,230,.8);line-height:1.65;}
 .glass-note strong{color:#fff;}
 
+/* lucarnas: sección clara para destacar el servicio */
+.luc-light{background:#F4F1EA;color:#0D1B2E;border-top:4px solid var(--orange);border-bottom:4px solid var(--orange);}
+.luc-light .section-label{color:var(--orange-btn);}
+.luc-light .section-label::before{background:var(--orange-btn);}
+.luc-light h2.section-title,.luc-light .why-ctitle,.luc-light .glass-title,.luc-light .card-title{color:#0D1B2E;}
+.luc-light .sec-lead,.luc-light .glass-lead{color:rgba(13,27,46,.75);}
+.luc-light .why-cdesc,.luc-light .card-desc{color:rgba(13,27,46,.72);}
+.luc-light .luc-note{color:rgba(13,27,46,.65);}
+.luc-light .luc-note a{color:var(--orange-btn)!important;border-bottom-color:rgba(207,74,28,.45)!important;}
+.luc-light .ico-box{background:#fff;border-color:rgba(207,74,28,.45);}
+.luc-light .ico-box svg{stroke:var(--orange-btn);}
+.luc-light .luc-fig{background:#0D1B2E;border-color:transparent;box-shadow:0 18px 40px rgba(13,27,46,.18);}
+.luc-light .glass-block{border-top-color:rgba(13,27,46,.12);}
+.luc-light .glass-card{background:#fff;border-color:rgba(13,27,46,.1);box-shadow:0 2px 10px rgba(13,27,46,.05);}
+.luc-light .glass-card:hover{border-color:var(--orange-btn);}
+.luc-light .glass-tag{color:var(--orange-btn);}
+.luc-light .glass-note{background:#0D1B2E;color:rgba(240,237,230,.85);}
+.luc-light .glass-note strong{color:#fff;}
+
 /* por qué */
 .why{background:var(--navy);}
 .why-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:64px;align-items:start;}
@@ -973,7 +992,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 </section>
 
 <!-- LUCARNAS -->
-<section id="lucarnas">
+<section id="lucarnas" class="luc-light">
   <div class="wrap luc-grid">
     <div>
       <div class="sec-head">
