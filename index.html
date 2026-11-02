@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="img/hero.webp" imagesrcset="img/hero-768.webp 768w, img/hero.webp 1280w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/barlow-condensed-latin-800-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/barlow-latin-400-normal.woff2" crossorigin>
 <!-- Google tag (gtag.js): se carga después de que la página se muestra (primera interacción o 4 s), para no frenar la carga.
      Los eventos quedan en dataLayer y se envían igual cuando el script termina de cargar. -->
 <script>
@@ -319,10 +319,19 @@
 <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap"></noscript>
 
 <style>
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/barlow-condensed-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/barlow-condensed-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/barlow-condensed-latin-900-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/barlow-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/barlow-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/barlow-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+/* Fuentes de respaldo con medidas ajustadas a Barlow: evitan que el texto salte cuando carga la fuente */
+@font-face{font-family:'BC Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Liberation Sans Bold'),local('Roboto Bold'),local('Arial');font-weight:100 900;size-adjust:76.1%;ascent-override:131.4%;descent-override:26.3%;line-gap-override:0%;}
+@font-face{font-family:'B Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Roboto');font-weight:100 900;size-adjust:94.2%;ascent-override:106.1%;descent-override:21.2%;line-gap-override:0%;}
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --navy:#0D1B2E;
@@ -338,7 +347,7 @@
   --border:rgba(240,237,230,0.06);
 }
 html{scroll-behavior:smooth;}
-body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
+body{font-family:'Barlow','B Fallback',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 
 /* ── NAV (rediseño B · iconografía) ── */
@@ -346,7 +355,7 @@ a{text-decoration:none;color:inherit;}
 .hd-nav-in{max-width:1280px;margin:0 auto;padding:14px 40px;display:flex;align-items:center;justify-content:space-between;gap:20px;}
 .hd-brand{display:flex;align-items:center;gap:12px;}
 .hd-brand img{display:block;}
-.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:24px;letter-spacing:2px;text-transform:uppercase;}
+.logo{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:24px;letter-spacing:2px;text-transform:uppercase;}
 .logo span{color:var(--orange);}
 .hd-links{display:flex;gap:26px;list-style:none;}
 .hd-links a{display:inline-flex;align-items:center;gap:7px;color:rgba(240,237,230,0.72);font-size:13px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;transition:color .2s;}
@@ -357,7 +366,7 @@ a{text-decoration:none;color:inherit;}
 .hd-iconbtn svg{width:19px;height:19px;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .hd-menu-btn{display:none;}
 .hd-menu-btn svg{stroke:var(--text);stroke-width:2;}
-.btn-nav{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:44px;padding:0 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;}
+.btn-nav{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:44px;padding:0 22px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;}
 .btn-nav svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
 
 /* ── HERO ── */
@@ -368,18 +377,18 @@ a{text-decoration:none;color:inherit;}
 .hero-copy{flex:999 1 520px;min-width:0;}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,90,40,0.12);border:1px solid rgba(240,90,40,0.4);color:var(--orange);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:2px;margin-bottom:24px;}
 .hero-badge svg{width:14px;height:14px;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:80px;line-height:.93;text-transform:uppercase;color:#fff;letter-spacing:-1.5px;margin-bottom:24px;}
+h1{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:900;font-size:80px;line-height:.93;text-transform:uppercase;color:#fff;letter-spacing:-1.5px;margin-bottom:24px;}
 h1 .accent{color:var(--orange);}
 .hero-sub{font-size:17px;color:rgba(240,237,230,0.82);line-height:1.6;max-width:520px;margin-bottom:32px;}
 .hero-stats{display:flex;flex-wrap:wrap;gap:28px;list-style:none;}
 .hero-stats li{display:flex;align-items:center;gap:12px;}
 .hs-ico{width:46px;height:46px;border:1px solid rgba(240,90,40,0.4);border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
 .hs-ico svg{width:22px;height:22px;fill:none;stroke:var(--orange);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
-.hs-num{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;line-height:1;color:#fff;}
+.hs-num{display:block;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:26px;line-height:1;color:#fff;}
 .hs-label{display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(240,237,230,0.7);}
 .hero-card{flex:1 1 420px;min-width:0;background:rgba(13,27,46,0.94);border:1px solid rgba(240,237,230,0.1);border-top:3px solid var(--orange);border-radius:2px;padding:30px;}
 .hc-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
-.hc-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:30px;line-height:1.05;text-transform:uppercase;color:#fff;margin-bottom:22px;}
+.hc-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:30px;line-height:1.05;text-transform:uppercase;color:#fff;margin-bottom:22px;}
 .hc-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;}
 .hc-grid a{display:flex;flex-direction:column;align-items:center;gap:10px;padding:18px 8px;min-height:96px;height:100%;box-sizing:border-box;background:var(--navy2);border:1px solid rgba(240,237,230,0.1);border-radius:2px;text-align:center;font-size:13px;font-weight:600;color:var(--text);transition:border-color .2s,background .2s;}
 .hc-grid a:hover{border-color:var(--orange);background:var(--navy3);}
@@ -447,18 +456,18 @@ section[id]{scroll-margin-top:76px;}
 .sec-head{margin-bottom:48px;}
 .section-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:12px;display:flex;align-items:center;gap:10px;}
 .section-label::before{content:'';width:24px;height:2px;background:var(--orange);}
-h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:48px;text-transform:uppercase;color:#fff;line-height:1.02;letter-spacing:-.5px;}
+h2.section-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:48px;text-transform:uppercase;color:#fff;line-height:1.02;letter-spacing:-.5px;}
 .sec-lead{font-size:16px;color:rgba(240,237,230,.72);max-width:620px;line-height:1.7;margin-top:18px;}
 .ico-box{width:48px;height:48px;flex-shrink:0;border:1px solid rgba(240,90,40,.4);border-radius:2px;display:flex;align-items:center;justify-content:center;background:rgba(240,90,40,.06);}
 .ico-box svg{width:24px;height:24px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
 .ico-box--lg{width:60px;height:60px;}
 .ico-box--lg svg{width:30px;height:30px;}
 .tag{display:inline-block;margin-top:auto;padding-top:18px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--orange);}
-.card-title,.etapa-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase;color:#fff;line-height:1.1;}
-.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:48px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;transition:background .2s;}
+.card-title,.etapa-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;text-transform:uppercase;color:#fff;line-height:1.1;}
+.btn-primary{display:inline-flex;align-items:center;gap:10px;background:var(--orange-btn);color:#fff;min-height:48px;padding:0 24px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;transition:background .2s;}
 .btn-primary:hover{background:#B8411A;}
 .btn-primary svg,.btn-outline svg,.btn-white svg,.btn-ghost-white svg,.gallery-cta svg,.surfaces-cta svg{width:17px;height:17px;flex-shrink:0;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
-.btn-outline{display:inline-flex;align-items:center;gap:10px;color:var(--text);border:1px solid rgba(240,237,230,.25);min-height:48px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;transition:border-color .2s;}
+.btn-outline{display:inline-flex;align-items:center;gap:10px;color:var(--text);border:1px solid rgba(240,237,230,.25);min-height:48px;padding:0 24px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:15px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;transition:border-color .2s;}
 .btn-outline:hover{border-color:var(--orange);}
 
 /* servicios: 3 etapas */
@@ -466,7 +475,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .etapa{position:relative;background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;padding:32px 30px;display:flex;flex-direction:column;}
 .etapa:not(:last-child)::after{content:'';position:absolute;top:58px;right:-20px;width:20px;height:2px;background:rgba(240,90,40,.5);}
 .etapa-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px;}
-.etapa-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:56px;line-height:1;color:rgba(240,90,40,.3);letter-spacing:-2px;}
+.etapa-num{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:900;font-size:56px;line-height:1;color:rgba(240,90,40,.3);letter-spacing:-2px;}
 .etapa-label{font-size:11px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--orange);margin-bottom:8px;}
 .etapa-title{font-size:24px;margin-bottom:14px;}
 .etapa-desc{font-size:14px;color:rgba(240,237,230,.7);line-height:1.7;margin-bottom:20px;}
@@ -499,7 +508,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 
 /* lucarnas: tipos de vidrio */
 .glass-block{margin-top:72px;padding-top:56px;border-top:1px solid rgba(240,237,230,.08);}
-.glass-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:32px;text-transform:uppercase;color:#fff;line-height:1.05;}
+.glass-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:32px;text-transform:uppercase;color:#fff;line-height:1.05;}
 .glass-lead{font-size:15px;color:rgba(240,237,230,.72);max-width:680px;line-height:1.7;margin:14px 0 32px;}
 .glass-grid{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
 .glass-card{background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:24px;display:flex;flex-direction:column;transition:border-color .2s;}
@@ -537,7 +546,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .why-ctitle{font-weight:600;font-size:16px;color:#fff;margin-bottom:5px;}
 .why-cdesc{font-size:14px;color:rgba(240,237,230,.7);line-height:1.65;}
 .surfaces-box{background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;padding:32px;}
-.surfaces-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:#fff;letter-spacing:1.5px;margin-bottom:22px;}
+.surfaces-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;color:#fff;letter-spacing:1.5px;margin-bottom:22px;}
 .surfaces-grid{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 .surfaces-grid li{display:flex;align-items:center;gap:12px;padding:14px;background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;font-size:14px;font-weight:500;color:rgba(240,237,230,.88);}
 .surfaces-grid svg{width:26px;height:26px;flex-shrink:0;fill:none;stroke:var(--orange);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;}
@@ -545,7 +554,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 
 /* galería */
 .gallery-filters{display:flex;gap:8px;margin:-20px 0 28px;flex-wrap:wrap;}
-.filter-btn{background:transparent;border:1px solid rgba(240,237,230,.2);color:rgba(240,237,230,.75);min-height:40px;padding:0 16px;font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .15s;}
+.filter-btn{background:transparent;border:1px solid rgba(240,237,230,.2);color:rgba(240,237,230,.75);min-height:40px;padding:0 16px;font-family:'Barlow','B Fallback',sans-serif;font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:all .15s;}
 .filter-btn.active,.filter-btn:hover{background:var(--orange-btn);border-color:var(--orange-btn);color:#fff;}
 .gallery-grid{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;}
 .gallery-item{background:var(--navy2);border:1px solid rgba(240,237,230,.08);border-radius:2px;overflow:hidden;transition:border-color .2s;}
@@ -556,11 +565,11 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .gallery-item:hover .g-img img{transform:scale(1.05);}
 .g-cap{padding:14px 16px 16px;border-top:2px solid var(--orange);}
 .g-tag{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--orange);margin-bottom:4px;}
-.g-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:17px;color:#fff;text-transform:uppercase;}
+.g-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:17px;color:#fff;text-transform:uppercase;}
 .ig-reel{margin-top:56px;padding:40px;background:var(--navy3);border:1px solid rgba(240,90,40,.18);border-radius:6px;}
 .ig-reel-txt{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 32px;margin-bottom:28px;}
 .ig-reel-txt .section-label{width:100%;margin-bottom:0;}
-.ig-reel-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:36px;text-transform:uppercase;color:#fff;line-height:1.05;}
+.ig-reel-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:36px;text-transform:uppercase;color:#fff;line-height:1.05;}
 .ig-reel-desc{color:var(--muted);font-size:16px;line-height:1.6;max-width:420px;flex:1;}
 .ig-reel-link{display:inline-flex;align-items:center;gap:8px;color:var(--orange);font-weight:600;}
 .ig-reel-link svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
@@ -578,11 +587,11 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .cta-ico{width:64px;height:64px;flex-shrink:0;border:2px solid rgba(255,255,255,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;}
 .cta-ico svg{width:30px;height:30px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
 .cta-txt{flex:1 1 360px;}
-.cta-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:40px;text-transform:uppercase;color:#fff;line-height:1.05;letter-spacing:-.5px;}
+.cta-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:900;font-size:40px;text-transform:uppercase;color:#fff;line-height:1.05;letter-spacing:-.5px;}
 .cta-sub{font-size:15px;color:rgba(255,255,255,.88);margin-top:6px;line-height:1.55;}
 .cta-btns{display:flex;gap:12px;flex-wrap:wrap;}
-.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#B8411A;min-height:52px;padding:0 28px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;}
-.btn-ghost-white{display:inline-flex;align-items:center;gap:10px;color:#fff;border:1px solid rgba(255,255,255,.6);min-height:52px;padding:0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:16px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;}
+.btn-white{display:inline-flex;align-items:center;gap:10px;background:#fff;color:#B8411A;min-height:52px;padding:0 28px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;}
+.btn-ghost-white{display:inline-flex;align-items:center;gap:10px;color:#fff;border:1px solid rgba(255,255,255,.6);min-height:52px;padding:0 24px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:16px;letter-spacing:1px;text-transform:uppercase;border-radius:2px;white-space:nowrap;}
 
 /* proceso */
 .steps{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;position:relative;}
@@ -590,8 +599,8 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .step{position:relative;}
 .step-ico{position:relative;width:72px;height:72px;border-radius:50%;background:var(--navy);border:2px solid var(--orange);display:flex;align-items:center;justify-content:center;margin-bottom:22px;}
 .step-ico svg{width:30px;height:30px;fill:none;stroke:var(--orange);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
-.step-n{position:absolute;top:-4px;right:-4px;width:26px;height:26px;border-radius:50%;background:var(--orange-btn);color:#fff;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
-.step-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;color:#fff;margin-bottom:8px;}
+.step-n{position:absolute;top:-4px;right:-4px;width:26px;height:26px;border-radius:50%;background:var(--orange-btn);color:#fff;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;}
+.step-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:21px;text-transform:uppercase;color:#fff;margin-bottom:8px;}
 .step-desc{font-size:14px;color:rgba(240,237,230,.7);line-height:1.65;}
 
 /* reseñas */
@@ -599,7 +608,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .reviews-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;}
 .reviews-header .sec-head{margin-bottom:0;}
 .score-block{display:flex;align-items:center;gap:16px;background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:16px 22px;}
-.score-num{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:54px;color:#fff;line-height:1;letter-spacing:-2px;}
+.score-num{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:900;font-size:54px;color:#fff;line-height:1;letter-spacing:-2px;}
 .stars{display:flex;gap:3px;margin-bottom:6px;}
 .star{width:17px;height:17px;fill:#F0B429;stroke:none;}
 .score-count{font-size:12px;color:rgba(240,237,230,.7);text-transform:uppercase;letter-spacing:.5px;}
@@ -608,7 +617,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .review-card .star{width:15px;height:15px;}
 .review-text{font-size:14.5px;color:rgba(240,237,230,.82);line-height:1.7;margin:10px 0 22px;flex:1;}
 .review-author{display:flex;align-items:center;gap:12px;border-top:1px solid rgba(240,237,230,.08);padding-top:16px;}
-.review-avatar{width:40px;height:40px;border-radius:50%;background:rgba(240,90,40,.14);border:1px solid rgba(240,90,40,.35);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;color:var(--orange);flex-shrink:0;}
+.review-avatar{width:40px;height:40px;border-radius:50%;background:rgba(240,90,40,.14);border:1px solid rgba(240,90,40,.35);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:14px;color:var(--orange);flex-shrink:0;}
 .review-name{font-weight:600;font-size:14px;color:#fff;}
 .review-meta{font-size:11px;color:rgba(240,237,230,.6);margin-top:2px;text-transform:uppercase;letter-spacing:.5px;}
 .reviews-btns{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:36px;flex-wrap:wrap;}
@@ -620,7 +629,7 @@ h2.section-title{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-
 .faq-side .sec-head{margin-bottom:28px;}
 .faq-help{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-top:3px solid var(--orange);border-radius:2px;padding:26px;}
 .faq-help .ico-box{margin-bottom:16px;}
-.faq-help strong{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:#fff;margin-bottom:6px;}
+.faq-help strong{display:block;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:#fff;margin-bottom:6px;}
 .faq-help p{font-size:14px;color:rgba(240,237,230,.72);line-height:1.6;margin-bottom:18px;}
 .faq-list{display:flex;flex-direction:column;gap:10px;}
 .faq-item{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;transition:border-color .2s;}
@@ -685,18 +694,18 @@ footer{background:var(--navy5);border-top:1px solid rgba(240,90,40,.18);}
 .ft-trust{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:28px 32px;padding:36px 0;border-bottom:1px solid rgba(240,237,230,.08);}
 .ft-trust li{display:flex;align-items:flex-start;gap:14px;}
 .ft-trust .ft-ico{width:28px;height:28px;stroke-width:1.5;}
-.ft-trust strong{display:block;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:18px;line-height:22px;letter-spacing:.5px;text-transform:uppercase;color:#fff;margin-bottom:4px;}
+.ft-trust strong{display:block;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:18px;line-height:22px;letter-spacing:.5px;text-transform:uppercase;color:#fff;margin-bottom:4px;}
 .ft-trust span{font-size:14px;line-height:20px;color:rgba(240,237,230,.68);}
 .ft-main{display:flex;flex-wrap:wrap;gap:40px clamp(24px,4vw,64px);padding-top:44px;}
 .ft-brand{flex:1.2 1 280px;min-width:0;}
 .ft-brand-link{display:inline-flex;align-items:center;gap:12px;margin-bottom:16px;}
-.ft-logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;color:#fff;text-transform:uppercase;}
+.ft-logo{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;color:#fff;text-transform:uppercase;}
 .ft-logo span{color:var(--orange);}
 .ft-desc{font-size:15px;line-height:1.6;color:rgba(240,237,230,.68);max-width:300px;}
 .ft-col{flex:1 1 240px;min-width:0;}
 .ft-col--nav{flex:.8 1 148px;}
 .ft-col--contact{flex:1.3 1 300px;}
-.ft-title{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;line-height:17px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,230,.6);margin-bottom:12px;}
+.ft-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:14px;line-height:17px;letter-spacing:2px;text-transform:uppercase;color:rgba(240,237,230,.6);margin-bottom:12px;}
 .ft-links{list-style:none;}
 .ft-links a{display:flex;align-items:center;gap:12px;min-height:44px;font-size:15px;line-height:20px;color:rgba(240,237,230,.82);transition:color .2s;}
 .ft-links a:hover{color:var(--orange);}
@@ -761,7 +770,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 <!-- HERO -->
 <section style="padding:0;">
   <div class="hero">
-    <img class="hero-bg" src="img/hero.webp" alt="" width="1280" height="960" fetchpriority="high" decoding="async">
+    <img class="hero-bg" src="img/hero.webp" srcset="img/hero-768.webp 768w, img/hero.webp 1280w" sizes="100vw" alt="" width="1280" height="960" fetchpriority="high">
     <div class="hero-shade"></div>
     <div class="hero-in">
       <div class="hero-copy">
@@ -918,7 +927,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       </div>
     </div>
     <figure class="luc-fig">
-      <img src="img/galeria-bicapa-claraboya.webp" alt="Lucarna en techo plano impermeabilizado con membrana asfáltica bicapa, obra de Impertech en Santiago" loading="lazy" decoding="async" width="800" height="1067">
+      <img src="img/galeria-bicapa-claraboya.webp" srcset="img/galeria-bicapa-claraboya-480.webp 480w, img/galeria-bicapa-claraboya.webp 800w" sizes="(max-width: 900px) 92vw, 526px" alt="Lucarna en techo plano impermeabilizado con membrana asfáltica bicapa, obra de Impertech en Santiago" loading="lazy" decoding="async" width="800" height="1067">
       <figcaption>
         <ul class="checks">
           <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sello perimetral con membrana asfáltica</li>
@@ -1008,39 +1017,39 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
     </div>
     <ul class="gallery-grid">
       <li class="gallery-item" data-cat="terrazas residencial">
-        <div class="g-img"><img src="img/galeria-terraza-sistema-liquido.webp" alt="Terraza impermeabilizada con sistema líquido, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1066"></div>
+        <div class="g-img"><img src="img/galeria-terraza-sistema-liquido.webp" srcset="img/galeria-terraza-sistema-liquido-480.webp 480w, img/galeria-terraza-sistema-liquido.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Terraza impermeabilizada con sistema líquido, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1066"></div>
         <div class="g-cap"><div class="g-tag">Terraza · Losa hormigón</div><div class="g-title">Sistema líquido — vivienda</div></div>
       </li>
       <li class="gallery-item" data-cat="terrazas comercial">
-        <div class="g-img"><img src="img/galeria-terraza-edificio-membrana-gris.webp" alt="Terraza de edificio impermeabilizada con membrana asfáltica gris en altura, Santiago" loading="lazy" decoding="async" width="800" height="450"></div>
+        <div class="g-img"><img src="img/galeria-terraza-edificio-membrana-gris.webp" srcset="img/galeria-terraza-edificio-membrana-gris-480.webp 480w, img/galeria-terraza-edificio-membrana-gris.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Terraza de edificio impermeabilizada con membrana asfáltica gris en altura, Santiago" loading="lazy" decoding="async" width="800" height="450"></div>
         <div class="g-cap"><div class="g-tag">Edificio · Terraza en altura</div><div class="g-title">Membrana bicapa — edificio</div></div>
       </li>
       <li class="gallery-item" data-cat="terrazas comercial">
-        <div class="g-img"><img src="img/galeria-terraza-comercial.webp" alt="Terraza comercial con columnas impermeabilizada con membrana asfáltica, Santiago" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-img"><img src="img/galeria-terraza-comercial.webp" srcset="img/galeria-terraza-comercial-480.webp 480w, img/galeria-terraza-comercial.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Terraza comercial con columnas impermeabilizada con membrana asfáltica, Santiago" loading="lazy" decoding="async" width="800" height="600"></div>
         <div class="g-cap"><div class="g-tag">Comercial · Terraza con columnas</div><div class="g-title">Membrana gris — edificio comercial</div></div>
       </li>
       <li class="gallery-item" data-cat="techos residencial">
-        <div class="g-img"><img src="img/galeria-techo-plano-rural.webp" alt="Techo plano con membrana asfáltica, proyecto rural zona sur Chile" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-img"><img src="img/galeria-techo-plano-rural.webp" srcset="img/galeria-techo-plano-rural-480.webp 480w, img/galeria-techo-plano-rural.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Techo plano con membrana asfáltica, proyecto rural zona sur Chile" loading="lazy" decoding="async" width="800" height="600"></div>
         <div class="g-cap"><div class="g-tag">Residencial · Zona Sur</div><div class="g-title">Membrana bicapa — techo plano</div></div>
       </li>
       <li class="gallery-item" data-cat="terrazas comercial">
-        <div class="g-img"><img src="img/galeria-instalacion-rollos-terraza.webp" alt="Proceso de instalación membrana asfáltica con rollos en terraza edificio Santiago" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-img"><img src="img/galeria-instalacion-rollos-terraza.webp" srcset="img/galeria-instalacion-rollos-terraza-480.webp 480w, img/galeria-instalacion-rollos-terraza.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Proceso de instalación membrana asfáltica con rollos en terraza edificio Santiago" loading="lazy" decoding="async" width="800" height="600"></div>
         <div class="g-cap"><div class="g-tag">En proceso · Edificio</div><div class="g-title">Instalación en curso — terraza</div></div>
       </li>
       <li class="gallery-item" data-cat="techos residencial">
-        <div class="g-img"><img src="img/galeria-techo-aereo-rural.webp" alt="Techo impermeabilizado con membrana asfáltica, vista aérea zona rural Chile" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-img"><img src="img/galeria-techo-aereo-rural.webp" srcset="img/galeria-techo-aereo-rural-480.webp 480w, img/galeria-techo-aereo-rural.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Techo impermeabilizado con membrana asfáltica, vista aérea zona rural Chile" loading="lazy" decoding="async" width="800" height="600"></div>
         <div class="g-cap"><div class="g-tag">Residencial · Rural</div><div class="g-title">Membrana bicapa — obra terminada</div></div>
       </li>
       <li class="gallery-item" data-cat="techos residencial">
-        <div class="g-img"><img src="img/galeria-bicapa-claraboya.webp" alt="Techo plano impermeabilizado con membrana asfáltica bicapa y claraboya, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1067"></div>
+        <div class="g-img"><img src="img/galeria-bicapa-claraboya.webp" srcset="img/galeria-bicapa-claraboya-480.webp 480w, img/galeria-bicapa-claraboya.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Techo plano impermeabilizado con membrana asfáltica bicapa y claraboya, proyecto residencial Santiago" loading="lazy" decoding="async" width="800" height="1067"></div>
         <div class="g-cap"><div class="g-tag">Residencial · Techo plano</div><div class="g-title">Membrana bicapa — con claraboya</div></div>
       </li>
       <li class="gallery-item" data-cat="muros">
-        <div class="g-img"><img src="img/galeria-muro-perimetral.webp" alt="Muro perimetral con membrana asfáltica instalada, unión sellada entre paños, proyecto en excavación" loading="lazy" decoding="async" width="800" height="1066"></div>
+        <div class="g-img"><img src="img/galeria-muro-perimetral.webp" srcset="img/galeria-muro-perimetral-480.webp 480w, img/galeria-muro-perimetral.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Muro perimetral con membrana asfáltica instalada, unión sellada entre paños, proyecto en excavación" loading="lazy" decoding="async" width="800" height="1066"></div>
         <div class="g-cap"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Sello de uniones en muro perimetral</div></div>
       </li>
       <li class="gallery-item" data-cat="muros">
-        <div class="g-img"><img src="img/galeria-equipo-muro-altura.webp" alt="Equipo Impertech instalando membrana asfáltica en muro de hormigón, obra en altura" loading="lazy" decoding="async" width="800" height="600"></div>
+        <div class="g-img"><img src="img/galeria-equipo-muro-altura.webp" srcset="img/galeria-equipo-muro-altura-480.webp 480w, img/galeria-equipo-muro-altura.webp 800w" sizes="(max-width: 640px) 50vw, (max-width: 1000px) 50vw, 400px" alt="Equipo Impertech instalando membrana asfáltica en muro de hormigón, obra en altura" loading="lazy" decoding="async" width="800" height="600"></div>
         <div class="g-cap"><div class="g-tag">Muros · Membrana asfáltica</div><div class="g-title">Instalación en muro de hormigón</div></div>
       </li>
     </ul>
