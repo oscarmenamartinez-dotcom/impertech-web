@@ -7,15 +7,25 @@
 <meta name="description" content="Guías prácticas sobre impermeabilización, mantención de techos y terrazas, y cobertura por zona. Todo lo que necesitas saber, de parte de Impertech.">
 <link rel="canonical" href="https://impertech.cl/blog/">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" href="/fonts/barlow-condensed-latin-900-normal.woff2" crossorigin>
+<link rel="preload" as="font" type="font/woff2" href="/fonts/barlow-latin-400-normal.woff2" crossorigin>
 
 <link rel="icon" type="image/x-icon" href="/favicon.ico">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
 <style>
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/barlow-condensed-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/barlow-condensed-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:700;font-display:swap;src:url(/fonts/barlow-condensed-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:800;font-display:swap;src:url(/fonts/barlow-condensed-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow Condensed';font-style:normal;font-weight:900;font-display:swap;src:url(/fonts/barlow-condensed-latin-900-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:400;font-display:swap;src:url(/fonts/barlow-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:500;font-display:swap;src:url(/fonts/barlow-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+@font-face{font-family:'Barlow';font-style:normal;font-weight:600;font-display:swap;src:url(/fonts/barlow-latin-600-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;}
+/* Fuentes de respaldo con medidas ajustadas a Barlow: evitan que el texto salte cuando carga la fuente */
+@font-face{font-family:'BC Fallback';src:local('Arial Bold'),local('Arial-BoldMT'),local('Liberation Sans Bold'),local('Roboto Bold'),local('Arial');font-weight:100 900;size-adjust:76.1%;ascent-override:131.4%;descent-override:26.3%;line-gap-override:0%;}
+@font-face{font-family:'B Fallback';src:local('Arial'),local('ArialMT'),local('Liberation Sans'),local('Roboto');font-weight:100 900;size-adjust:94.2%;ascent-override:106.1%;descent-override:21.2%;line-gap-override:0%;}
 *{margin:0;padding:0;box-sizing:border-box;}
 :root{
   --navy:#0D1B2E;
@@ -26,30 +36,30 @@
   --text:#F0EDE6;
   --border:rgba(240,237,230,0.06);
 }
-body{font-family:'Barlow',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
+body{font-family:'Barlow','B Fallback',sans-serif;background:var(--navy);color:var(--text);overflow-x:hidden;}
 a{text-decoration:none;color:inherit;}
 
 nav{position:sticky;top:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:var(--navy);border-bottom:1px solid rgba(240,90,40,0.15);}
-.logo{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;text-transform:uppercase;}
+.logo{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:22px;letter-spacing:2px;text-transform:uppercase;}
 .logo span{color:var(--orange);}
-.btn-nav{background:var(--orange);color:#fff;border:none;padding:10px 22px;font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
+.btn-nav{background:var(--orange);color:#fff;border:none;padding:10px 22px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;}
 
 .hero{padding:64px 40px 40px;max-width:1000px;margin:0 auto;}
 .hero-label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--orange);margin-bottom:14px;}
-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:52px;line-height:1;text-transform:uppercase;color:#fff;letter-spacing:-.5px;margin-bottom:16px;}
+h1{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:900;font-size:52px;line-height:1;text-transform:uppercase;color:#fff;letter-spacing:-.5px;margin-bottom:16px;}
 .hero p{font-size:17px;color:rgba(240,237,230,.65);max-width:560px;}
 
 .grid{max-width:1000px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .card{background:var(--navy3);border:1px solid var(--border);border-radius:4px;padding:32px;display:flex;flex-direction:column;gap:14px;transition:border-color .2s;}
 .card:hover{border-color:rgba(240,90,40,0.4);}
 .card-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--orange);}
-.card h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:#fff;line-height:1.1;letter-spacing:-.3px;}
+.card h2{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:26px;text-transform:uppercase;color:#fff;line-height:1.1;letter-spacing:-.3px;}
 .card p{font-size:14.5px;color:rgba(240,237,230,.65);line-height:1.6;flex-grow:1;}
-.card-cta{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:6px;}
+.card-cta{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;color:var(--orange);display:inline-flex;align-items:center;gap:6px;}
 
 .cta-strip{background:var(--orange);padding:48px 40px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:16px;}
-.cta-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;color:#fff;letter-spacing:-.3px;max-width:500px;}
-.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--orange);border:none;padding:16px 32px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;white-space:nowrap;}
+.cta-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;color:#fff;letter-spacing:-.3px;max-width:500px;}
+.btn-white{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--orange);border:none;padding:16px 32px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:16px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;border-radius:2px;white-space:nowrap;}
 
 footer{background:var(--navy5);padding:32px 40px;border-top:1px solid var(--border);text-align:center;font-size:12px;color:rgba(240,237,230,.3);}
 
