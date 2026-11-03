@@ -299,7 +299,7 @@
       "name": "¿Hacen parches o reemplazan el sistema completo?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Impertech reemplaza el sistema completo. Retiramos todo el material existente, preparamos la superficie y aplicamos la membrana desde cero. No hacemos parches porque no garantizan durabilidad real."
+        "text": "No hacemos parches. Buscamos el origen de la filtración y renovamos el sistema completo de la superficie afectada: retiramos el material existente, preparamos la base e instalamos el sistema nuevo."
       }
     },
     {
@@ -332,6 +332,30 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Depende de dónde está y qué necesitas. Para lucarnas sobre zonas donde circulan personas recomendamos vidrio laminado, porque si se quiebra no cae. El termopanel aísla mejor el frío y el calor, y el vidrio con control solar reduce el calor en orientación norte o poniente. Te recomendamos la opción adecuada en la visita técnica."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede impermeabilizar una terraza sin romper la cerámica?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, cuando la cerámica está firme. Aplicamos una membrana de poliuretano transparente sobre la cerámica y los fragües, sin demoler ni dejar escombros. Si hay cerámicas sueltas o la losa está dañada, hay que levantar el piso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Impermeabilizan baños y piscinas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. En baños instalamos un impermeabilizante cementicio flexible bajo la cerámica, en el piso y los muros de la ducha. En piscinas y estanques tratamos fisuras, juntas y pasadas y aplicamos un sistema interior, con productos aptos para agua potable cuando corresponde."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo se repara una filtración en un subterráneo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Con inyección de resina de poliuretano en las grietas y juntas por donde entra el agua. Se trabaja desde el interior, sin excavar, y funciona incluso con agua activa. Si la grieta es estructural, primero la evalúa un ingeniero."
       }
     }
   ]
@@ -512,12 +536,13 @@ h2.section-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-we
 /* complementarios */
 .comp-grid{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
 .comp-grid--3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.serv-grid .comp-card .tag{padding-top:14px;}
+@media(max-width:480px){h1{font-size:clamp(34px,10.4vw,50px);overflow-wrap:anywhere;}}
 .comp-card{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:28px 24px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;}
 .comp-card:hover{border-color:rgba(240,90,40,.55);transform:translateY(-2px);}
 .comp-card .ico-box{margin-bottom:20px;}
 .card-title{font-size:20px;margin-bottom:10px;}
 .card-desc{font-size:13.5px;color:rgba(240,237,230,.7);line-height:1.65;}
-#soluciones .comp-card .tag{padding-top:14px;}
 .sol-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-family:'Barlow Condensed','BC Fallback',sans-serif;font-weight:800;font-size:15px;letter-spacing:.5px;text-transform:uppercase;color:#fff;text-decoration:none;}
 .sol-link svg{width:16px;height:16px;fill:none;stroke:var(--orange);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s;}
 .sol-link:hover{color:var(--orange);}
@@ -810,8 +835,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
     <div class="hero-in">
       <div class="hero-copy">
         <div class="hero-badge"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11z"/></svg>Impermeabilización profesional · Todo Chile</div>
-        <h1>Tu techo no debería <span class="accent">filtrar más.</span></h1>
-        <p class="hero-sub">Membrana asfáltica de origen italiano para techos, terrazas y cubiertas. Reemplazamos el sistema completo — sin parches, sin atajos. Garantía de hasta 5 años.</p>
+        <h1>Impermeabilización que <span class="accent">no vuelve a filtrar.</span></h1>
+        <p class="hero-sub">Techos, terrazas, baños, piscinas y subterráneos. Elegimos el sistema correcto — membrana asfáltica de origen italiano, poliuretano o inyección — y lo instalamos con equipo propio. Sin parches. Garantía de hasta 5 años.</p>
         <ul class="hero-stats">
           <li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></span><span><span class="hs-num">+500</span><span class="hs-label">Obras del equipo</span></span></li>
           <li><span class="hs-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span><span class="hs-num">5 años</span><span class="hs-label">Garantía</span></span></li>
@@ -820,14 +845,14 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       </div>
       <div class="hero-card" id="top-cotiza">
         <div class="hc-label">Cotiza en 1 clic</div>
-        <h2 class="hc-title">¿Qué superficie necesitas impermeabilizar?</h2>
+        <h2 class="hc-title">¿Qué necesitas impermeabilizar?</h2>
         <ul class="hc-grid">
-          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20losa%20de%20hormig%C3%B3n"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10h18v5H3zM5 15v5M19 15v5M3 10l3-4h12l3 4"/></svg>Losa de hormigón</a></li>
-          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20techo%20de%20zinc"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0M3 15c1.5-2 3-2 4.5 0s3 2 4.5 0 3-2 4.5 0 3 2 4.5 0"/></svg>Techo de zinc</a></li>
-          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20techo%20OSB"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM7 8l3 1M12 7l4 2M7 13l4-1M13 14l4 1M8 17l3-1"/></svg>OSB</a></li>
-          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20teja%20asf%C3%A1ltica"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18M3 14h18M3 20h18M6 8a3 3 0 0 0 6 0M12 8a3 3 0 0 0 6 0M3 14a3 3 0 0 0 6 0M9 14a3 3 0 0 0 6 0M15 14a3 3 0 0 0 6 0"/></svg>Teja asfáltica</a></li>
-          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20terraza"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M4 9v12h16V9M9 21v-5h6v5M7 9V5h10v4"/></svg>Terraza</a></li>
-          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20muro%20o%20subterr%C3%A1neo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></svg>Muro o subterráneo</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20techo"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-5h4v5"/></svg>Techo</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20terraza%20o%20balc%C3%B3n"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M4 9v12h16V9M9 21v-5h6v5M7 9V5h10v4"/></svg>Terraza o balcón</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20ba%C3%B1o"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-2zM6 12V5a2 2 0 0 1 4 0M8 19l-1 2M16 19l1 2"/></svg>Baño o cocina</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20piscina%20o%20estanque"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c1.5-1.3 3-1.3 4.5 0s3 1.3 4.5 0 3-1.3 4.5 0 3 1.3 4.5 0M7 14V5a2 2 0 0 1 4 0M13 14V5a2 2 0 0 1 4 0M7 8h6M7 11h6"/></svg>Piscina o estanque</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20tengo%20una%20filtraci%C3%B3n%20en%20subterr%C3%A1neo%20o%20muro%20y%20quiero%20cotizar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></svg>Subterráneo o muro</a></li>
+          <li><a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20lucarna"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14L12 6l9 8M7 10.5V20h10v-9.5M9.5 12.5h5v4h-5z"/></svg>Lucarna</a></li>
         </ul>
         <p class="hc-note"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Abre WhatsApp con tu consulta lista para enviar.</p>
       </div>
@@ -849,68 +874,17 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
 <section id="servicios">
   <div class="wrap">
     <div class="sec-head">
-      <div class="section-label">Lo que vendemos</div>
-      <h2 class="section-title">Un sistema instalado.<br>Completo. Garantizado.</h2>
-      <p class="sec-lead">No vendemos materiales ni asesorías. Vendemos el resultado: tu techo impermeabilizado, con membrana asfáltica instalada por nuestro equipo y respaldado por contrato. El mismo sistema, para cualquier superficie y escala.</p>
-    </div>
-
-    <ol class="etapas">
-      <li class="etapa">
-        <div class="etapa-top"><span class="ico-box ico-box--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 13l2 2 4-4"/></svg></span><span class="etapa-num">01</span></div>
-        <div class="etapa-label">Diagnóstico</div>
-        <h3 class="etapa-title">Visita técnica en terreno</h3>
-        <p class="etapa-desc">Un especialista de Impertech visita tu propiedad, evalúa la superficie, identifica el origen de las filtraciones y define el sistema correcto. Todo antes de que gastes un peso.</p>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Evaluación completa de la cubierta</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Informe del estado actual</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Cotización formal con todo incluido</li>
-        </ul>
-        <span class="tag">Coordinamos por WhatsApp</span>
-      </li>
-      <li class="etapa">
-        <div class="etapa-top"><span class="ico-box ico-box--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 5-9 5-9-5 9-5zM3 12l9 5 9-5M3 16l9 5 9-5"/></svg></span><span class="etapa-num">02</span></div>
-        <div class="etapa-label">Instalación</div>
-        <h3 class="etapa-title">Sistema de membrana asfáltica instalado</h3>
-        <p class="etapa-desc">Nuestro equipo ejecuta el trabajo completo: retiro del sistema anterior, preparación de la superficie y aplicación de membrana asfáltica de origen italiano. Sin subcontratos, sin parches.</p>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Retiro del sistema existente</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Preparación e imprimación de superficie</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Instalación de membrana bicapa</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Aplicable en zinc, losa, OSB, plancha y más</li>
-        </ul>
-        <span class="tag">Residencial · Comercial · Industrial</span>
-      </li>
-      <li class="etapa">
-        <div class="etapa-top"><span class="ico-box ico-box--lg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5.5c0 4.4-3 7.9-7 9.5-4-1.6-7-5.1-7-9.5V6l7-3zM9 12l2 2 4-4"/></svg></span><span class="etapa-num">03</span></div>
-        <div class="etapa-label">Respaldo</div>
-        <h3 class="etapa-title">Certificado de garantía por escrito</h3>
-        <p class="etapa-desc">Al terminar la obra recibes un contrato firmado con garantía de hasta 5 años sobre mano de obra y sistema. No es una promesa verbal — es un documento con tu nombre y el nuestro.</p>
-        <ul class="checks">
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Certificado de garantía firmado</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Factura o boleta tributaria</li>
-          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Registro fotográfico del proceso</li>
-        </ul>
-        <span class="tag">Garantía hasta 5 años · Documentada</span>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- SOLUCIONES POR SUPERFICIE -->
-<section id="soluciones">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="section-label">Soluciones por superficie</div>
+      <div class="section-label">Servicios</div>
       <h2 class="section-title">¿Dónde tienes<br>la filtración?</h2>
-      <p class="sec-lead">Cada superficie necesita un sistema distinto. Elegimos el correcto en la visita técnica y lo instalamos con nuestro equipo, con la misma garantía escrita.</p>
+      <p class="sec-lead">Cada superficie necesita un sistema distinto. Lo definimos en la visita técnica y lo instala nuestro equipo, con garantía escrita de hasta 5 años en todos los servicios.</p>
     </div>
 
-    <ul class="comp-grid">
+    <ul class="comp-grid comp-grid--3 serv-grid">
       <li class="comp-card">
         <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M10 20v-5h4v5"/></svg></span>
         <h3 class="card-title">Techos y cubiertas</h3>
-        <p class="card-desc">Membrana asfáltica monocapa o bicapa para cubiertas expuestas, o membrana líquida de poliuretano para techos con muchos encuentros, ductos y lucarnas: sin traslapos ni uniones.</p>
-        <span class="tag">Zinc · Losa · OSB · Teja asfáltica</span>
+        <p class="card-desc">Nuestro sistema estrella: membrana asfáltica de origen italiano, monocapa o bicapa, con retiro del sistema anterior. Para techos con muchos encuentros y ductos, membrana líquida de poliuretano sin uniones.</p>
+        <span class="tag">Zinc · Losa · OSB · Teja · Fibrocemento</span>
         <a class="sol-link" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20impermeabilizaci%C3%B3n%20de%20techo">Cotizar techo<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <span class="sol-guides"><a class="sol-guide" href="/blog/membrana-liquida-vs-membrana-asfaltica.html">Ver guía: líquida vs. asfáltica</a></span>
       </li>
@@ -938,47 +912,22 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
         <a class="sol-link" href="https://wa.me/56976792677?text=Hola%2C%20tengo%20una%20filtraci%C3%B3n%20en%20subterr%C3%A1neo%20o%20muro%20y%20quiero%20cotizar">Cotizar reparación<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         <span class="sol-guides"><a class="sol-guide" href="/blog/inyeccion-de-poliuretano-filtraciones.html">Ver guía de inyección</a></span>
       </li>
-    </ul>
-  </div>
-</section>
-
-<!-- SERVICIOS COMPLEMENTARIOS -->
-<section class="sec-alt" id="complementarios">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="section-label">Servicios complementarios</div>
-      <h2 class="section-title">También construimos<br>la estructura</h2>
-      <p class="sec-lead">Antes de impermeabilizar, a veces hay que construir. Ejecutamos la estructura del techo desde cero — o la reparamos — y luego instalamos el sistema de membrana. Un solo equipo, un solo contrato.</p>
-    </div>
-
-    <ul class="comp-grid comp-grid--3">
+          <li class="comp-card">
+        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14L12 6l9 8M7 10.5V20h10v-9.5M9.5 12.5h5v4h-5zM12 2.5v1.5M5.5 4.5l1 1M18.5 4.5l-1 1"/></svg></span>
+        <h3 class="card-title">Lucarnas</h3>
+        <p class="card-desc">Instalación de lucarnas nuevas y reparación de las que filtran, con el encuentro lucarna–techo sellado con membrana. Vidrio laminado, templado, termopanel o con control solar.</p>
+        <span class="tag">Casas · Último piso · Oficinas</span>
+        <a class="sol-link" href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20lucarna">Cotizar lucarna<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <span class="sol-guides"><a class="sol-guide" href="#lucarnas">Ver tipos de vidrio</a> · <a class="sol-guide" href="/blog/lucarna-que-filtra-causas-solucion.html">Guía de lucarnas</a></span>
+      </li>
       <li class="comp-card">
         <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18L12 6l10 12M2 18h20M7 12l3 6M17 12l-3 6M12 6v12"/></svg></span>
-        <h3 class="card-title">Estructura completa</h3>
-        <p class="card-desc">Diseño y construcción de cerchas, vigas y cubierta desde cero. Para proyectos nuevos o ampliaciones donde no existe estructura previa.</p>
-        <span class="tag">Residencial · Industrial</span>
-      </li>
-      <li class="comp-card">
-        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L3 18l3 3 6.2-6.2a4 4 0 0 0 5.3-5.3l-2.6 2.6-2.4-.6-.6-2.4z"/></svg></span>
-        <h3 class="card-title">Reparación estructural</h3>
-        <p class="card-desc">Refuerzo o reemplazo de elementos dañados — vigas podridas, cerchas debilitadas, cubiertas deterioradas — antes de aplicar el sistema de impermeabilización.</p>
-        <span class="tag">Diagnóstico incluido</span>
-      </li>
-      <li class="comp-card">
-        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5M3 9h18M5 9v11M19 9v11M3 20h18M9 13h6"/></svg></span>
-        <h3 class="card-title">Cubierta y plataforma</h3>
-        <p class="card-desc">Instalación de la cubierta o plataforma estructural (OSB, plancha, zinc) sobre la que irá la membrana. La base correcta define cuánto dura el sistema.</p>
-        <span class="tag">Con o sin impermeabilización</span>
+        <h3 class="card-title">Estructura de techo</h3>
+        <p class="card-desc">Si antes de impermeabilizar hay que construir o reparar, lo hacemos: cerchas, vigas y cubierta (OSB, plancha, zinc). Un solo equipo y un solo contrato con la impermeabilización.</p>
+        <span class="tag">Obra nueva · Ampliación · Reparación</span>
+        <a class="sol-link" href="https://wa.me/56976792677?text=Hola%2C%20necesito%20cotizar%20construcci%C3%B3n%20de%20estructura%20y%2Fo%20impermeabilizaci%C3%B3n">Cotizar estructura<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </li>
     </ul>
-    <div class="inline-cta">
-      <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6v3H9zM7 5H5v16h14V5h-2M9 13l2 2 4-4"/></svg></span>
-      <div class="inline-cta-txt">
-        <strong>¿Necesitas estructura antes de impermeabilizar?</strong>
-        <span>Lo evaluamos en la misma visita técnica y te cotizamos todo junto.</span>
-      </div>
-      <a class="btn-primary" href="https://wa.me/56976792677?text=Hola%2C%20necesito%20cotizar%20construcci%C3%B3n%20de%20estructura%20y%2Fo%20impermeabilizaci%C3%B3n">Coordinar visita técnica<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
   </div>
 </section>
 
@@ -1051,8 +1000,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
     </div>
 
       <ul class="why-points">
-        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 8M20 4v4h-4M20 12a8 8 0 0 1-14 5.3L4 16M4 20v-4h4"/></svg></span><div><h3 class="why-ctitle">Reemplazamos el sistema completo</h3><p class="why-cdesc">No hacemos parches. Retiramos todo el sistema existente e instalamos uno nuevo desde cero, garantizando durabilidad real.</p></div></li>
-        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg></span><div><h3 class="why-ctitle">Materiales importados de alta performance</h3><p class="why-cdesc">Trabajamos con membrana asfáltica de origen italiano con 25 años de vida útil. Mismo material en cada obra.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12a8 8 0 0 1 14-5.3L20 8M20 4v4h-4M20 12a8 8 0 0 1-14 5.3L4 16M4 20v-4h4"/></svg></span><div><h3 class="why-ctitle">Resolvemos el origen, no el síntoma</h3><p class="why-cdesc">No hacemos parches. Buscamos por dónde entra realmente el agua y renovamos el sistema completo de esa superficie, para que no vuelva a filtrar.</p></div></li>
+        <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM3 12h18M12 3c2.5 2.5 3.8 5.5 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.5-3.8-9S9.5 5.5 12 3z"/></svg></span><div><h3 class="why-ctitle">El sistema correcto para cada superficie</h3><p class="why-cdesc">Membrana asfáltica de origen italiano en techos, poliuretanos en terrazas, cementicios en baños y piscinas, e inyección en subterráneos. Materiales técnicos de primera línea.</p></div></li>
         <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 13h7M9 17h5"/></svg></span><div><h3 class="why-ctitle">Garantía documentada por contrato</h3><p class="why-cdesc">Cada proyecto incluye contrato firmado con garantía de hasta 5 años. Tú tienes respaldo real, no solo una promesa verbal.</p></div></li>
         <li><span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zM2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 6.5M18.5 14.5a6.5 6.5 0 0 1 3 5.5"/></svg></span><div><h3 class="why-ctitle">Equipo propio, sin subcontratos</h3><p class="why-cdesc">Toda la instalación la ejecuta nuestro equipo. Control de calidad en cada etapa, sin terceros no supervisados.</p></div></li>
       </ul>
@@ -1068,6 +1017,9 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8l4-3 4 3 4-3 4 3 2-1.5M3 8v11h18V8M3 13l4-3 4 3 4-3 4 3 2-1.5"/></svg><span>Fibrocemento</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9h20M4 9v12h16V9M9 21v-5h6v5M7 9V5h10v4"/></svg><span>Terrazas y balcones</span></li>
         <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v16H4zM9 17V7h4a3 3 0 0 1 0 6H9"/></svg><span>Estacionamientos en altura</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v2a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5v-2zM6 12V5a2 2 0 0 1 4 0"/></svg><span>Baños y zonas húmedas</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17c1.5-1.3 3-1.3 4.5 0s3 1.3 4.5 0 3-1.3 4.5 0 3 1.3 4.5 0M7 14V5a2 2 0 0 1 4 0M13 14V5a2 2 0 0 1 4 0"/></svg><span>Piscinas y estanques</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h18v14H3zM3 10h18M3 15h18M9 5v5M15 10v5M9 15v4"/></svg><span>Muros y subterráneos</span></li>
       </ul>
       <a class="surfaces-cta" href="#top-cotiza">¿No ves tu superficie? Cuéntanos tu caso<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
@@ -1156,8 +1108,8 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
   <div class="wrap cta-in">
     <span class="cta-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9.5 17h-19zM12 10v4M12 17h.01"/></svg></span>
     <div class="cta-txt">
-      <div class="cta-title">¿Tu techo está dando señales?</div>
-      <div class="cta-sub">Humedad en cielo raso, manchas o filtraciones activas. Contáctanos — te respondemos de inmediato. ¿Administración de edificio o empresa? Escríbenos a <a href="mailto:info@impertech.cl" style="color:#fff;text-decoration:underline;">info@impertech.cl</a>.</div>
+      <div class="cta-title">¿Tienes una filtración?</div>
+      <div class="cta-sub">Manchas en el cielo, humedad en muros, agua en el subterráneo o una piscina que pierde nivel. Contáctanos — te respondemos de inmediato. ¿Administración de edificio o empresa? Escríbenos a <a href="mailto:info@impertech.cl" style="color:#fff;text-decoration:underline;">info@impertech.cl</a>.</div>
     </div>
     <div class="cta-btns">
       <a href="https://wa.me/56976792677?text=Hola%2C%20quiero%20cotizar%20una%20impermeabilizaci%C3%B3n" class="btn-white"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg>Escribir por WhatsApp</a>
@@ -1177,7 +1129,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
     <ol class="steps">
       <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg><span class="step-n">1</span></span><h3 class="step-title">Contacto y diagnóstico</h3><p class="step-desc">Conversamos por WhatsApp o teléfono. Te pedimos datos básicos para evaluar tu caso.</p></li>
       <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11zM12 12.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/></svg><span class="step-n">2</span></span><h3 class="step-title">Visita técnica</h3><p class="step-desc">Un especialista va a terreno, inspecciona la superficie y entrega una cotización formal con todo incluido.</p></li>
-      <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-3 3-6-6zM11 7l-8 8 3 3 8-8"/></svg><span class="step-n">3</span></span><h3 class="step-title">Ejecución</h3><p class="step-desc">Nuestro equipo instala el sistema completo. Retiramos el anterior, preparamos la superficie y aplicamos la membrana.</p></li>
+      <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-3 3-6-6zM11 7l-8 8 3 3 8-8"/></svg><span class="step-n">3</span></span><h3 class="step-title">Ejecución</h3><p class="step-desc">Nuestro equipo ejecuta el trabajo completo: retira el sistema anterior, prepara la superficie e instala el sistema definido en la visita.</p></li>
       <li class="step"><span class="step-ico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3h8l-2 6h-4zM12 21a6 6 0 1 0 0-12 6 6 0 0 0 0 12zM12 13l1 2h2l-1.5 1.3.5 2-2-1.2-2 1.2.5-2L9 15h2z"/></svg><span class="step-n">4</span></span><h3 class="step-title">Entrega y garantía</h3><p class="step-desc">Firmamos el contrato con garantía de hasta 5 años. Recibes documentación completa del trabajo realizado.</p></li>
     </ol>
   </div>
@@ -1259,15 +1211,27 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span>¿Hacen parches o reemplazan el sistema completo?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="faq-a">Impertech reemplaza el sistema completo. Retiramos todo el material existente, preparamos la superficie y aplicamos la membrana desde cero. No hacemos parches porque no garantizan durabilidad real.</div>
+        <div class="faq-a">No hacemos parches. Buscamos el origen de la filtración y renovamos el sistema completo de la superficie afectada: retiramos el material existente, preparamos la base e instalamos el sistema nuevo. Los parches no garantizan durabilidad real.</div>
       </details>
       <details class="faq-item">
-        <summary class="faq-q"><span>¿En qué superficies trabajan?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
-        <div class="faq-a">Trabajamos en zinc galvanizado, losa de hormigón, OSB, plancha metálica, tejado de asfalto (shingle), fibrocemento, terrazas y balcones, y estacionamientos en altura.</div>
+        <summary class="faq-q"><span>¿Qué superficies impermeabilizan?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Techos de zinc, losa de hormigón, OSB, plancha metálica, teja asfáltica y fibrocemento; terrazas y balcones; estacionamientos en altura; baños y zonas húmedas; piscinas y estanques; y muros y subterráneos. También instalamos y reparamos lucarnas.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span>¿Cuánto cuesta impermeabilizar un techo en Santiago?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
         <div class="faq-a">Depende del sistema y la superficie. Como referencia, instalado en la Región Metropolitana: membrana líquida $19.000–$23.000 por m², membrana asfáltica de una capa $21.000–$25.000 por m² y sistema bicapa $33.000–$37.000 por m². El precio final lo damos tras la visita técnica, con todo incluido. <a href="https://impertech.cl/blog/cuanto-cuesta-impermeabilizar-techo-m2-chile.html" style="color:var(--orange);text-decoration:underline;">Ver guía de precios</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Se puede impermeabilizar una terraza sin romper la cerámica?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Sí, cuando la cerámica está firme. Aplicamos una membrana de poliuretano transparente sobre la cerámica y los fragües, sin demoler ni dejar escombros. Si hay cerámicas sueltas o la losa está dañada, hay que levantar el piso. <a href="/blog/impermeabilizar-terraza-sin-romper-ceramica.html" style="color:var(--orange);text-decoration:underline;">Ver guía de terrazas</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Impermeabilizan baños y piscinas?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Sí. En baños instalamos un impermeabilizante cementicio flexible bajo la cerámica, en el piso y los muros de la ducha. En piscinas y estanques tratamos fisuras, juntas y pasadas y aplicamos un sistema interior, con productos aptos para agua potable cuando corresponde. <a href="/blog/impermeabilizar-bano-zonas-humedas.html" style="color:var(--orange);text-decoration:underline;">Ver guía de baños</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q"><span>¿Cómo se repara una filtración en un subterráneo?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
+        <div class="faq-a">Con inyección de resina de poliuretano en las grietas y juntas por donde entra el agua. Se trabaja desde el interior, sin excavar, y funciona incluso con agua activa. Si la grieta es estructural, primero la evalúa un ingeniero. <a href="/blog/inyeccion-de-poliuretano-filtraciones.html" style="color:var(--orange);text-decoration:underline;">Ver guía de inyección</a>.</div>
       </details>
       <details class="faq-item">
         <summary class="faq-q"><span>¿Trabajan en regiones fuera de Santiago?</span><svg class="faq-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary>
