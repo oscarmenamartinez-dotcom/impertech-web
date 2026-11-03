@@ -511,6 +511,7 @@ h2.section-title{font-family:'Barlow Condensed','BC Fallback',sans-serif;font-we
 
 /* complementarios */
 .comp-grid{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;}
+.comp-grid--3{grid-template-columns:repeat(3,minmax(0,1fr));}
 .comp-card{background:var(--navy);border:1px solid rgba(240,237,230,.08);border-radius:2px;padding:28px 24px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s;}
 .comp-card:hover{border-color:rgba(240,90,40,.55);transform:translateY(-2px);}
 .comp-card .ico-box{margin-bottom:20px;}
@@ -950,7 +951,7 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
       <p class="sec-lead">Antes de impermeabilizar, a veces hay que construir. Ejecutamos la estructura del techo desde cero — o la reparamos — y luego instalamos el sistema de membrana. Un solo equipo, un solo contrato.</p>
     </div>
 
-    <ul class="comp-grid">
+    <ul class="comp-grid comp-grid--3">
       <li class="comp-card">
         <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 18L12 6l10 12M2 18h20M7 12l3 6M17 12l-3 6M12 6v12"/></svg></span>
         <h3 class="card-title">Estructura completa</h3>
@@ -968,12 +969,6 @@ footer a:focus-visible{outline:2px solid var(--orange);outline-offset:3px;}
         <h3 class="card-title">Cubierta y plataforma</h3>
         <p class="card-desc">Instalación de la cubierta o plataforma estructural (OSB, plancha, zinc) sobre la que irá la membrana. La base correcta define cuánto dura el sistema.</p>
         <span class="tag">Con o sin impermeabilización</span>
-      </li>
-      <li class="comp-card">
-        <span class="ico-box"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3c3 4 6 7.5 6 11a6 6 0 0 1-12 0c0-3.5 3-7 6-11zM9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></svg></span>
-        <h3 class="card-title">Inyección de poliuretano</h3>
-        <p class="card-desc">Sello de grietas activas y filtraciones bajo presión de agua mediante inyección de resina de poliuretano expansivo. Ideal para muros de contención, subterráneos y juntas de hormigón.</p>
-        <span class="tag">Muros · Subterráneos · Juntas</span>
       </li>
     </ul>
     <div class="inline-cta">
