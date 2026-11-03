@@ -92,4 +92,25 @@
     <changefreq>yearly</changefreq>
   </url>
 
+  <url>
+    <loc>https://impertech.cl/blog/impermeabilizar-terraza-sin-romper-ceramica.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/blog/impermeabilizar-bano-zonas-humedas.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <url>
+    <loc>https://impertech.cl/blog/impermeabilizar-piscina-estanque.html</loc>
+    <lastmod>2026-11-02</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+
 </urlset>
